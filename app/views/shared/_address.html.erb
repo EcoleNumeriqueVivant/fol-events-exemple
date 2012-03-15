@@ -1,9 +1,40 @@
 <fieldset id="address">
   <legend>Adresse : </legend>
-	<%= f.input :line1, :label => "Adresse : ", :as => :text, input_html: {rows: 3} %>
-	<%= f.input :line2, :label => "(Complément) : ", :require => false %>
-	<%= f.input :city, :label => "Ville : " %>
-	<%= f.input :zip, :label => "Code Postal : " %>
-	<%= f.input :state, :label => "Région/Etat : " %>
-	<%= f.input :country, :label => 'Pays : ', :default => "France"  %>
+    <div class="control-group">
+      <%= f.label "Adresse : ", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :line1, :class => 'text_field'  %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Complément : ", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :line2, :class => 'text_field'  %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Ville : ", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :city, :class => 'text_field'  %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Zip : ", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :zip, :class => 'text_field'  %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Région / Etat : ", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :state, :class => 'text_field'  %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Pays", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :country, 'country'   %>
+      </div>
+    </div>
 </fieldset>
+
