@@ -11,9 +11,18 @@
 </p>
 
 <p>
-  <b>Descrition</b><br>
-  <%= @event.descrition %>
+  <b>Description</b><br>
+  <%= @event.description %>
 </p>
+
+<% unless @event.address.nil? || @event.address.latitude.nil? %>
+<strong>Adresse :</strong>
+<%= @event.address.line1 %>
+<%= @event.address.zip + ' ' + @event.address.city %><br/>
+<br />
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{@event.address.latitude}%2C#{@event.address.longitude}" %>
+<br/>
+<% end %>
 
 <div class="form-actions">
   <%= link_to 'Back', events_path, :class => 'btn'  %>

@@ -1,0 +1,9 @@
+<fieldset id="address">
+  <legend>Adresse : </legend>
+	<%= f.input :line1, :label => "Adresse : ", :as => :text, input_html: {rows: 3} %>
+	<%= f.input :line2, :label => "(Complément) : ", :require => false %>
+	<%= f.input :city, :label => "Ville : " %>
+	<%= f.input :zip, :label => "Code Postal : " %>
+	<%= f.input :state, :label => "Région/Etat : " %>
+	<%= f.input :country, :label => 'Pays : ', :default => "France"  %>
+</fieldset>
