@@ -3,7 +3,8 @@
   <thead>
     <tr>
       <th>Nom</th>
-      <th>Created at</th>
+      <th>Date limite d'inscription</th>
+      <th>Date de l'évènement</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -11,7 +12,8 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= link_to event.name, event_path(event) %></td>
-        <td><%= event.created_at %></td>
+        <td><%= event.subscibe_limit_date %></td>
+		<td><%= event.begin_date %></td>
         <td>
           <%= link_to 'Edit', edit_event_path(event), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', event_path(event), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>

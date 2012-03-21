@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120315112622) do
+ActiveRecord::Schema.define(:version => 20120321155707) do
 
   create_table "addresses", :force => true do |t|
     t.string  "line1",            :default => ""
@@ -30,10 +30,19 @@ ActiveRecord::Schema.define(:version => 20120315112622) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.date     "date"
+    t.date     "begin_date"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "subscibe_limit_date"
+    t.date     "end_date"
+    t.string   "attendance"
+    t.text     "contacts"
+    t.text     "how_to_participate"
+    t.text     "registration_fees"
+    t.text     "participants"
+    t.text     "related_events"
+    t.text     "infos_extra"
   end
 
   create_table "taggings", :force => true do |t|

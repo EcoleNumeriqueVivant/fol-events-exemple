@@ -1,5 +1,9 @@
 FolEvents::Application.routes.draw do
+
+  root :to => "events#index"
   resources :events
+  resources :tags
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

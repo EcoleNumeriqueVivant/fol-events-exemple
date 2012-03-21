@@ -3,25 +3,83 @@
     <legend><%= controller.action_name.capitalize %> Event</legend>
 
     <div class="control-group">
-      <%= f.label :name, :class => 'control-label' %>
+      <%= f.label "Evénement", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :name, :class => 'text_field' %>
       </div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :date, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.date_select :date, :class => 'date_select' %>
+    <div class="clearfix">
+      <label>Date de la manifestation</label>
+      <div class="input">
+        <div class="inline-inputs">
+	     from
+          <input data-datepicker="datepicker" class="small" type="text" value="01/05/2011" />
+          <input class="mini" type="text" value="12:00am" /><br/>
+          to
+          <input data-datepicker="datepicker" class="small" type="text" value="05/08/2011" />
+          <input class="mini" type="text" value="11:59pm" />
+          <span class="help-block">All times are shown as Pacific Standard Time (GMT -08:00).</span>
+        </div>
       </div>
-    </div>
+    </div><!-- /clearfix -->
 
     <div class="control-group">
-      <%= f.label :description, :class => 'control-label' %>
+      <%= f.label "Fonctionnement et Description", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :description, :class => 'text_area' %>
       </div>
     </div>
+    
+    <div class="control-group">
+      <%= f.label "Fréquentation", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :attendance, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Contacts", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :contacts, :class => 'text_area' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Modalités de participation", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :how_to_participate, :class => 'text_area' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Tarifs", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :registration_fees, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Type de Participants", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :participants, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Evénements rattachés", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :related_events, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Informations supplémentaires", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :infos_extra, :class => 'text_area' %>
+      </div>
+    </div>
+
+    add_column :events, :infos_extra, :text
+
 
     <%= f.fields_for :address do |address| %>
      <%= render :partial => 'shared/address', :locals => {:f => address} %>
@@ -38,3 +96,30 @@
     </div>
   </fieldset>
 <% end %>
+
+<script src="http://dl.dropbox.com/u/143355/datepicker/bootstrap-datepicker.js"></script>
+    <script>
+      /* Update datepicker plugin so that MM/DD/YYYY format is used. */
+      $.extend($.fn.datepicker.defaults, {
+        parse: function (string) {
+          var matches;
+          if ((matches = string.match(/^(\d{2,2})\/(\d{2,2})\/(\d{4,4})$/))) {
+            return new Date(matches[3], matches[1] - 1, matches[2]);
+          } else {
+            return null;
+          }
+        },
+        format: function (date) {
+          var
+            month = (date.getMonth() + 1).toString(),
+            dom = date.getDate().toString();
+          if (month.length === 1) {
+            month = "0" + month;
+          }
+          if (dom.length === 1) {
+            dom = "0" + dom;
+          }
+          return month + "/" + dom + "/" + date.getFullYear();
+        }
+      });  
+    </script>
