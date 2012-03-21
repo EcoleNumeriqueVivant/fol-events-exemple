@@ -1,19 +1,78 @@
 <h1>Event</h1>
 
+
 <p>
-  <b>Name</b><br>
+  <b>Evènement</b><br>
   <%= @event.name %>
 </p>
 
 <p>
-  <b>Date</b><br>
-  <%= @event.date %>
+  <b>Date de la manifestation</b><br>
+  <%= @event.begin_date %>
 </p>
 
 <p>
-  <b>Description</b><br>
+  <b>Date limite d'inscription</b><br>
+  <%= @event.subscibe_limit_date %>
+</p>
+
+<p>
+  <b>Lieu de la manifestation</b><br>
+</p>
+
+<p>
+  <b>Thématique</b>
+  	mettre la thématique 
+    CONTEXT['theme']
+</p>	
+
+<p>
+  <b>Typologie</b>
+  	mettre la typologie 
+    CONTEXT['typology']
+</p>	
+
+<p>
+  <b>Fréquentation</b>
+  	<%= @event.attendance %>
+</p>
+
+<p>
+  <b>Fonctionnement et Description</b><br>
   <%= @event.description %>
 </p>
+
+<p>
+  <b>Contacts</b><br>
+  <%= @event.contacts %>
+</p>
+
+<p>
+  <b>Modalités de participation</b><br>
+  <%= @event.how_to_participate %>
+</p>
+
+<p>
+  <b>Tarifs</b><br>
+  <%= @event.registration_fees %>
+</p>
+
+<p>
+  <b>Type de participants</b><br>
+  <%= @event.participants %>
+</p>
+
+<p>
+  <b>Evènements rattachés</b><br>
+  <%= @event.related_events %>
+</p>
+
+<p>
+  <b>Information Supplémentaires</b><br>
+  <%= @event.infos_extra %>
+</p>
+
+
 
 <% unless @event.address.nil? || @event.address.latitude.nil? %>
 <strong>Adresse :</strong>
