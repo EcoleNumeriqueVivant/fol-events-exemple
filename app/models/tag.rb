@@ -1,5 +1,7 @@
 class Tag < ActiveRecord::Base
   
-  CONTEXT = ["typology","theme"]
+  include Contextable 
+  CONTEXTS = ["typology","theme"]
+  add_scopes_for_contexts :context, CONTEXTS  
   
 end

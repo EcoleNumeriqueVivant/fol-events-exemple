@@ -1,33 +1,31 @@
 <%= form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Event</legend>
+    <legend>Editer évènement</legend>
 
     <div class="control-group">
-      <%= f.label "Evénement", :class => 'control-label' %>
+      <%= f.label "Evènement", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :name, :class => 'text_field' %>
       </div>
     </div>
 
-    <div class="clearfix">
+    <div class="control-group">
       <label>Date de la manifestation</label>
-      <div class="input">
+      <div class="input controls">
         <div class="inline-inputs">
-	     from
+	      from
           <input data-datepicker="datepicker" class="small" type="text" value="01/05/2011" />
-          <input class="mini" type="text" value="12:00am" /><br/>
           to
           <input data-datepicker="datepicker" class="small" type="text" value="05/08/2011" />
-          <input class="mini" type="text" value="11:59pm" />
           <span class="help-block">All times are shown as Pacific Standard Time (GMT -08:00).</span>
         </div>
       </div>
-    </div><!-- /clearfix -->
+    </div>
 
     <div class="control-group">
       <%= f.label "Fonctionnement et Description", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :description, :class => 'text_area' %>
+        <%= f.text_area :description, :class => 'text_area', :style => "width:100%;height:100px"  %>
       </div>
     </div>
     
@@ -41,45 +39,42 @@
     <div class="control-group">
       <%= f.label "Contacts", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :contacts, :class => 'text_area' %>
+        <%= f.text_area :contacts, :class => 'text_area', :style => "width:100%;height:100px" %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label "Modalités de participation", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :how_to_participate, :class => 'text_area' %>
+        <%= f.text_area :how_to_participate, :class => 'text_area', :style => "width:100%;height:100px" %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label "Tarifs", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :registration_fees, :class => 'text_area' %>
+        <%= f.text_area :registration_fees, :class => 'text_area', :style => "width:100%;height:100px" %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label "Type de Participants", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :participants, :class => 'text_area' %>
+        <%= f.text_area :participants, :class => 'text_area', :style => "width:100%;height:100px" %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label "Evénements rattachés", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :related_events, :class => 'text_area' %>
+        <%= f.text_area :related_events, :class => 'text_area', :style => "width:100%;height:100px" %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label "Informations supplémentaires", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :infos_extra, :class => 'text_area' %>
+        <%= f.text_area :infos_extra, :class => 'text_area', :style => "width:100%;height:100px" %>
       </div>
     </div>
-
-    add_column :events, :infos_extra, :text
-
 
     <%= f.fields_for :address do |address| %>
      <%= render :partial => 'shared/address', :locals => {:f => address} %>
@@ -87,7 +82,26 @@
     
 	<fieldset id="tags">
 	  <legend>Tags : </legend>
-	    
+	  <div class="control-group">
+		<%= f.label "Typologie", :class => 'control-label' %>
+      <div class="controls">
+	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%">
+		  <% Tag.typology.each do |t| %>
+		         <option><%= t.name %></option>
+		  <% end %>
+		  </select>
+      </div>
+      </div>
+	  <div class="control-group">
+		<%= f.label "Thématique", :class => 'control-label' %>
+      <div class="controls">
+	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%">
+		  <% Tag.theme.each do |t| %>
+		         <option><%= t.name %></option>
+		  <% end %>
+		  </select>
+      </div>
+      </div>
 	</fieldset>
 
     <div class="form-actions">

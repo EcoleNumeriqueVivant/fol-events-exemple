@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321155707) do
+ActiveRecord::Schema.define(:version => 20120323155908) do
 
   create_table "addresses", :force => true do |t|
     t.string  "line1",            :default => ""
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120321155707) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+    t.string "context"
   end
 
 end
