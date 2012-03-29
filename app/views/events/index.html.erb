@@ -1,4 +1,4 @@
-<h1>Events</h1>
+<h1>Evènement</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -15,12 +15,12 @@
         <td><%= event.subscibe_limit_date %></td>
 		<td><%= event.begin_date %></td>
         <td>
-          <%= link_to 'Edit', edit_event_path(event), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', event_path(event), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Editer', edit_event_path(event), :class => 'btn btn-mini' %>
+          <%= link_to 'Supprimer', event_path(event), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_event_path, :class => 'btn btn-primary' %>
+<%= link_to 'Nouveau', new_event_path, :class => 'btn btn-primary' %>

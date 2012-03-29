@@ -22,14 +22,12 @@
 
 <p>
   <b>Thématique</b>
-  	mettre la thématique 
-    CONTEXT['theme']
+  	<%= @event.theme_list.to_s %>
 </p>	
 
 <p>
   <b>Typologie</b>
-  	mettre la typologie 
-    CONTEXT['typology']
+  	<%= @event.typology_list.to_s %>
 </p>	
 
 <p>
@@ -73,7 +71,6 @@
 </p>
 
 
-
 <% unless @event.address.nil? || @event.address.latitude.nil? %>
 <strong>Adresse :</strong>
 <%= @event.address.line1 %>
@@ -82,6 +79,9 @@
 <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{@event.address.latitude}%2C#{@event.address.longitude}" %>
 <br/>
 <% end %>
+
+<div class="fb-comments" data-href="http://fol-events.herokuapp.com/events/<%= @event.id %>" data-num-posts="5" data-width="300"></div>
+<div id="fb-root"></div>
 
 <div class="form-actions">
   <%= link_to 'Back', events_path, :class => 'btn'  %>

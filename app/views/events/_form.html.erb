@@ -14,9 +14,10 @@
       <div class="input controls">
         <div class="inline-inputs">
 	      from
-          <input data-datepicker="datepicker" class="small" type="text" value="01/05/2011" />
+	      
+	      <input class="small" id="event_begin_date" name="event[begin_date]" size="30" type="text" value="<%= @event.begin_date %>" data-datepicker="datepicker" />
           to
-          <input data-datepicker="datepicker" class="small" type="text" value="05/08/2011" />
+          <input class="small" id="event_end_date" name="event[end_date]" size="30" type="text" value="<%= @event.end_date %>" data-datepicker="datepicker" />
           <span class="help-block">All times are shown as Pacific Standard Time (GMT -08:00).</span>
         </div>
       </div>

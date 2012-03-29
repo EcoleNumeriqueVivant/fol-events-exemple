@@ -45,7 +45,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -59,12 +59,52 @@ class EventsController < ApplicationController
 
   # PUT /events/1
   # PUT /events/1.json
+  
+  
+  # {"utf8"=>"✓",
+  #    "_method"=>"put",
+  #    "authenticity_token"=>"s9ovB5/EXHUXmefwMMsTm1jetArVQHZWfk5TGqu07II=",
+  #    "event"=>{"name"=>"La librairie éphemère",
+  #    "description"=>"Un évènement qui rend compte de la production d’une cinquantaine d’éditeurs peu présents en librairie,
+  #    et aussi des lectures,
+  #    des mises en scènes et expositions. ",
+  #    "attendance"=>"",
+  #    "contacts"=>"",
+  #    "how_to_participate"=>"",
+  #    "registration_fees"=>"",
+  #    "participants"=>"",
+  #    "related_events"=>"",
+  #    "infos_extra"=>"",
+  #    "address_attributes"=>{"line1"=>"",
+  #    "line2"=>"",
+  #    "city"=>"",
+  #    "zip"=>"",
+  #    "state"=>""}},
+  #    "commit"=>"Update Event",
+  #    "id"=>"2"}
+  
   def update
-    @event = Event.find(params[:id])
+    
     # raise params.inspect
     
+    @event = Event.find(params[:id])
+    
+    @event.name = params[:event][:name]
+    @event.begin_date = params[:event][:begin_date]
+    @event.end_date = params[:event][:end_date]
+    
+    @event.description = params[:event][:description]
+    @event.attendance = params[:event][:attendance]
+    @event.contacts = params[:event][:contacts]
+    @event.how_to_participate = params[:event][:how_to_participate]
+    @event.registration_fees = params[:event][:registration_fees]
+    @event.participants = params[:event][:participants]
+    @event.related_events = params[:event][:related_events]
+    @event.infos_extra = params[:event][:infos_extra]
+    
+    
     respond_to do |format|
-      if @event.update_attributes(params[:event])
+      if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :ok }
       else
