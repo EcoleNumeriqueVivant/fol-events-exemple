@@ -128,4 +128,17 @@ class EventsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def search
+    region = params[:region]
+    mois   = params[:mois]
+    
+    @events = Event.all
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+    
 end

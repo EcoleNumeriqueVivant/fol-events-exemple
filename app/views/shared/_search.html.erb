@@ -1,11 +1,11 @@
 <div class="span3">
     <h4>Rechercher un évènement</h4>
-	<%= form_tag "search.json", :class => 'well' do |f| %>
+	<%= form_tag "/events/search", :class => 'well' do |f| %>
 	  
 	  <div class="control-group">
 		<b>Région</b>
 		<div class="controls">
-	  <%= select_tag "Région", options_for_select(["A","B"]), :style => "width:100%" %>
+	    <%= select_tag "Région", options_for_select(["A","B"]), :style => "width:100%" %>
 	  </div></div>
 	  
 	  <div class="control-group">
@@ -18,7 +18,8 @@
 		<b>Type de salon</b>
 		<div class="controls" style="padding-top:5px">
 	  <% Tag.typology.each do |t| %>
-	    <p><%= check_box_tag t.name.parameterize %>
+	    
+	    <p><%= check_box_tag t.name.parameterize, t.name.parameterize, (params[t.name.parameterize] != nil) %>
 	    <%= t.name %></p>
 	  <% end %>
 	  </div></div>
@@ -26,7 +27,7 @@
 		<b>Theme</b>
 		<div class="controls" style="padding-top:5px">
 	  <% Tag.theme.each do |t| %>
-	    <p><%= check_box_tag t.name.parameterize %>
+	    <p><%= check_box_tag t.name.parameterize, t.name.parameterize, (params[t.name.parameterize] != nil) %>
 	    <%= t.name %></p>
 	  <% end %>
 	  </div></div>
