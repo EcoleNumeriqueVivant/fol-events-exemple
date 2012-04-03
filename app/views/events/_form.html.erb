@@ -89,9 +89,9 @@
 	  <div class="control-group">
 		<%= f.label "Typologie", :class => 'control-label' %>
       <div class="controls">
-	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%">
+	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%" name="typology">
 		  <% Tag.typology.each do |t| %>
-		         <option><%= t.name %></option>
+		         <option value="<%= t.id %>"><%= t.name %></option>
 		  <% end %>
 		  </select>
       </div>
@@ -99,9 +99,9 @@
 	  <div class="control-group">
 		<%= f.label "Thématique", :class => 'control-label' %>
       <div class="controls">
-	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%">
+	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%" name="theme">
 		  <% Tag.theme.each do |t| %>
-		         <option><%= t.name %></option>
+		         <option value="<%= t.id %>"><%= t.name %></option>
 		  <% end %>
 		  </select>
       </div>

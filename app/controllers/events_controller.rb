@@ -86,7 +86,6 @@ class EventsController < ApplicationController
   
   def update
     
-    
     @event = Event.find(params[:id])
     
     @event.name = params[:event][:name]
@@ -105,6 +104,8 @@ class EventsController < ApplicationController
     # address_attributes
     @event.build_address
     @event.address.update_attributes params[:event][:address_attributes]
+    
+    
     
     respond_to do |format|
       if @event.save
