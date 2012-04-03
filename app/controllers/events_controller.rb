@@ -153,10 +153,15 @@ class EventsController < ApplicationController
   end
   
   def search
+    
     region = params[:region]
     mois   = params[:mois]
     
-    @events = Event.all
+    if params[:search] != nil && params[:search][:tag_list].count > 0
+      @events = Event.tagged_with(params[:search][:tag_list], :any => true)
+    else
+     @events = Event.all
+    end 
     
     respond_to do |format|
       format.html # index.html.erb

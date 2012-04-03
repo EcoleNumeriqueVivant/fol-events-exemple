@@ -17,9 +17,12 @@
 	  <div class="control-group">
 		<b>Type de salon</b>
 		<div class="controls" style="padding-top:5px">
-	  <% Tag.typology.each do |t| %>
-	    
-	    <p><%= check_box_tag t.name.parameterize, t.name.parameterize, (params[t.name.parameterize] != nil) %>
+	 <% Tag.typology.each do |t| %>
+	     <% if params[:search] != nil %>
+	     <p><%= check_box_tag "search[tag_list][]", t.name, params[:search][:tag_list].include?(t.name)  %>
+		 <% else %>
+		 <p><%= check_box_tag "search[tag_list][]", t.name, false %>
+		 <% end %>
 	    <%= t.name %></p>
 	  <% end %>
 	  </div></div>
@@ -27,9 +30,14 @@
 		<b>Theme</b>
 		<div class="controls" style="padding-top:5px">
 	  <% Tag.theme.each do |t| %>
-	    <p><%= check_box_tag t.name.parameterize, t.name.parameterize, (params[t.name.parameterize] != nil) %>
+	    <% if params[:search] != nil %>
+	    <p><%= check_box_tag "search[tag_list][]", t.name, params[:search][:tag_list].include?(t.name)  %>
+		<% else %>
+		<p><%= check_box_tag "search[tag_list][]", t.name, false %>
+		<% end %>
 	    <%= t.name %></p>
 	  <% end %>
+	  
 	  </div></div>
 	  <button type="submit" class="btn">Rechercher</button>
 	<% end %>
