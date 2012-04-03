@@ -1,5 +1,7 @@
 FolEvents::Application.routes.draw do
 
+  get "map/index"
+
   root :to => "events#index"
   resources :events
   resources :tags

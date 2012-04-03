@@ -5,6 +5,7 @@
       <th>Nom</th>
       <th>Date limite d'inscription</th>
       <th>Date de l'évènement</th>
+      <th>Ville</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
         <td><%= link_to event.name, event_path(event) %></td>
         <td><%= event.subscibe_limit_date %></td>
 		<td><%= event.begin_date %></td>
+		<td><% %></td>
         <td>
           <%= link_to 'Editer', edit_event_path(event), :class => 'btn btn-mini' %>
           <%= link_to 'Supprimer', event_path(event), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>

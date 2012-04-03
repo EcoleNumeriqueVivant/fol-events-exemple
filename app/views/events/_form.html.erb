@@ -9,17 +9,20 @@
       </div>
     </div>
 
+
+
     <div class="control-group">
-      <label>Date de la manifestation</label>
-      <div class="input controls">
-        <div class="inline-inputs">
-	      from
-	      
-	      <input class="small" id="event_begin_date" name="event[begin_date]" size="30" type="text" value="<%= @event.begin_date %>" data-datepicker="datepicker" />
-          to
-          <input class="small" id="event_end_date" name="event[end_date]" size="30" type="text" value="<%= @event.end_date %>" data-datepicker="datepicker" />
-          <span class="help-block">All times are shown as Pacific Standard Time (GMT -08:00).</span>
-        </div>
+	  <label>Date de la manifestation</label>
+      <%= f.label "Date de début", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :begin_date, :class => 'date_select', "data-datepicker" => "datepicker" %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Date de fin", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :end_date, :class => 'date_select', "data-datepicker" => "datepicker" %>
       </div>
     </div>
 
@@ -112,29 +115,3 @@
   </fieldset>
 <% end %>
 
-<script src="http://dl.dropbox.com/u/143355/datepicker/bootstrap-datepicker.js"></script>
-    <script>
-      /* Update datepicker plugin so that MM/DD/YYYY format is used. */
-      $.extend($.fn.datepicker.defaults, {
-        parse: function (string) {
-          var matches;
-          if ((matches = string.match(/^(\d{2,2})\/(\d{2,2})\/(\d{4,4})$/))) {
-            return new Date(matches[3], matches[1] - 1, matches[2]);
-          } else {
-            return null;
-          }
-        },
-        format: function (date) {
-          var
-            month = (date.getMonth() + 1).toString(),
-            dom = date.getDate().toString();
-          if (month.length === 1) {
-            month = "0" + month;
-          }
-          if (dom.length === 1) {
-            dom = "0" + dom;
-          }
-          return month + "/" + dom + "/" + date.getFullYear();
-        }
-      });  
-    </script>

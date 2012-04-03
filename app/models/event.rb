@@ -6,4 +6,6 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :desc, :tag_list
   
   include Addressable
+  
+  
 end

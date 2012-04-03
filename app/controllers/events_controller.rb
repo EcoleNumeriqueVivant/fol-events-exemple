@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.build_address
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -37,6 +37,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     if @event.address.nil?
+      
       @event.build_address
     end
   end
@@ -85,7 +86,6 @@ class EventsController < ApplicationController
   
   def update
     
-    # raise params.inspect
     
     @event = Event.find(params[:id])
     
@@ -102,6 +102,9 @@ class EventsController < ApplicationController
     @event.related_events = params[:event][:related_events]
     @event.infos_extra = params[:event][:infos_extra]
     
+    # address_attributes
+    @event.build_address
+    @event.address.update_attributes params[:event][:address_attributes]
     
     respond_to do |format|
       if @event.save

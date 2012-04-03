@@ -29,30 +29,30 @@ ActiveRecord::Schema.define(:version => 20120323155908) do
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
 
   create_table "events", :force => true do |t|
-    t.string   "name"
-    t.date     "begin_date"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.date     "subscibe_limit_date"
-    t.date     "end_date"
-    t.string   "attendance"
-    t.text     "contacts"
-    t.text     "how_to_participate"
-    t.text     "registration_fees"
-    t.text     "participants"
-    t.text     "related_events"
-    t.text     "infos_extra"
+    t.string    "name"
+    t.date      "begin_date"
+    t.text      "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.date      "subscibe_limit_date"
+    t.date      "end_date"
+    t.string    "attendance"
+    t.text      "contacts"
+    t.text      "how_to_participate"
+    t.text      "registration_fees"
+    t.text      "participants"
+    t.text      "related_events"
+    t.text      "infos_extra"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       :limit => 128
-    t.datetime "created_at"
+    t.integer   "tag_id"
+    t.integer   "taggable_id"
+    t.string    "taggable_type"
+    t.integer   "tagger_id"
+    t.string    "tagger_type"
+    t.string    "context",       :limit => 128
+    t.timestamp "created_at"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"

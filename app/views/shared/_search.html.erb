@@ -1,18 +1,21 @@
 <div class="span3">
     <h4>Rechercher un évènement</h4>
 	<%= form_tag "search.json", :class => 'well' do |f| %>
+	  
 	  <div class="control-group">
-		<b>Nom de l'évènement</b>
-	   <div class="controls">
-	  <%= search_field_tag "text", nil, :style => "width:100%"  %>
-	  </div></div>
-	  <div class="control-group">
-		<b>Ville</b>
+		<b>Région</b>
 		<div class="controls">
-	  <%= select_tag "Ville", options_for_select(["A","B"]), :style => "width:100%" %>
+	  <%= select_tag "Région", options_for_select(["A","B"]), :style => "width:100%" %>
 	  </div></div>
+	  
 	  <div class="control-group">
-		<b>Typologie</b>
+		<b>Mois de l'évènement</b>	
+	  <div class="controls">
+	  <%= select_tag "Mois", options_for_select(["Janvier","Février"]), :style => "width:100%" %>
+	  </div></div>
+	
+	  <div class="control-group">
+		<b>Type de salon</b>
 		<div class="controls" style="padding-top:5px">
 	  <% Tag.typology.each do |t| %>
 	    <p><%= check_box_tag t.name.parameterize %>

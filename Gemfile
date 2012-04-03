@@ -36,3 +36,5 @@ gem 'geocoder'
 
 gem 'simple_form' # https://github.com/plataformatec/simple_form
 gem "country-select", "~> 1.0.5"
+
+gem 'gmaps4rails'
