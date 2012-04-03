@@ -45,8 +45,29 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
     
+    @event = Event.new
+    
+    @event.name = params[:event][:name]
+    @event.begin_date = params[:event][:begin_date]
+    @event.end_date = params[:event][:end_date]
+    
+    @event.description = params[:event][:description]
+    @event.attendance = params[:event][:attendance]
+    @event.contacts = params[:event][:contacts]
+    @event.how_to_participate = params[:event][:how_to_participate]
+    @event.registration_fees = params[:event][:registration_fees]
+    @event.participants = params[:event][:participants]
+    @event.related_events = params[:event][:related_events]
+    @event.infos_extra = params[:event][:infos_extra]
+    
+    # address_attributes
+    @event.build_address
+    @event.address.update_attributes params[:event][:address_attributes]
+    
+    @event.theme_list = params[:event][:theme_list]
+    @event.typology_list = params[:event][:typology_list]
+   
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -105,7 +126,8 @@ class EventsController < ApplicationController
     @event.build_address
     @event.address.update_attributes params[:event][:address_attributes]
     
-    
+    @event.theme_list = params[:event][:theme_list]
+    @event.typology_list = params[:event][:typology_list]
     
     respond_to do |format|
       if @event.save

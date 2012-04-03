@@ -89,21 +89,23 @@
 	  <div class="control-group">
 		<%= f.label "Typologie", :class => 'control-label' %>
       <div class="controls">
-	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%" name="typology">
-		  <% Tag.typology.each do |t| %>
-		         <option value="<%= t.id %>"><%= t.name %></option>
+	      <% Tag.typology.each do |t| %>
+		         
+		         <%= check_box_tag "event[typology_list][]", t.name, @event.typology_list.include?(t.name) %>
+				 <%= t.name %>
 		  <% end %>
-		  </select>
+		  
       </div>
       </div>
 	  <div class="control-group">
 		<%= f.label "Thématique", :class => 'control-label' %>
       <div class="controls">
-	    <select multiple="multiple" id="multiSelect" style="height:200px;width:100%" name="theme">
-		  <% Tag.theme.each do |t| %>
-		         <option value="<%= t.id %>"><%= t.name %></option>
+	      <% Tag.theme.each do |t| %>
+		         
+		         <%= check_box_tag "event[theme_list][]", t.name, @event.theme_list.include?(t.name) %>
+				 <%= t.name %>
 		  <% end %>
-		  </select>
+		  
       </div>
       </div>
 	</fieldset>
