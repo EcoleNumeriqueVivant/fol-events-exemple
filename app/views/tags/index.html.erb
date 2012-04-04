@@ -3,7 +3,8 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
+      <th>Nom</th>
+      <th>Contexte</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -12,13 +13,14 @@
       <tr>
         <td><%= tag.id %></td>
         <td><%= link_to tag.name, tag_path(tag) %></td>
+        <td><%= I18n.translate(  tag.context ) %></td>
         <td>
-          <%= link_to 'Edit', edit_tag_path(tag), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', tag_path(tag), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Editer', edit_tag_path(tag), :class => 'btn btn-mini' %>
+          <%= link_to 'Supprimer', tag_path(tag), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_tag_path, :class => 'btn btn-primary' %>
+<%= link_to 'Nouveau', new_tag_path, :class => 'btn btn-primary' %>

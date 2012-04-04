@@ -1,11 +1,18 @@
 FolEvents::Application.routes.draw do
 
+  get "application/index"
+
   get "map/index"
   post "events/search"
-  root :to => "events#index"
+  
+ 
   resources :events 
   
   resources :tags
+  
+  namespace :default do
+   
+  end  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

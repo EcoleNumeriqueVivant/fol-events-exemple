@@ -1,5 +1,16 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+    typology: "Type de salon"
+    theme: "Theme"
+    full_month_by_index:
+      1: "Janvier"
+      2: "Février"
+      3: "Mars"
+      4: "Avril"
+      5: "Mai"
+      6: "Juin"
+      7: "Juillet"
+      8: "Août"
+      9: "Septembre"
+      10: "Octobre"
+      11: "Novembre"
+      12: "Décembre"
