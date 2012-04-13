@@ -25,7 +25,6 @@
           <ul class="nav">
             <li><%= link_to "Voir les Evènements", events_path %></li>
    			<li><%= link_to "Voir les Tags", tags_path %></li>
-            
           </ul>
         </div>
       </div>
@@ -38,7 +37,7 @@
 	    <%= render "shared/mail_list" %>
 	    <%= render "shared/search" %>
 	  </div>
-      <div class="span9" style="padding-right:-40px"><%= yield %></div>
+      <div class="span9"><%= yield %><br/><br/></div>
     </div>
   </div>
 </div>
