@@ -15,10 +15,6 @@
 </p>
 
 <p>
-  <b>Lieu de la manifestation</b><br>
-</p>
-
-<p>
   <b>Thématique</b>
   	<%= @event.theme_list.to_s %>
 </p>	
@@ -99,7 +95,7 @@
 
 
 <div class="form-actions">
-  <%= link_to 'Back', events_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_event_path(@event), :class => 'btn' %>
-  <%= link_to 'Delete', event_path(@event), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to 'Retour', events_path, :class => 'btn'  %>
+  <%= link_to 'Editer', edit_event_path(@event), :class => 'btn' %>
+  <%= link_to 'Supprimer', event_path(@event), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

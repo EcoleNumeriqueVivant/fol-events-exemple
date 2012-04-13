@@ -9,8 +9,6 @@
       </div>
     </div>
 
-
-
     <div class="control-group">
       <%= f.label "Date de début", :class => 'control-label' %>
       <div class="controls">
@@ -117,8 +115,8 @@
 	</fieldset>
 
     <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', events_path, :class => 'btn' %>
+      <%= f.submit nil, :class => 'btn btn-primary', :value => "Sauver" %>
+      <%= link_to 'Annuler', events_path, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>
