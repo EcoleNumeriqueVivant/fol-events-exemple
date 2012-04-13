@@ -14,11 +14,11 @@
     <% @events.each do |event| %>
       <tr>
         <td>
-			<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
+			<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=100x100&sensor=false&zoom=16&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
 	    </td>
 	    <td>
         <%= link_to event.name, event_path(event) %>
-        <p><%= truncate event.description, :length => 200, :omission => '...' %></p>
+        <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 200, :omission => '...' %></p>
         </td>
         <td><%= event.subscibe_limit_date %></td>
 		<td><%= event.begin_date %></td>

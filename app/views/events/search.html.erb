@@ -10,9 +10,9 @@
 	<% end %>
 	<div class="caption">
 		<h3><%= link_to event.name, event_path(event) %></h3>
-		<p><%= truncate event.description, :length => 150, :omission => '...' %></p>
+		<p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 150, :omission => '...' %></p>
 		<p>Type de salon :<b><%= event.typology_list %></b></p>
-		<p>Thémes<b><%= event.theme_list %></b></p>
+		<p>Thémes : <b><%= event.theme_list %></b></p>
 	</div>
 </div>
   <%= link_to 'Voir la fiche', event_path(event), :class => 'btn btn-info', :style => "width:75%;position:relative;left:8%;bottom:15px" %>
