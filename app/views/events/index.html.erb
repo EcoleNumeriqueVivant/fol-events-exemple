@@ -12,7 +12,13 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, event_path(event) %></td>
+        <td>
+	    <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=104x72&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
+	    </td>
+	    <td>
+        <%= link_to event.name, event_path(event) %>
+        <p><%= truncate event.description, :length => 200, :omission => '...' %></p>
+        </td>
         <td><%= event.subscibe_limit_date %></td>
 		<td><%= event.begin_date %></td>
 		<td><% %></td>
