@@ -1,7 +1,8 @@
-<h1>Evènement</h1>
+<h1>Evènements</h1>
 <table class="table table-striped">
   <thead>
     <tr>
+	  <th></th>
       <th>Nom</th>
       <th>Date limite d'inscription</th>
       <th>Date de l'évènement</th>
@@ -13,7 +14,7 @@
     <% @events.each do |event| %>
       <tr>
         <td>
-	    <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=104x72&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
+			<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
 	    </td>
 	    <td>
         <%= link_to event.name, event_path(event) %>
