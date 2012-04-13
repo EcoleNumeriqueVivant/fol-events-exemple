@@ -1,4 +1,4 @@
-<h1>Résultat(s) de recherche - <%= @events.count %></h1>
+<h1><%= @events.count %> résultat(s) de recherche</h1>
 
 <div class="container" style="padding-bottom:10px;padding-top:10px">
 <% @events.each do |event| %>
@@ -9,13 +9,13 @@
 	<br/>
 	<% end %>
 	<div class="caption">
-		<h5><%= link_to event.name, event_path(event) %></h5>
+		<h3><%= link_to event.name, event_path(event) %></h3>
 		<p><%= truncate event.description, :length => 150, :omission => '...' %></p>
-		<p><b><%= event.typology_list %></b></p>
-		<p><b><%= event.theme_list %></b></p>
+		<p>Type de salon : <b><%= event.typology_list %></b></p>
+		<p>Thémes : <b><%= event.theme_list %></b></p>
 	</div>
-	<%= link_to 'Voir la fiche', event_path(event), :class => 'btn', :style => "width:90%;postion:relative;left:0px" %>
 </div>
+  <%= link_to 'Voir la fiche', event_path(event), :class => 'btn btn-info', :style => "width:75%;position:relative;left:8%;bottom:15px" %>
 </div>
 <% end %>
 </div>
