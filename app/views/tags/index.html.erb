@@ -2,19 +2,19 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
+      <th>Position</th>
       <th>Nom</th>
       <th>Contexte</th>
       <th>Actions</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="sortable">
     <% @tags.each do |tag| %>
-      <tr>
-        <td><%= tag.id %></td>
+      <tr id="<%= "tag-#{tag.id}" %>">
+        <td><i class="icon-move"></i></td>
         <td><%= link_to tag.name, tag_path(tag) %></td>
         <td><%= I18n.translate(  tag.context ) %></td>
-        <td>
+        <td id="action">
           <%= link_to 'Editer', edit_tag_path(tag), :class => 'btn btn-mini' %>
           <%= link_to 'Supprimer', tag_path(tag), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>

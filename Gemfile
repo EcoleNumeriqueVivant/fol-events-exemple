@@ -29,6 +29,8 @@ group :test do
   gem 'turn', :require => false
 end
 
+gem 'acts_as_list'
+
 gem 'acts-as-taggable-on'
 
 # geolocation

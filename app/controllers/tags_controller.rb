@@ -80,4 +80,15 @@ class TagsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def sort
+    
+    params[:tags].each_with_index do |id, index|
+      o = Tag.find(id.split("-")[1])
+      o.position = index+1
+      o.save
+    end
+    render :nothing => true, :status => 200
+  end  
+  
 end

@@ -6,7 +6,12 @@ FolEvents::Application.routes.draw do
   post "events/search"
   
   resources :events 
-  resources :tags
+  
+  resources :tags do
+    collection do
+      get :sort
+    end  
+  end  
   
   namespace :default do  
      get "application/index"

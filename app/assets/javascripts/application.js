@@ -6,9 +6,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+
 //= require twitter/bootstrap
 //= require_tree .
-
 
 //= require gmaps4rails/bing.js
 //= require gmaps4rails/googlemaps.js

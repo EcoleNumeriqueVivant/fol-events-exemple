@@ -12,8 +12,6 @@
 </head>
 <body>
   <div class="container">
-  <% unless controller.controller_name == "frontpage" %> 
-  <% end %>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -22,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Fontaine O Livres</a>
+        <span class="brand">Fontaine O Livres</span>
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to "Voir les Evènements", events_path %></li>
@@ -36,8 +34,11 @@
   <br/><br/><br/>
   <div class="container">
     <div class="row">
+      <div class="span3">
+	    <%= render "shared/mail_list" %>
+	    <%= render "shared/search" %>
+	  </div>
       <div class="span9" style="padding-right:-40px"><%= yield %></div>
-      <%= render "shared/search" %>
     </div>
   </div>
 </div>
