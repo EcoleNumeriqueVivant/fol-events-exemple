@@ -1,4 +1,4 @@
-class Default::ApplicationController < ApplicationController
+class Default::ApplicationController < ActionController::Base
 
   def index
   end
