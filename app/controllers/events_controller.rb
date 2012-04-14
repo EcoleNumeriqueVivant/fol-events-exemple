@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.paginate(:page => params[:page], :per_page => 8)
     
     respond_to do |format|
       format.html # index.html.erb
@@ -13,12 +13,13 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    
     @event = Event.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
     end
+    
   end
 
   # GET /events/new
@@ -158,9 +159,9 @@ class EventsController < ApplicationController
     mois   = params[:mois]
     
     if params[:search] != nil && params[:search][:tag_list].count > 0
-      @events = Event.tagged_with(params[:search][:tag_list], :any => true)
+      @events = Event.tagged_with(params[:search][:tag_list], :any => true).paginate(:page => params[:page], :per_page => 6)
     else
-     @events = Event.all
+     @events = Event.paginate(:page => params[:page], :per_page => 6)
     end 
     
     respond_to do |format|

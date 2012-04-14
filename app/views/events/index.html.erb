@@ -13,7 +13,7 @@
     <% @events.each do |event| %>
       <tr>
         <td>
-	    <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=104x72&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
+	    <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
 	    </td>
 	    <td>
         <%= link_to event.name, event_path(event) %>
@@ -30,6 +30,8 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @events %>
+
 <%= link_to 'Nouveau', new_event_path, :class => 'btn btn-primary' %>
 <br/>
 

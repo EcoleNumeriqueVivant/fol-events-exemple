@@ -3,9 +3,13 @@ FolEvents::Application.routes.draw do
 
   get "application/index"
   get "map/index"
-  post "events/search"
   
-  resources :events 
+  # post "events/search"
+  resources :events do
+    member do
+      post :search
+    end  
+  end   
   
   resources :tags do
     collection do
