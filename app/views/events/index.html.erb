@@ -1,7 +1,8 @@
-<h1>Evènement</h1>
+<h1>Evènements</h1>
 <table class="table table-striped">
   <thead>
     <tr>
+	  <th></th>
       <th>Nom</th>
       <th>Date limite d'inscription</th>
       <th>Date de l'évènement</th>
@@ -17,7 +18,7 @@
 	    </td>
 	    <td>
         <%= link_to event.name, event_path(event) %>
-        <p><%= truncate event.description, :length => 200, :omission => '...' %></p>
+        <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 200, :omission => '...' %></p>
         </td>
         <td><%= event.subscibe_limit_date %></td>
 		<td><%= event.begin_date %></td>

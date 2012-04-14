@@ -18,3 +18,13 @@
 //= require gmaps4rails/all_apis.js
 
 //= require bootstrap-datepicker.js
+
+//= require tinymce-jquery
+
+$().ready(function() {
+   $('.tiny').tinymce({
+      theme : "advanced",
+      theme_advanced_toolbar_location : "top",
+      theme_advanced_toolbar_align : "center"
+   });
+});

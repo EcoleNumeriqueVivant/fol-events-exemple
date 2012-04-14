@@ -30,16 +30,17 @@ group :test do
 end
 
 gem 'acts_as_list'
-
 gem 'acts-as-taggable-on'
 
 # geolocation
 gem 'geocoder'
+gem 'gmaps4rails'
 
 gem 'simple_form' # https://github.com/plataformatec/simple_form
 gem "country-select", "~> 1.0.5"
 
-gem 'gmaps4rails'
-
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+# Wysiwyg editor 
+gem 'tinymce-rails'
