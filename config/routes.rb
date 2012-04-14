@@ -6,7 +6,7 @@ FolEvents::Application.routes.draw do
   
   # post "events/search"
   resources :events do
-    member do
+    collection do
       post :search
     end  
   end   

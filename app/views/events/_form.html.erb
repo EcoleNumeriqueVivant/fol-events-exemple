@@ -1,14 +1,10 @@
-<%= form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend>Editer évènement</legend>
 
-    <div class="control-group">
-      <%= f.label "Evènement", :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name, :class => 'text_field' %>
-      </div>
-    </div>
 
+    <%= f.input :name, :label => "Evènement", :placeholder => "Nom de la manifestation " %>
+ 
     <div class="control-group">
       <%= f.label "Date de début", :class => 'control-label' %>
       <div class="controls">
@@ -34,6 +30,7 @@
       <%= f.label "Fonctionnement et Description", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :description, :class => 'text_area tiny', :style => "width:100%;height:100px"  %>
+        <span class="help-inline">Date de création, description brève de l’événement et sa durée.</span>
       </div>
     </div>
     
@@ -41,6 +38,7 @@
       <%= f.label "Fréquentation", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :attendance, :class => 'text_area' %>
+        <span class="help-inline">Nombre de visiteurs de la / des dernière(s) édition(s)</span>
       </div>
     </div>
 
@@ -48,18 +46,21 @@
       <%= f.label "Contacts", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :contacts, :class => 'text_area tiny', :style => "width:100%;height:100px" %>
+        <span class="help-inline">Nom, fonction, numéro de téléphone, adresse électronique et site web.</span>
       </div>
     </div>
     <div class="control-group">
       <%= f.label "Modalités de participation", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :how_to_participate, :class => 'text_area tiny', :style => "width:100%;height:100px" %>
-      </div>
+        <span class="help-inline">Démarche à suivre pour les éditeurs et pour les auteurs</span> 
+     </div>
     </div>
     <div class="control-group">
       <%= f.label "Tarifs", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :registration_fees, :class => 'text_area', :style => "width:100%;height:100px" %>
+        <span class="help-inline">Prix du m2, des stands nus, aménagés, etc.</span> 
       </div>
     </div>
 
@@ -67,6 +68,7 @@
       <%= f.label "Type de Participants", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :participants, :class => 'text_area', :style => "width:100%;height:100px" %>
+        <span class="help-inline">Nombre, type d’exposants et/ou invités.</span>  
       </div>
     </div>
 
@@ -74,6 +76,7 @@
       <%= f.label "Evénements rattachés", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :related_events, :class => 'text_area tiny', :style => "width:100%;height:100px" %>
+        <span class="help-inline">Animations, prix liés à la manifestation et comment y participer.</span> 
       </div>
     </div>
 
@@ -81,6 +84,7 @@
       <%= f.label "Informations supplémentaires", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :infos_extra, :class => 'text_area tiny', :style => "width:100%;height:100px" %>
+        <span class="help-inline">Hébergement, transport, librairies partenaires, etc.</span> 
       </div>
     </div>
 
@@ -90,24 +94,24 @@
     
 	<fieldset id="tags">
 	  <legend>Tags : </legend>
-	  <div class="control-group">
+	  <div class=" span4">
 		<%= f.label "Type de salon", :class => 'control-label' %>
-      <div class="controls">
-	      <% Tag.typology.each do |t| %>
+      	<div class="controls">
+		      <% Tag.typology.each do |t| %>
 		         
-		         <%= check_box_tag "event[typology_list][]", t.name, @event.typology_list.include?(t.name) %>
-				 <%= t.name %>
-		  <% end %>
-		  
+			         <%= check_box_tag "event[typology_list][]", t.name, @event.typology_list.include?(t.name) %>
+					 <%= t.name %><br/>
+			  <% end %>		  
+	      </div>
       </div>
-      </div>
-	  <div class="control-group">
+      
+	  <div class="span4">
 		<%= f.label "Thématique", :class => 'control-label' %>
       <div class="controls">
 	      <% Tag.theme.each do |t| %>
 		         
 		         <%= check_box_tag "event[theme_list][]", t.name, @event.theme_list.include?(t.name) %>
-				 <%= t.name %>
+				 <%= t.name %><br/>
 		  <% end %>
 		  
       </div>
