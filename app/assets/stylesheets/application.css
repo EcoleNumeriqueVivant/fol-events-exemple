@@ -6,3 +6,16 @@
  *= require_tree . 
  *= require gmaps4rails
 */
+
+.file {
+transition: transform .5s ease-in;
+-moz-transition: -moz-transform .5s ease-in;
+-o-transition: -o-transform .5s ease-in;
+-webkit-transition: -webkit-transform .5s ease-in;
+}
+.file:hover {
+transform: scale(1.05);
+-moz-transform: scale(1.05);
+-o-transform: scale(1.05);
+-webkit-transform: scale(1.05);
+}

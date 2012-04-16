@@ -2,7 +2,7 @@
 
 <div class="container" style="padding-bottom:10px;padding-top:10px">
 <% @events.each do |event| %>
-<div class="span3">
+<div class="span3 file">
 <div class="thumbnail" style="padding-top:10px;margin-top:10px;height:420px">
 	<% unless event.address.nil? || event.address.latitude.nil? %>
 	<%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=260x180&sensor=false&zoom=5&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border => "0"), event_path(event) %>
