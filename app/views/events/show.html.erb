@@ -1,5 +1,6 @@
 <h1><%= @event.name %></h1>
-<br/>
+<i class="icon-share"></i> - <%= link_to @event.name, :controller => 'events', :action => :show, :format => :ics %>
+<br/><br/>
 <div class="row">
 <div class="span4">
 	<p>
@@ -75,8 +76,7 @@
 	<%= @event.address.zip + ' ' + @event.address.city %><br/>
 
 	<br />
-
-	<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{@event.address.latitude}%2C#{@event.address.longitude}" %>
+    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{@event.address.latitude}%2C#{@event.address.longitude}", :border => "0"), :controller => 'events', :action => :show, :format => :ics %>
 	<br/>
 	<% end %>
 	
@@ -88,5 +88,5 @@
 <div class="form-actions">
   <%= link_to 'Retour', events_path, :class => 'btn'  %>
   <%= link_to 'Editer', edit_event_path(@event), :class => 'btn' %>
-  <%= link_to 'Supprimer', event_path(@event), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to 'Supprimer', event_path(@event), :method => 'delete', :confirm => 'Attention la suppression d\'un évènement n\'est pas réversible. Confirmez-vous la suppression de cette fiche ?', :class => 'btn btn-danger' %>
 </div>

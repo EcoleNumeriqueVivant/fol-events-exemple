@@ -45,3 +45,5 @@ gem 'bootstrap-will_paginate'
 
 # Wysiwyg editor 
 gem 'tinymce-rails'
+
+gem "icalendar"
