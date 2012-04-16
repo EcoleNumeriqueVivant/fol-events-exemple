@@ -14,23 +14,25 @@
     <% @events.each do |event| %>
       <tr>
         <td>
-			<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=100x100&sensor=false&zoom=16&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
+	    
+	    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=175x175&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border=>0), event_path(event) %>
 	    </td>
 	    <td>
         <%= link_to event.name, event_path(event) %>
-        <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 200, :omission => '...' %></p>
+        <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 400, :omission => '...' %></p>
         </td>
         <td><%= event.subscibe_limit_date %></td>
 		<td><%= event.begin_date %></td>
 		<td><% %></td>
         <td>
           <%= link_to 'Editer', edit_event_path(event), :class => 'btn btn-mini' %>
-          <%= link_to 'Supprimer', event_path(event), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @events %>
+
 <%= link_to 'Nouveau', new_event_path, :class => 'btn btn-primary' %>
 <br/>
 

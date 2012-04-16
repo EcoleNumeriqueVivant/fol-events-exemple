@@ -3,13 +3,14 @@
 <div class="container" style="padding-bottom:10px;padding-top:10px">
 <% @events.each do |event| %>
 <div class="span3">
-<div class="thumbnail" style="padding-top:10px;margin-top:10px;height:420px">
+<div class="thumbnail" style="padding-top:10px;margin-top:10px;height:415px">
 	<% unless event.address.nil? || event.address.latitude.nil? %>
 	<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=260x180&sensor=false&zoom=5&markers=#{event.address.latitude}%2C#{event.address.longitude}" %>
 	<br/>
 	<% end %>
 	<div class="caption">
 		<h3><%= link_to event.name, event_path(event) %></h3>
+		<h5><%= "du #{event.begin_date} au #{event.end_date}" %></h5>		
 		<p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 150, :omission => '...' %></p>
 		<p>Type de salon : <b><%= event.typology_list %></b></p>
 		<p>Thémes : <b><%= event.theme_list %></b></p>
@@ -18,4 +19,6 @@
   <%= link_to 'Voir la fiche', event_path(event), :class => 'btn btn-info', :style => "width:75%;position:relative;left:8%;bottom:15px" %>
 </div>
 <% end %>
+<%= will_paginate @events %>
+
 </div>

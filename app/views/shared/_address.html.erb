@@ -27,9 +27,42 @@
     <div class="control-group">
       <%= f.label "Région / Etat : ", :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :state, :class => 'text_field'  %>
+        <%= f.text_field :state, :class => 'text_field typeahead', "data-provide" => "typeahead" %>
       </div>
     </div>
+    
+    <script>
+    $('.typeahead').typeahead();
+
+    ["Alsace",
+	"Aquitaine",
+	"Auvergne",
+	"Basse-Normandie",
+	"Bourgogne",
+	"Bretagne",
+	"Centre",
+	"Champagne-Ardenne",
+	"Corse",
+	"Franche-Comté",
+	"Guadeloupe",
+	"Guyane",
+	"Haute-Normandie",
+	"Île-de-France",
+	"La Réunion",
+	"Languedoc-Roussillon",
+	"Limousin",
+	"Lorraine",
+	"Martinique",
+	"Midi-Pyrénées",
+	"Nord-Pas-de-Calais",
+	"Pays de la Loire",
+	"Picardie",
+	"Poitou-Charentes",
+	"Provence-Alpes-Côte d'Azur",
+	"Rhône-Alpes"]
+	</script>
+	
+
     <div class="control-group">
       <%= f.label "Pays", :class => 'control-label' %>
       <div class="controls">
@@ -37,4 +70,4 @@
       </div>
     </div>
 </fieldset>
-
+"

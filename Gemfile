@@ -36,9 +36,12 @@ gem 'acts-as-taggable-on'
 gem 'geocoder'
 gem 'gmaps4rails'
 
-
 gem 'simple_form' # https://github.com/plataformatec/simple_form
+
 gem "country-select", "~> 1.0.5"
+
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Wysiwyg editor 
 gem 'tinymce-rails'
