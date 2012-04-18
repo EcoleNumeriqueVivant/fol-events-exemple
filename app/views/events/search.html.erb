@@ -10,23 +10,30 @@
 	<% end %>
 	<div class="caption" style="padding-top:)10px">
 		<h3><%= link_to event.name, event_path(event) %></h3>
-		<h5 style="margin-bottom:5px"><%= "du #{event.begin_date} au #{event.end_date}" %></h5>		
+		
+		<h5 style="margin-bottom:5px">
+			<% if  event.begin_date.strftime('%d/%m/%Y') == event.end_date.strftime('%d/%m/%Y')  %>
+			    <%= "le " + event.begin_date.strftime('%d/%m/%Y')  %>
+			  <% else %>
+			    <%= "du " + event.begin_date.strftime('%d/%m/%Y') %> au <%= event.end_date.strftime('%d/%m/%Y') %>
+			<% end %>
+		</h5>		
 		<p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 150, :omission => '...' %></p>
-		<% if event.typology_list.count > 0 %>
-		<p style="font-size:11px">Type de salon : 
-			<% event.typology_list.each do |t| %>
-			 <span class="label"><%= t %></span>
-			<% end %>
-	    </p>
-	    <% end %>
-	    <% if event.theme_list.count > 0 %>
-	    <p>
-		Thémes : 	
-		    <% event.theme_list.each do |t| %>
-			 <span class="label"><%= t %></span>
-			<% end %>
-		</p>
+		
+		<% if event.typology_list.count > 0 &&  event.theme_list.count > 0 %>
+		<li class="icon-tags"></li>
 		<% end %>
+		<% if event.typology_list.count > 0 %>
+			<% event.typology_list.each do |t| %>
+			 <span class="label" style="line-height:2em"><%= t %></span>
+			<% end %>
+	    <% end %>
+	    <% if event.theme_list.count > 0 %>	
+		    <% event.theme_list.each do |t| %>
+			 <span class="label label-info" style="line-height:2em"><%= t %></span>
+			<% end %>
+		<% end %>
+		
 	</div>
 </div>
   <%= link_to 'Voir la fiche', event_path(event), :class => 'btn btn-info', :style => "width:75%;position:relative;left:8%;bottom:15px" %>
