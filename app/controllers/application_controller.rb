@@ -3,12 +3,12 @@ class ApplicationController < ActionController::Base
    http_basic_authenticate_with name: "fol", password: "fol"
    
    # require File.expand_path(File.dirname(__FILE__)) + 
-   require "./MailChimp.rb"
+   # require "./MailChimp.rb"
    
    def add_to_list
      puts params.inspect
      if session[:register].nil?
-       MailChimp.subscribe params[:mail]
+       # MailChimp.subscribe params[:mail]
        session[:register] = params[:mail]
      end
      render :nothing => true, :status => 200
