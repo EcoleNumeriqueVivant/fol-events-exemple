@@ -47,3 +47,7 @@ gem 'bootstrap-will_paginate'
 gem 'tinymce-rails'
 
 gem "icalendar"
+
+# Mailing solution
+gem 'gibbon'
+gem 'hominid'

@@ -5,3 +5,6 @@ require File.expand_path('../application', __FILE__)
 FolEvents::Application.initialize!
 
 require 'icalendar'
+
+EXPAND_PATH = File.expand_path(File.dirname(__FILE__))
+require EXPAND_PATH + "/../lib/MailChimp.rb"

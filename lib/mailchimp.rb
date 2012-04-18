@@ -8,8 +8,8 @@
 #
 class MailChimp < Struct.new(:lists)
     
-  KEY           = "7f7d68325825f5e7a1ef8586d140c012-us4" # customize key !
-  MAIN_LIST     = "53eef76895" # use MailChimp.lists['data'] to get lists id
+  KEY           = "b07ec9d07287659537ec4389f0d2b2c0-us4" # customize key !
+  MAIN_LIST     = "50c629afc5" # use MailChimp.lists['data'] to get lists id
   
   @@sts     = Hominid::STS.new(MailChimp::KEY, {:secure => true})
   @@export  = Hominid::Export.new(MailChimp::KEY, {:secure => true})

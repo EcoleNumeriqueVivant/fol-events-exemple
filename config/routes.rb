@@ -3,6 +3,8 @@ FolEvents::Application.routes.draw do
   get "application/index"
   get "map/index"
   
+  match '/add_to_list', :via => :post, :to => 'application#add_to_list'
+  
   # post "events/search"
   resources :events do
     collection do
