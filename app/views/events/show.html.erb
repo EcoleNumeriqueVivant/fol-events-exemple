@@ -18,7 +18,7 @@
     <% if @event.typology_list.count > 0 %>
 	<p><b>Type de salon : </b>
 		<% @event.typology_list.each do |t| %>
-		 <span class="label"><%= t %></span>
+		 <span class="label" style="line-height:2em"><%= t %></span>
 		<% end %>
     </p>
     <% end %>
@@ -26,7 +26,7 @@
     <p>
 	<b>Thémes :</b> 	
 	    <% @event.theme_list.each do |t| %>
-		 <span class="label label-info"><%= t %></span>
+		 <span class="label label-info" style="line-height:2em"><%= t %></span>
 		<% end %>
 	</p>
 	<% end %>
