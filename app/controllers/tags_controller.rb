@@ -14,7 +14,7 @@ class TagsController < ApplicationController
   # GET /tags/1.json
   def show
     @tag = Tag.find(params[:id])
-
+    @events = Event.tagged_with(@tag.name)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tag }

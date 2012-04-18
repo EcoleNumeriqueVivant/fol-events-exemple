@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   
+  
   include ActionView::Helpers::SanitizeHelper
   
   acts_as_taggable

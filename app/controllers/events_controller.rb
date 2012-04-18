@@ -164,6 +164,8 @@ class EventsController < ApplicationController
   
   def search
     
+    raise params.inspect 
+    
     region = params[:region]
     mois   = params[:mois]
     

@@ -2,7 +2,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Position</th>
+      <th>Position/Utilisation</th>
       <th>Nom</th>
       <th>Contexte</th>
       <th>Actions</th>
@@ -11,7 +11,7 @@
   <tbody id="sortable">
     <% @tags.each do |tag| %>
       <tr id="<%= "tag-#{tag.id}" %>">
-        <td><i class="icon-move"></i></td>
+        <td><i class="icon-move"></i><span style="margin-left:10px" class="label label-info"><%= Event.tagged_with(tag.name).count %> évènement(s)</span></td>
         <td><%= link_to tag.name, tag_path(tag) %></td>
         <td><%= I18n.translate(  tag.context ) %></td>
         <td id="action">

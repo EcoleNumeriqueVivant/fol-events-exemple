@@ -5,7 +5,11 @@
 <div class="span4">
 	<p>
 	  <b>Date de la manifestation</b><br>
-	  <%= @event.begin_date %> - <%= @event.end_date %>
+	  <% if  @event.begin_date.strftime('%d/%m/%Y') == @event.end_date.strftime('%d/%m/%Y')  %>
+	    <%= "le " + @event.begin_date.strftime('%d/%m/%Y')  %>
+	  <% else %>
+	    <%= "du " + @event.begin_date.strftime('%d/%m/%Y') %> au <%= @event.end_date.strftime('%d/%m/%Y') %>
+	  <% end %>
 	</p>
     <% unless  @event.subscibe_limit_date.nil? %>
 	<p>
@@ -83,6 +87,7 @@
 </div>
 </div>
 
+<%= comments_for @event %>
 
 
 <div class="form-actions">

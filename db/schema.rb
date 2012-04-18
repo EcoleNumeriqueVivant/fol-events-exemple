@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413104324) do
+ActiveRecord::Schema.define(:version => 20120418133442) do
 
   create_table "addresses", :force => true do |t|
     t.string  "line1",            :default => ""
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20120413104324) do
   end
 
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
+
+  create_table "comments", :force => true do |t|
+    t.integer  "owner_id",         :null => false
+    t.integer  "commentable_id",   :null => false
+    t.string   "commentable_type", :null => false
+    t.text     "body",             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", :force => true do |t|
     t.string    "name"

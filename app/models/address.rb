@@ -1,3 +1,5 @@
+# coding: utf-8
+
 #
 # using polymorphism for address
 # http://kconrails.com/2010/10/19/common-addresses-using-polymorphism-and-nested-attributes-in-rails/
@@ -18,5 +20,33 @@ class Address < ActiveRecord::Base
   # #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
   #   "#{self.street}, #{self.city}, #{self.country}" 
   # end
+  
+  STATES_LIST = ["Pas de Région",
+  "Alsace",
+  "Aquitaine",
+  "Auvergne",
+  "Basse-Normandie",
+  "Bourgogne",
+  "Bretagne",
+  "Centre",
+  "Champagne-Ardenne",
+  "Corse",
+  "Franche-Comté",
+  "Guadeloupe",
+  "Guyane",
+  "Haute-Normandie",
+  "Île-de-France",
+  "La Réunion",
+  "Languedoc-Roussillon",
+  "Limousin",
+  "Lorraine",
+  "Martinique",
+  "Midi-Pyrénées",
+  "Nord-Pas-de-Calais",
+  "Pays de la Loire",
+  "Picardie",
+  "Poitou-Charentes",
+  "Provence-Alpes-Côte d'Azur",
+  "Rhône-Alpes"]
   
 end
