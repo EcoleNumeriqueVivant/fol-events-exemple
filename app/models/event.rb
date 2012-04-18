@@ -1,6 +1,5 @@
 class Event < ActiveRecord::Base
-  
-  
+    
   include ActionView::Helpers::SanitizeHelper
   
   acts_as_taggable
@@ -9,6 +8,13 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :desc, :tag_list
   
   include Addressable
+  
+  default_scope order("begin_date desc")
+
+  scope :begin_in, lambda { |value|
+    where('events.begin_date >= ?', ( -1 * value ).days.ago).order("begin_date desc")
+  }
+  scope :this_month, where("begin_date = ?", Time.zone.now.month)
   
   PUBLIC_URL = "http://fol-events.herokuapp.com/"
   

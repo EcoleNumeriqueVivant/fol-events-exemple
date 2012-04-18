@@ -175,7 +175,6 @@ class EventsController < ApplicationController
     #      @events = Event.paginate(:page => params[:page], :per_page => 6)
     #     end 
    
-    
     if params[:search] != nil && params[:search][:tag_list].count > 0
        @events = Event.tagged_with(params[:search][:tag_list], :any => true)
     else
