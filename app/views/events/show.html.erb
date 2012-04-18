@@ -1,5 +1,5 @@
 <h1><%= @event.name %></h1>
-<i class="icon-share"></i> - <%= link_to @event.name, :controller => 'events', :action => :show, :format => :ics %>
+<i class="icon-share"></i> <%= link_to "sauver dans mon agenda", :controller => 'events', :action => :show, :format => :ics %> <li class="icon-map-marker"></li> <%= link_to "repérer sur google map", "http://maps.google.com/?ie=UTF8&hq=&ll=#{@event.address.latitude},#{@event.address.longitude}&z=18" %>
 <br/><br/>
 <div class="row">
 <div class="span4">
@@ -17,18 +17,21 @@
 	  <%= @event.subscibe_limit_date %>
 	</p>
     <% end %>
-    <% if  @event.theme_list.count > 0 %>
-	<p>
-	  <b>Thématique</b>
-	  	<%= @event.theme_list.to_s %>
+    <% if @event.typology_list.count > 0 %>
+	<p style="font-size:11px">Type de salon : 
+		<% @event.typology_list.each do |t| %>
+		 <span class="label"><%= t %></span>
+		<% end %>
+    </p>
+    <% end %>
+    <% if @event.theme_list.count > 0 %>
+    <p>
+	Thémes : 	
+	    <% @event.theme_list.each do |t| %>
+		 <span class="label"><%= t %></span>
+		<% end %>
 	</p>
 	<% end %>
-	<% if  @event.typology_list.count > 0 %>	
-	<p>
-	  <b>Typologie</b>
-	  	<%= @event.typology_list.to_s %>
-	</p>	
-    <% end %>
     <% unless @event.attendance.nil? %>
 	<p>
 	  <b>Fréquentation</b>
@@ -86,8 +89,6 @@
 	
 </div>
 </div>
-
-<%= comments_for @event %>
 
 
 <div class="form-actions">

@@ -14,13 +14,13 @@
 <h2>Les évènements liés : </h2>
 <p> - 
    <% @events.each do |event| %>
-     <%= link_to event.name, event_path(event) %> -
+     <%= link_to event.name, event_path(event), "rel" => "popover", "data-content" => event.description , "data-original-title" => event.name %> -
    <% end %>
 </p>
 <% end %>
 
 <div class="form-actions">
-  <%= link_to 'Back', tags_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_tag_path(@tag), :class => 'btn' %>
-  <%= link_to 'Delete', tag_path(@tag), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to 'Retour', tags_path, :class => 'btn'  %>
+  <%= link_to 'Editer', edit_tag_path(@tag), :class => 'btn' %>
+  <%= link_to 'Supprimer', tag_path(@tag), :method => 'delete', :confirm => 'Voulez vous vraiment supprimer ce Tag ?', :class => 'btn btn-danger' %>
 </div>
