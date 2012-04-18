@@ -35,7 +35,9 @@
     <div class="row">
       <% unless controller.action_name == "edit" %>
 		<div class="span3">
-	     <%= render "shared/mail_list" %>
+		 <% if session[:register].nil? %>	
+	       <%= render "shared/mail_list" %>
+	     <% end %>
 	     <%= render "shared/search" %>
 	    </div>
         <div class="span9"><%= yield %><br/><br/></div>
