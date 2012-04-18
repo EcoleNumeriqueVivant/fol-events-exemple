@@ -1,16 +1,14 @@
 <h1><%= @event.name %></h1>
 <i class="icon-share"></i> <%= link_to "sauver dans mon agenda", :controller => 'events', :action => :show, :format => :ics %> <li class="icon-map-marker"></li> <%= link_to "repérer sur google map", "http://maps.google.com/?ie=UTF8&hq=&ll=#{@event.address.latitude},#{@event.address.longitude}&z=18" %>
+<br/>
+<% if  @event.begin_date.strftime('%d/%m/%Y') == @event.end_date.strftime('%d/%m/%Y')  %>
+  <%= "le " + @event.begin_date.strftime('%d/%m/%Y')  %>
+<% else %>
+  <%= "du " + @event.begin_date.strftime('%d/%m/%Y') %> au <%= @event.end_date.strftime('%d/%m/%Y') %>
+<% end %>
 <br/><br/>
 <div class="row">
 <div class="span4">
-	<p>
-	  <b>Date de la manifestation</b><br>
-	  <% if  @event.begin_date.strftime('%d/%m/%Y') == @event.end_date.strftime('%d/%m/%Y')  %>
-	    <%= "le " + @event.begin_date.strftime('%d/%m/%Y')  %>
-	  <% else %>
-	    <%= "du " + @event.begin_date.strftime('%d/%m/%Y') %> au <%= @event.end_date.strftime('%d/%m/%Y') %>
-	  <% end %>
-	</p>
     <% unless  @event.subscibe_limit_date.nil? %>
 	<p>
 	  <b>Date limite d'inscription</b><br>
@@ -18,7 +16,7 @@
 	</p>
     <% end %>
     <% if @event.typology_list.count > 0 %>
-	<p style="font-size:11px">Type de salon : 
+	<p><b>Type de salon : </b>
 		<% @event.typology_list.each do |t| %>
 		 <span class="label"><%= t %></span>
 		<% end %>
@@ -26,66 +24,62 @@
     <% end %>
     <% if @event.theme_list.count > 0 %>
     <p>
-	Thémes : 	
+	<b>Thémes :</b> 	
 	    <% @event.theme_list.each do |t| %>
-		 <span class="label"><%= t %></span>
+		 <span class="label label-info"><%= t %></span>
 		<% end %>
 	</p>
 	<% end %>
     <% unless @event.attendance.nil? %>
 	<p>
-	  <b>Fréquentation</b>
-	  	<%= @event.attendance %>
+	  <b>Fréquentation :</b>
+	    <span class="badge badge-warning"><%= @event.attendance %></span>
 	</p>
     <% end %>
 	<p>
-	  <b>Fonctionnement et Description</b><br>
+	  <b>Fonctionnement et Description :</b><br>
 	  <%= raw @event.description %>
 	</p>
 
 	<p>
-	  <b>Contacts</b><br>
+	  <b>Contacts :</b><br>
 	  <%= raw @event.contacts %>
 	</p>
 
 	<p>
-	  <b>Modalités de participation</b><br>
+	  <b>Modalités de participation :</b><br>
 	  <%= raw @event.how_to_participate %>
 	</p>
     <% unless @event.registration_fees.nil? && @event.registration_fees == "" %>
 	<p>
-	  <b>Tarifs</b><br>
+	  <b>Tarifs :</b><br>
 	  <%= raw  @event.registration_fees %>
 	</p>
 	<% end %>
 </div>	
 
 <div class="span4">
+	
+	<% unless @event.address.nil? || @event.address.latitude.nil? %>
+    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{@event.address.latitude}%2C#{@event.address.longitude}", :border => "0"), :controller => 'events', :action => :show, :format => :ics %>
+    <%= @event.address.line1 %>
+	<%= @event.address.zip + ' ' + @event.address.city %><br/><br/>
+	<% end %>
+	
 	<p>
-	  <b>Type de participants</b><br>
+	  <b>Type de participants :</b><br>
 	  <%= raw  @event.participants %>
 	</p>
 
 	<p>
-	  <b>Evènements rattachés</b><br>
+	  <b>Evènements rattachés : </b><br>
 	  <%= raw  @event.related_events %>
 	</p>
 
 	<p>
-	  <b>Information Supplémentaires</b><br>
+	  <b>Information Supplémentaires :</b><br>
 	  <%= raw  @event.infos_extra %>
 	</p>
-	
-	
-	<% unless @event.address.nil? || @event.address.latitude.nil? %>
-	<strong>Adresse :</strong>
-	<%= @event.address.line1 %>
-	<%= @event.address.zip + ' ' + @event.address.city %><br/>
-
-	<br />
-    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=440x290&sensor=false&zoom=16&markers=#{@event.address.latitude}%2C#{@event.address.longitude}", :border => "0"), :controller => 'events', :action => :show, :format => :ics %>
-	<br/>
-	<% end %>
 	
 </div>
 </div>

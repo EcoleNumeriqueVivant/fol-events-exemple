@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   
   include Addressable
   
-  default_scope order("begin_date desc")
+  default_scope order("begin_date asc")
 
   scope :begin_in, lambda { |value|
     where('events.begin_date >= ?', ( -1 * value ).days.ago).order("begin_date desc")
