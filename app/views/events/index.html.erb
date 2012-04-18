@@ -22,8 +22,8 @@
         <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 400, :omission => '...' %></p>
         </td>
         <td><%= event.subscibe_limit_date.strftime('%d/%m/%Y') if !event.subscibe_limit_date.nil?  %></td>
-		<td><%= event.begin_date.strftime('%d/%m/%Y') if !event.subscibe_limit_date.nil? %></td>
-		<td><% %></td>
+		<td><%= event.begin_date.strftime('%d/%m/%Y') if !event.begin_date.nil? %></td>
+		<td><%= event.address.city if !event.address.city.nil? %></td>
         <td>
           <%= link_to 'Editer', edit_event_path(event), :class => 'btn btn-mini' %>
         </td>
