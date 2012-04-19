@@ -1,0 +1,26 @@
+<h1>Utilisateurs</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Date d'inscription</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= link_to user.email, backend_user_path(user) %></td>
+        <td><%= user.created_at.strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to 'Editer', edit_backend_user_path(user), :class => 'btn btn-mini' %>
+          <%= link_to 'Supprimer', backend_user_path(user), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nouveau', new_backend_user_path, :class => 'btn btn-primary' %>

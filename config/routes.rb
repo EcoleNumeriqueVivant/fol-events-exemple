@@ -1,5 +1,7 @@
 FolEvents::Application.routes.draw do
 
+  namespace :backend do resources :users end
+
   get "application/index"
   
   match '/add_to_list', :via => :post, :to => 'application#add_to_list'
@@ -23,8 +25,9 @@ FolEvents::Application.routes.draw do
   end  
   
   namespace :backend do  
-     get "application/index"
+     root :to => "application#index"
   end
+  # /backend
   
   root :controller => 'Default::Application', :action => 'index'
   # root :to => "users#new"
