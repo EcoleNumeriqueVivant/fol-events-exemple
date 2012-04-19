@@ -1,6 +1,11 @@
 <h1>Utilisateur</h1>
 
 <p>
+  <b>Nom</b><br>
+  <%= @user.first_name.to_s + " " + @user.last_name.to_s %>
+</p>
+
+<p>
   <b>Email</b><br>
   <%= @user.email %>
 </p>

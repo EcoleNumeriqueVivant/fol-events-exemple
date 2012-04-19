@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>Nom</th>
       <th>Email</th>
       <th>Date d'inscription</th>
       <th>Actions</th>
@@ -12,6 +13,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
+        <td><%= user.first_name.to_s + " " + user.last_name.to_s %></td>
         <td><%= link_to user.email, backend_user_path(user) %></td>
         <td><%= user.created_at.strftime('%d/%m/%Y') %></td>
         <td>
