@@ -1,9 +1,24 @@
 <div class="hero-unit" style="text-align:center;">
 <h2>Agenda participatif des salons et événements littéraires</h2>
 <br/>
-<a class="btn btn-primary btn-large" href="/events">
-Continuer
-</a>
+
+<%= form_tag sessions_path do %>
+
+  <div class="control-group">
+    <%= label_tag "Email" %>
+    <div class="controls">
+	    <%= text_field_tag :email, params[:email] %>
+    </div>
+  </div>
+
+  <p>
+    <%= label_tag "Mot de passe" %><br />
+    <%= password_field_tag :password %>
+  </p>
+  <p><%= submit_tag "Continuer", :class =>"btn btn-primary btn-large" %></p>
+<% end %>
+
+
 <br/>
 <br/>
 

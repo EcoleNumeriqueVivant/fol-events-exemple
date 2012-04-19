@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
     
   include ActionView::Helpers::SanitizeHelper
   
+  acts_as_commentable
   acts_as_taggable
   acts_as_taggable_on :typology, :theme
   

@@ -51,3 +51,9 @@ gem "icalendar"
 # Mailing solution
 gem 'gibbon'
 gem 'hominid'
+
+# gem 'bossman'
+
+gem 'acts_as_commentable_with_threading'
+
+gem "bcrypt-ruby", :require => "bcrypt"

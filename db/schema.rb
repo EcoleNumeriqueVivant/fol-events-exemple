@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418133442) do
+ActiveRecord::Schema.define(:version => 20120419134206) do
 
   create_table "addresses", :force => true do |t|
     t.string  "line1",            :default => ""
@@ -29,39 +29,47 @@ ActiveRecord::Schema.define(:version => 20120418133442) do
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
 
   create_table "comments", :force => true do |t|
-    t.integer  "owner_id",         :null => false
-    t.integer  "commentable_id",   :null => false
-    t.string   "commentable_type", :null => false
-    t.text     "body",             :null => false
+    t.integer  "commentable_id",   :default => 0
+    t.string   "commentable_type", :default => ""
+    t.string   "title",            :default => ""
+    t.text     "body",             :default => ""
+    t.string   "subject",          :default => ""
+    t.integer  "user_id",          :default => 0,  :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "events", :force => true do |t|
-    t.string    "name"
-    t.date      "begin_date"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.date      "subscibe_limit_date"
-    t.date      "end_date"
-    t.string    "attendance"
-    t.text      "contacts"
-    t.text      "how_to_participate"
-    t.text      "registration_fees"
-    t.text      "participants"
-    t.text      "related_events"
-    t.text      "infos_extra"
+    t.string   "name"
+    t.date     "begin_date"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "subscibe_limit_date"
+    t.date     "end_date"
+    t.string   "attendance"
+    t.text     "contacts"
+    t.text     "how_to_participate"
+    t.text     "registration_fees"
+    t.text     "participants"
+    t.text     "related_events"
+    t.text     "infos_extra"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer   "tag_id"
-    t.integer   "taggable_id"
-    t.string    "taggable_type"
-    t.integer   "tagger_id"
-    t.string    "tagger_type"
-    t.string    "context",       :limit => 128
-    t.timestamp "created_at"
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
@@ -71,6 +79,14 @@ ActiveRecord::Schema.define(:version => 20120418133442) do
     t.string  "name"
     t.string  "context"
     t.integer "position"
+  end
+
+  create_table "users", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
   end
 
 end

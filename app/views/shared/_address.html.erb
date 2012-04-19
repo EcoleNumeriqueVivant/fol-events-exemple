@@ -24,14 +24,8 @@
         <%= f.text_field :zip, :class => 'text_field'  %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label "Région : ", :class => 'control-label' %>
-      <div class="controls">
-        <%= f.input :state %>
-      </div>
-    </div>
-    
-  
+
+   <%= f.input :state, :as => "select", :label => "Région" %>
 
     <div class="control-group">
       <%= f.label "Pays", :class => 'control-label' %>
