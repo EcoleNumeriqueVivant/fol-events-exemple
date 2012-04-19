@@ -13,6 +13,12 @@
 <body>
   <div class="container">
 	<%= image_tag "logo.jpg" %>
+	<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">×</a>
+	    <%= msg %>
+	  </div>
+	<% end %>
 	<div class="row" style="text-align:center;">
       <div class="span12"><%= yield %></div>
     </div>

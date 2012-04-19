@@ -29,10 +29,10 @@
           </ul>
         </div>
          
-        <div id="user_nav" style="color:white">
+        <div id="user_nav" style="color:white;margin-top:10px" class="pull-right">
 		  <% if current_user %>
-		    Logged in as <%= current_user.email %>.
-		    <%= link_to "Log out", log_out_path %>
+		    <%= current_user.email %> - 
+		    <%= link_to "déconnection", log_out_path %>
 		  <% else %>
 		    <%= link_to "s'inscrire", sign_up_path %> ou
 		    <%= link_to "se connecter", log_in_path %>

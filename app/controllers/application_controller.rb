@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
    
+   helper_method :current_user
+   # before_filter :check_user
+   
    # require File.expand_path(File.dirname(__FILE__)) + 
    # require "./MailChimp.rb"
    
@@ -14,15 +17,23 @@ class ApplicationController < ActionController::Base
    end 
    
    def dashboard 
-   end   
+   end
    
-   helper_method :current_user
+   
+   def check_user
+       if current_user.blank?
+         respond_to do |format|
+           format.html do
+              redirect_to root_path 
+           end
+         end
+       end 
+   end
 
    private
 
    def current_user
      @current_user ||= User.find(session[:user_id]) if session[:user_id]
    end
-   
-   
+       
 end
