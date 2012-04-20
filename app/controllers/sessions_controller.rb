@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to :controller => "application", :action => "dashboard", :notice => "Logged in!"
     else
-      flash.now.alert = "email ou mot de passe invalide"
-      render [:default, :root]
+      redirect_to root_url, :alert => "email ou mot de passe invalide"
     end
   end
 

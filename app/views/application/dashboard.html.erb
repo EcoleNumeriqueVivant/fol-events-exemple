@@ -5,7 +5,7 @@
 		<div class="item <%= "active" if index == 0 %>">
 			<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=700x400&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border=>0 %>
 			<div class="carousel-caption">
-				<h4><%= event.name %></h4>
+				<h4><%= link_to event.name, event %></h4>
 				<p><%= raw event.description %></p>
 			</div>
 		</div>

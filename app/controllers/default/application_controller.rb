@@ -1,7 +1,7 @@
 class Default::ApplicationController < ActionController::Base
 
   def index
-    @user = User.new
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-
+  
 end

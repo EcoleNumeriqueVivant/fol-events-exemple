@@ -1,23 +1,20 @@
+<% if @current_user %>
+    <h4>
+    <%= "Bonjour #{@current_user.first_name + " " + @current_user.last_name }" %></h4>
+<% end %>
 <div class="hero-unit" style="text-align:center;">
 <h2>Agenda participatif des salons et événements littéraires</h2>
 <br/>
 
-<%= form_tag sessions_path do %>
-
-  <div class="control-group">
-    <%= label_tag "Email" %>
-    <div class="controls">
-	    <%= text_field_tag :email, params[:email] %>
-    </div>
-  </div>
-
-  <p>
-    <%= label_tag "Mot de passe" %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p><%= submit_tag "Continuer", :class =>"btn btn-primary btn-large" %></p>
+<% if @current_user %>
+	<%= link_to "Continuer", "/dashboard" , :class =>"btn btn-primary btn-large" %>
+<% else %>
+	<%= form_tag sessions_path, :html => { :class => "form-inline" } do %>
+		<%= text_field_tag :email, params[:email], :class =>"input-small", "placeholder"=>"Email" %>
+	    <%= password_field_tag :password %>
+	    <%= submit_tag "Connexion", :class =>"btn" %>
+	<% end %>
 <% end %>
-
 
 <br/>
 <br/>

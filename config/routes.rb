@@ -11,6 +11,7 @@ FolEvents::Application.routes.draw do
   resources :events do
     collection do
       post :search
+      post :comment
     end  
   end   
   

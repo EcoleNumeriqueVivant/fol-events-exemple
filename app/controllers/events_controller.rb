@@ -165,7 +165,6 @@ class EventsController < ApplicationController
   def search
     
     # raise params.inspect 
-    
     region = params[:region]
     mois   = params[:mois]
     
@@ -186,5 +185,15 @@ class EventsController < ApplicationController
       format.json { render json: @events }
     end
   end
+  
+  def comment
+    if params[:body] != ""
+     c = Comment.build_from(Event.find(params[:event]),session[:user_id],params[:body])
+     c.save
+     # raise c.errors.inspect
+    end
+    redirect_to :back
+  end  
+    
     
 end
