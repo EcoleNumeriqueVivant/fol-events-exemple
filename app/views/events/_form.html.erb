@@ -30,7 +30,7 @@
       <%= f.label "Fonctionnement et Description", :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :description, :class => 'text_area tiny', :style => "width:100%;height:100px"  %>
-        <span class="help-inline">Date de création, description brève de l’événement et sa durée.</span>
+        <span class="help-inline">Date de création, description brève, périodicité de l’événement et sa durée.</span>
       </div>
     </div>
     
@@ -91,7 +91,6 @@
     <%= f.fields_for :address do |address| %>
      <%= render :partial => 'shared/address', :locals => {:f => address} %>
     <% end %>
-    
 	<fieldset id="tags">
 	  <legend>Tags : </legend>
 	  <div class=" span4">

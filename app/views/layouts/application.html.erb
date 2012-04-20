@@ -25,8 +25,8 @@
           <ul class="nav">
             <li><%= link_to "Voir tous les Evènements", events_path %></li>
    			<li><%= link_to "Voir les Tags", tags_path %></li>
-            <li><%= link_to "Mon Compte", nil %></li>
-            <li><%= link_to "Aide", nil %></li>
+            <li><%= link_to "Mon Compte" , :controller => "account", :action => "index" %></li>
+            <li><%= link_to "Aide", :controller => "help", :action => "index" %></li>
           </ul>
         </div>
          
@@ -54,9 +54,9 @@
     <div class="row">
       <% unless controller.action_name == "edit" %>
 		<div class="span3">
-		 <% if session[:register].nil? %>	
-	       <%= render "shared/mail_list" %>
-	     <% end %>
+		 <% # if session[:register].nil? %>	
+	       <% # render "shared/mail_list" %>
+	     <% # end %>
 	     <%= render "shared/search" %>
 	    </div>
         <div class="span9"><%= yield %><br/><br/></div>

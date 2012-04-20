@@ -9,16 +9,15 @@
 <% if @current_user %>
 	<%= link_to "Continuer", "/dashboard" , :class =>"btn btn-primary btn-large" %>
 <% else %>
-	<%= form_tag sessions_path, :html => { :class => "form-inline" } do %>
+    <p>
+    <iframe src="http://player.vimeo.com/video/36820781" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p><br/>
+	<%= form_tag sessions_path,  :class => "form-inline", :style => "vertical-align:middle;"  do %>
 		<%= text_field_tag :email, params[:email], :class =>"input-small", "placeholder"=>"Email" %>
-	    <%= password_field_tag :password %>
-	    <%= submit_tag "Connexion", :class =>"btn" %>
+	    <%= password_field_tag :password , nil, :class => 'input-small', "placeholder"=>"Password" %>
+	    <%= submit_tag "Connexion", :class =>"btn", :style => "top:30px;"  %>
 	<% end %>
 <% end %>
-
 <br/>
-<br/>
-
 <p style="text-align:center;">
 	 Cet outil coopératif permet de repérer les manifestations littéraires adaptées à son catalogue, d'anticiper sa participation aux événements, et de partager son expérience ou sa présence sur place avec les autres membres du réseau. <br/><br/>
 	                                                                                                                                                                                                                                                  L'accès est strictement réservé aux adhérents de <b>Fontaine O

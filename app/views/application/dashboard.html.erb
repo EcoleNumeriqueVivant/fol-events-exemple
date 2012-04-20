@@ -1,4 +1,5 @@
 <h2>Les prochains Evènements</h2>
+<li class="icon-calendar"></li> <%= link_to "Voir tous les Evènements", events_path %><br/><br/>
 <div id="events" class="carousel slide span8">
 	<div class="carousel-inner">
 		<% Event.limit(3).each_with_index do |event, index| %>
@@ -11,7 +12,7 @@
 		</div>
 		<% end %>
 	</div>
-	<a class="left carousel-control" href="#event" data-slide="prev">‹</a>
+	<a class="left carousel-control" href="#events" data-slide="prev">‹</a>
 	<a class="right carousel-control" href="#events" data-slide="next">›</a>
 	<p>
 		<%= link_to 'Créer un nouvel évènement !', new_event_path, :class => 'btn btn-primary', :style => "float:right;margin-top:10px" %>

@@ -1,5 +1,9 @@
 FolEvents::Application.routes.draw do
 
+  get "help/index"
+
+  get "account/index"
+
   namespace :backend do resources :users end
 
   get "application/index"

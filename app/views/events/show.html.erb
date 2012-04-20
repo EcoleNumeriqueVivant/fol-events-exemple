@@ -103,6 +103,7 @@
 <%= form_tag "/events/comment", :class => 'well' do %>
  <%= text_area_tag :body, nil, :style => "width:100%;height:100px" %>
  <%= hidden_field_tag 'event', @event.id %>
+ <span class="help-inline">dfsdfsdfgsfdsfqsfgqsfsqdfs sdfdqsfqs sdf sdf sqdf qsdfsdf qsdfsq fqsfqsf !</span><br/>
  <%= submit_tag "Envoyer", :class =>"btn" %>
 <% end %>
 	
