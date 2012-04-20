@@ -1,0 +1,32 @@
+<%= form_for [:backend,@comment], :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend>Editer Commentaire</legend>
+
+
+    <div class="control-group">
+      <%= f.label "Sujet", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :subject, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Titre", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Corp", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :body, :class => 'text_area', :style => "width:400px;height:200px" %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary', :value => "Sauver" %>
+      <%= link_to 'Annuler', backend_comments_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

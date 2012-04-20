@@ -1,0 +1,15 @@
+<h1>Commentaire</h1>
+<br/>
+<p>
+  <%= @comment.body %>
+  <br/>
+  par <b><%= @comment.user.name %></b>
+</p>
+
+
+
+<div class="form-actions">
+  <%= link_to 'Retour', backend_comments_path, :class => 'btn'  %>
+  <%= link_to 'Editer', edit_backend_comment_path(@comment), :class => 'btn' %>
+  <%= link_to 'Supprimer', backend_comment_path(@comment), :method => 'delete', :confirm => 'Voulez vous vraiment supprimer ce commentaire ?', :class => 'btn btn-danger' %>
+</div>

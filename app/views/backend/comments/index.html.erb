@@ -1,0 +1,22 @@
+<h1>Comments</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Commentaire</th>
+      <th>Par</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= link_to comment.body, backend_comment_path(comment) %></td>
+        <td><%= comment.created_at.strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to 'Editer', edit_backend_comment_path(comment), :class => 'btn btn-mini' %>
+          <%= link_to 'Supprimer', backend_comment_path(comment), :method => :delete, :confirm => 'Voulez-vous vraiment supprmer ce commentaire ?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
