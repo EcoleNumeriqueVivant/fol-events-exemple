@@ -190,7 +190,7 @@ class EventsController < ApplicationController
     if params[:body] != ""
      c = Comment.build_from(Event.find(params[:event]),session[:user_id],params[:body])
      c.save
-     # raise c.errors.inspect
+     raise c.errors.inspect
     end
     redirect_to :back
   end  

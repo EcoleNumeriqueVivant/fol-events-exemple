@@ -17,7 +17,7 @@
 <div class="span4">
 <h3>Les derniers commentaires</h3>
   <% Comment.limit(3).each do |c| %>
-   <%= c.body %>
+   <p class='well'><%= gravatar_for c.user.email if !c.user.nil?  %><%= c.body %></p>
   <% end %>
 </div>
 <div class="span4">

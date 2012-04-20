@@ -99,9 +99,9 @@
 
 <% end %>
 
-    <%= form_tag "/events/comment", :class => 'well' do %>
-		<%= text_area_tag :body, nil, :html => { :style => "span12"} %>
-		<%= hidden_field_tag 'event', @event.id %>
-	    <%= submit_tag "Envoyer", :class =>"btn" %>
-	<% end %>
+<%= form_tag "/events/comment", :class => 'well' do %>
+ <%= text_area_tag :body, nil, :html => { :style => "span12"} %>
+ <%= hidden_field_tag 'event', @event.id %>
+ <%= submit_tag "Envoyer", :class =>"btn" %>
+<% end %>
 	
