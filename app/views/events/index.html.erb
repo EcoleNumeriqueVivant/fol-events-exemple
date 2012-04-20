@@ -15,7 +15,7 @@
       <tr>
         <td>
 	    
-	    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=175x175&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border=>0), event_path(event) %>
+	    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border=>0), event_path(event) %>
 	    </td>
 	    <td>
         <%= link_to event.name, event_path(event) %>
