@@ -13,11 +13,21 @@
 	</div>
 	<a class="left carousel-control" href="#event" data-slide="prev">‹</a>
 	<a class="right carousel-control" href="#events" data-slide="next">›</a>
+	<p>
+		<%= link_to 'Créer un nouvel évènement !', new_event_path, :class => 'btn btn-primary', :style => "float:right;margin-top:10px" %>
+	</p>
 </div>
-<div class="span4">
-<h3>Les derniers commentaires</h3>
+	
+<div class="span4">	
+<h3 style="margin-bottom:5px">Les derniers commentaires</h3>
   <% Comment.limit(3).each do |c| %>
-   <p class='well'><%= gravatar_for c.user.email if !c.user.nil?  %><%= c.body %></p>
+   <% unless c.user.nil? %>
+	   <%= link_to c.commentable.name, c.commentable %><br/>
+	   <p class='well'><%= gravatar_for c.user.email if !c.user.nil?  %><%= c.body %>
+	   <br/>
+	   <%= raw "<b>#{c.user.first_name.to_s} #{c.user.last_name.to_s}</b>" %>
+	   </p>
+   <% end %>
   <% end %>
 </div>
 <div class="span4">
