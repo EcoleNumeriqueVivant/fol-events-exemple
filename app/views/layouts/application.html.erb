@@ -1,3 +1,6 @@
+<% if current_user.blank? %>
+ <%  check_user %>
+<% end %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +55,7 @@
 	  </div>
 	<% end %>
     <div class="row">
-      <% unless controller.action_name == "edit" %>
+      <% unless controller.action_name == "edit" || controller.action_name == "new" %>
 		<div class="span3">
 		 <% # if session[:register].nil? %>	
 	       <% # render "shared/mail_list" %>

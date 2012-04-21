@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
    
-   helper_method :current_user
+   helper_method :current_user, :check_user
    # before_filter :check_user
    
    # require File.expand_path(File.dirname(__FILE__)) + 
@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
    
    def dashboard 
    end
-   
    
    def check_user
        if current_user.blank?
