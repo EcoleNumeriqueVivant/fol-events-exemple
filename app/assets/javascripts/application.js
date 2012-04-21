@@ -21,6 +21,7 @@
 //= require tinymce-jquery
 
 //= require tweets
+//= require jquery.raty
 
 $().ready(function() {
    $('.tiny').tinymce({

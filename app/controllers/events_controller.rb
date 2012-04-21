@@ -14,21 +14,22 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    
-    @event = Event.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
-      format.ics do
-          calendar = Icalendar::Calendar.new
-          calendar.add_event(@event.to_ics)
-          calendar.publish
-          render :text => calendar.to_ical
+
+    if params[:id] == "rate"
+    else  
+      @event = Event.find(params[:id])
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @event }
+        format.ics do
+            calendar = Icalendar::Calendar.new
+            calendar.add_event(@event.to_ics)
+            calendar.publish
+            render :text => calendar.to_ical
+        end
       end
     end
-    
-    
-    
+   
   end
 
   # GET /events/new
@@ -195,5 +196,11 @@ class EventsController < ApplicationController
     redirect_to :back
   end  
     
+  def rate  
+    puts "rate"
+    event = Event.find(params[:event])
+    event.rate params[:rate].to_f , current_user
+    render :nothing => true, :status => 200
+  end  
     
 end

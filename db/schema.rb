@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420133141) do
+ActiveRecord::Schema.define(:version => 20120421111809) do
 
   create_table "addresses", :force => true do |t|
     t.string  "line1",            :default => ""
@@ -60,7 +60,20 @@ ActiveRecord::Schema.define(:version => 20120420133141) do
     t.text     "participants"
     t.text     "related_events"
     t.text     "infos_extra"
+    t.integer  "rating_count"
+    t.decimal  "rating_total"
+    t.decimal  "rating_avg",          :precision => 10, :scale => 2
   end
+
+  create_table "ratings", :force => true do |t|
+    t.integer "rater_id"
+    t.integer "rated_id"
+    t.string  "rated_type"
+    t.decimal "rating"
+  end
+
+  add_index "ratings", ["rated_type", "rated_id"], :name => "index_ratings_on_rated_type_and_rated_id"
+  add_index "ratings", ["rater_id"], :name => "index_ratings_on_rater_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
