@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+    <tr>
+	  <th></th>
+      <th>Nom</th>
+      <th>Date limite d'inscription</th>
+      <th>Date de l'évènement</th>
+      <th>Ville</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events_future.each do |event| %>
+      <tr>
+        <td>
+
+	    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border=>0), event_path(event) %>
+	    </td>
+	    <td>
+        <%= link_to event.name, event_path(event) %>
+        <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 400, :omission => '...' %></p>
+        </td>
+        <td><%= event.subscibe_limit_date.strftime('%d/%m/%Y') if !event.subscibe_limit_date.nil?  %></td>
+		<td><%= event.begin_date.strftime('%d/%m/%Y') if !event.begin_date.nil? %></td>
+		<td><%= event.address.city if !event.address.city.nil? %></td>
+        <td>
+          <%= link_to 'Editer', edit_event_path(event), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @events_future %>

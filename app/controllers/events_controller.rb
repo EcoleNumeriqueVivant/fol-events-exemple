@@ -3,11 +3,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
 
-    @events = Event.paginate(:page => params[:page], :per_page => 6)
+    @events_past   = Event.past.paginate(:page => params[:page], :per_page => 6)
+    @events_future = Event.future.paginate(:page => params[:page], :per_page => 6)
         
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @events }
     end
   end
 

@@ -17,6 +17,8 @@ class Event < ActiveRecord::Base
     where('events.begin_date >= ?', ( -1 * value ).days.ago).order("begin_date desc")
   }
   # scope :this_month, find(:all, :conditions => ["begin_date = ?", Date.today.month])
+  scope :future, lambda { where('events.begin_date >= ?', Time.zone.now) }
+  scope :past, lambda { where('events.begin_date <= ?', Time.zone.now) }
   
   PUBLIC_URL = "http://fol-events.herokuapp.com/"
   
