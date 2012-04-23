@@ -128,10 +128,7 @@
     <%= raw "rédigé le <b>#{c.created_at.strftime('%d/%m/%Y')}</b>" %>
 	<%= raw "par <b>#{c.user.first_name.to_s} #{c.user.last_name.to_s}</b>" unless c.user.nil?  %>
   </div>
-<% end %>
-
-
-    	
+<% end %>	
 
 <%= form_tag "/events/comment", :class => 'well' do %>
  <%= text_area_tag :body, nil, :style => "width:100%;height:100px" %>
