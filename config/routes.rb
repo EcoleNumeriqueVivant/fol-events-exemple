@@ -12,6 +12,9 @@ FolEvents::Application.routes.draw do
   match '/dashboard', :to => 'application#dashboard'
   
   # post "events/search"
+  get "events/future"
+  get "events/past"
+  
   resources :events do
     collection do
       post :search

@@ -111,18 +111,32 @@
 
 <h1>Commentaires</h1>
 <% @event.root_comments.each do |c| %>
-  <p class="well">
-    <%= gravatar_for c.user.email if !c.user.nil?  %>
-    <%= c.body %>
+  <div class="well">
+	<table class="">
+	<tbody>	
+		<tr>
+	        <td style="width:60px">
+		     <%= gravatar_for c.user.email if !c.user.nil?  %>
+		    </td>
+		    <td>
+			  <%= c.body %>
+		    </td>
+		</tr>
+	</tbody>
+	</table>		
     <br/>
-	<%= raw "<b>#{c.user.first_name.to_s} #{c.user.last_name.to_s}</b>" unless c.user.nil?  %>
-  </p>
+    <%= raw "rédigé le <b>#{c.created_at.strftime('%d/%m/%Y')}</b>" %>
+	<%= raw "par <b>#{c.user.first_name.to_s} #{c.user.last_name.to_s}</b>" unless c.user.nil?  %>
+  </div>
 <% end %>
+
+
+    	
 
 <%= form_tag "/events/comment", :class => 'well' do %>
  <%= text_area_tag :body, nil, :style => "width:100%;height:100px" %>
  <%= hidden_field_tag 'event', @event.id %>
- <span class="help-inline">dfsdfsdfgsfdsfqsfgqsfsqdfs sdfdqsfqs sdf sdf sqdf qsdfsdf qsdfsq fqsfqsf !</span><br/>
+ <span class="help-inline">Si vous avez participé à cette manifestation, partagez votre expérience et laissez un commentaire</span><br/>
  <%= submit_tag "Envoyer", :class =>"btn" %>
 <% end %>
 	

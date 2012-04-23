@@ -1,0 +1,20 @@
+<h1>Evènements</h1>
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#1" data-toggle="tab">Evènements à venir</a></li>
+    <li><a href="#2" data-toggle="tab">Evènements passés</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="1">
+      	<%= render "events_table_future", :locals => { :events => @events_future} %>
+    </div>
+    <div class="tab-pane" id="2">
+      	<%= render "events_table_past", :locals => { :events => @events_future} %>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Nouveau', new_event_path, :class => 'btn btn-primary' %>
+<br/>
+

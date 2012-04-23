@@ -1,11 +1,23 @@
 class EventsController < ApplicationController
+  
+  def future
+    @events = Event.future.paginate(:page => params[:page], :per_page => 6)
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
+  def past
+    @events = Event.past.paginate(:page => params[:page], :per_page => 6)
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+    
   # GET /events
   # GET /events.json
   def index
-
-    @events_past   = Event.past.paginate(:page => params[:page], :per_page => 6)
-    @events_future = Event.future.paginate(:page => params[:page], :per_page => 6)
-        
+    @events   = Event.paginate(:page => params[:page], :per_page => 6)   
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -176,7 +188,7 @@ class EventsController < ApplicationController
     #     end 
    
     if params[:search] != nil && params[:search][:tag_list].count > 0
-       @events = Event.tagged_with(params[:search][:tag_list], :any => true)
+       @events = Event.tagged_with(params[:search][:tag_list]) #, :any => true)
     else
        @events = Event.all
     end
