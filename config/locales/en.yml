@@ -1,4 +1,9 @@
 en:
+    publisable:
+        draft: "Brouillon"
+        review: "pour Relecture"
+        online: "En ligne"
+        archived: "Archivé"            
     typology: "Type de salon"
     theme: "Theme"
     full_month_by_index:

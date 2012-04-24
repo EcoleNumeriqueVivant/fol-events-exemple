@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421111809) do
+ActiveRecord::Schema.define(:version => 20120424084626) do
 
   create_table "addresses", :force => true do |t|
     t.string  "line1",            :default => ""
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20120421111809) do
     t.integer  "rating_count"
     t.decimal  "rating_total"
     t.decimal  "rating_avg",          :precision => 10, :scale => 2
+    t.string   "publish_state"
   end
 
   create_table "ratings", :force => true do |t|

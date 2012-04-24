@@ -1,3 +1,17 @@
+GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: ff1131daee8c03dbcc4966b7914b77a7e3a62f02
+  specs:
+    annotate (2.4.1.beta1)
+
+GIT
+  remote: git://github.com/radar/by_star.git
+  revision: 13b594c7588ea2cef0f8229a7994a9429b19c487
+  specs:
+    by_star (2.0.0.beta1)
+      activerecord (>= 2.0.0)
+      chronic
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -44,6 +58,7 @@ GEM
     bootstrap-will_paginate (0.0.7)
       will_paginate
     builder (3.0.0)
+    chronic (0.6.7)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0)
@@ -162,8 +177,10 @@ DEPENDENCIES
   acts-as-taggable-on
   acts_as_commentable_with_threading
   acts_as_list
+  annotate!
   bcrypt-ruby
   bootstrap-will_paginate
+  by_star!
   coffee-rails (~> 3.1.1)
   country-select (~> 1.0.5)
   geocoder

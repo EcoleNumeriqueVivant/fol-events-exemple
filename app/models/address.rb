@@ -1,4 +1,21 @@
 # coding: utf-8
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id               :integer         not null, primary key
+#  line1            :string(255)     default("")
+#  line2            :string(255)     default("")
+#  city             :string(255)     default("")
+#  state            :string(255)     default("")
+#  country          :string(255)     default("")
+#  zip              :string(255)     default("")
+#  addressable_id   :integer
+#  addressable_type :string(255)     default("")
+#  latitude         :float
+#  longitude        :float
+#
+
 
 #
 # using polymorphism for address

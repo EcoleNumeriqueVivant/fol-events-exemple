@@ -56,4 +56,11 @@ gem 'hominid'
 
 gem 'acts_as_commentable_with_threading'
 
+# User encrypt password
 gem "bcrypt-ruby", :require => "bcrypt"
+
+# Annotate
+gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+
+# By_*
+gem 'by_star', :git =>'git://github.com/radar/by_star.git'

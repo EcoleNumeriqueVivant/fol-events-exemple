@@ -1,13 +1,41 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id                  :integer         not null, primary key
+#  name                :string(255)
+#  begin_date          :date
+#  description         :text
+#  created_at          :datetime
+#  updated_at          :datetime
+#  subscibe_limit_date :date
+#  end_date            :date
+#  attendance          :string(255)
+#  contacts            :text
+#  how_to_participate  :text
+#  registration_fees   :text
+#  participants        :text
+#  related_events      :text
+#  infos_extra         :text
+#  rating_count        :integer
+#  rating_total        :decimal(, )
+#  rating_avg          :decimal(10, 2)
+#  publish_state       :string(255)
+#
+
 class Event < ActiveRecord::Base
     
   include ActionView::Helpers::SanitizeHelper
+  
+  include Publishable
   
   acts_as_rated
   acts_as_commentable
   acts_as_taggable
   acts_as_taggable_on :typology, :theme
   
-  attr_accessible :name, :desc, :tag_list
+  attr_accessible :name, :description, :tag_list
+  validates_presence_of :name, :description, :message => "^Vous devez ajouter un nom et une description..."
   
   include Addressable
   
@@ -16,7 +44,9 @@ class Event < ActiveRecord::Base
   scope :begin_in, lambda { |value|
     where('events.begin_date >= ?', ( -1 * value ).days.ago).order("begin_date desc")
   }
-  # scope :this_month, find(:all, :conditions => ["begin_date = ?", Date.today.month])
+  scope :upcoming, lambda {
+    where("begin_date between ? and ?", Date.today, Date.today.next_month.beginning_of_month)
+  }
   scope :future, lambda { where('events.begin_date >= ?', Time.zone.now) }
   scope :past, lambda { where('events.begin_date <= ?', Time.zone.now) }
   

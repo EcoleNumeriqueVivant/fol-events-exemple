@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: tags
+#
+#  id       :integer         not null, primary key
+#  name     :string(255)
+#  context  :string(255)
+#  position :integer
+#
+
 class Tag < ActiveRecord::Base
   
   include Contextable 

@@ -12,10 +12,12 @@
 		<h3><%= link_to event.name, event_path(event) %></h3>
 		
 		<h5 style="margin-bottom:5px">
-			<% if  event.begin_date.strftime('%d/%m/%Y') == event.end_date.strftime('%d/%m/%Y')  %>
-			    <%= "le " + event.begin_date.strftime('%d/%m/%Y')  %>
-			  <% else %>
-			    <%= "du " + event.begin_date.strftime('%d/%m/%Y') %> au <%= event.end_date.strftime('%d/%m/%Y') %>
+			<% unless event.end_date.nil? &&  event.begin_date.nil? %>
+				<% if  event.begin_date.strftime('%d/%m/%Y') == event.end_date.strftime('%d/%m/%Y')  %>
+				    <%= "le " + event.begin_date.strftime('%d/%m/%Y')  %>
+				  <% else %>
+				    <%= "du " + event.begin_date.strftime('%d/%m/%Y') %> au <%= event.end_date.strftime('%d/%m/%Y') %>
+				<% end %>
 			<% end %>
 		</h5>		
 		<p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 150, :omission => '...' %></p>

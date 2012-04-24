@@ -2,30 +2,23 @@
 
 
 <table class="table">
-  <thead>
-    <tr>
-	  <th></th>
-      <th>Nom</th>
-      <th>Date limite d'inscription</th>
-      <th>Date de l'évènement</th>
-      <th>Ville</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td>
-
-	    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border=>0), event_path(event) %>
+        <td style="width:120px">
+	    <%= link_to (image_tag "http://maps.googleapis.com/maps/api/staticmap?size=120x120&sensor=true&zoom=4&markers=#{event.address.latitude}%2C#{event.address.longitude}", :border=>0, :height => "120", :width => "120"), event_path(event) %>
 	    </td>
 	    <td>
-        <%= link_to event.name, event_path(event) %>
-        <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 400, :omission => '...' %></p>
+        <h3><%= link_to event.name, event_path(event) %></h3>
+        <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 250, :omission => '...' %></p>
+         <%= raw "<b>Date limite d'inscription : </b>" + event.subscibe_limit_date.strftime('%d/%m/%Y') + "<br/>" if !event.subscibe_limit_date.nil?  %> 
+	     <% if  event.begin_date.strftime('%d/%m/%Y') == event.end_date.strftime('%d/%m/%Y')  %>
+		  <%= "évènement le " + event.begin_date.strftime('%d/%m/%Y')  %>
+		<% else %>
+		  <%= "évènement du " + event.begin_date.strftime('%d/%m/%Y') %> au <%= event.end_date.strftime('%d/%m/%Y') %>
+		<% end %>
+	     <%= raw "à <b>" + event.address.city + "</b>" if !event.address.city.nil? %>
         </td>
-        <td><%= event.subscibe_limit_date.strftime('%d/%m/%Y') if !event.subscibe_limit_date.nil?  %></td>
-		<td><%= event.begin_date.strftime('%d/%m/%Y') if !event.begin_date.nil? %></td>
-		<td><%= event.address.city if !event.address.city.nil? %></td>
         <td>
           <%= link_to 'Editer', edit_event_path(event), :class => 'btn btn-mini' %>
         </td>
@@ -33,8 +26,7 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @events %>
-
+<%= will_paginate @events, :previous_label => "Précédent", :next_label => "Suivant" %>
 
 <%= link_to 'Nouveau', new_event_path, :class => 'btn btn-primary' %>
 <br/>

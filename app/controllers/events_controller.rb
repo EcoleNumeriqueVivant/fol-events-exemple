@@ -176,23 +176,32 @@ class EventsController < ApplicationController
   end
   
   def search
-    
+    @events = nil
     # raise params.inspect 
     region = params[:region]
-    mois   = params[:mois]
-    
+  
     # if params[:search] != nil && params[:search][:tag_list].count > 0
     #       @events = Event.tagged_with(params[:search][:tag_list], :any => true).paginate(:page => params[:page], :per_page => 6)
     #     else
     #      @events = Event.paginate(:page => params[:page], :per_page => 6)
     #     end 
    
+    # Event.tagged_with("Festival").by_month(4, :field => :begin_date)
+     
     if params[:search] != nil && params[:search][:tag_list].count > 0
-       @events = Event.tagged_with(params[:search][:tag_list]) #, :any => true)
+      if params[:mois].to_i == -1
+        @events = Event.tagged_with(params[:search][:tag_list]) #, :any => true)   
+      else
+        @events = Event.tagged_with(params[:search][:tag_list]).by_month(params[:mois].to_i, :field => :begin_date)            
+      end   
     else
-       @events = Event.all
+       if params[:mois].to_i == -1
+         @events = Event.all  
+       else
+         @events = Event.by_month(params[:mois].to_i, :field => :begin_date)  
+       end
     end
-    
+       
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
