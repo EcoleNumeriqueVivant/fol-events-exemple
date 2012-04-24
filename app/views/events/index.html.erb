@@ -12,10 +12,12 @@
         <h3><%= link_to event.name, event_path(event) %></h3>
         <p><%= raw truncate (sanitize event.description, :tags => %w(h1 a)), :length => 250, :omission => '...' %></p>
          <%= raw "<b>Date limite d'inscription : </b>" + event.subscibe_limit_date.strftime('%d/%m/%Y') + "<br/>" if !event.subscibe_limit_date.nil?  %> 
+        <% if !event.begin_date.nil? && !event.end_date.nil?  %>
 	     <% if  event.begin_date.strftime('%d/%m/%Y') == event.end_date.strftime('%d/%m/%Y')  %>
 		  <%= "évènement le " + event.begin_date.strftime('%d/%m/%Y')  %>
 		<% else %>
 		  <%= "évènement du " + event.begin_date.strftime('%d/%m/%Y') %> au <%= event.end_date.strftime('%d/%m/%Y') %>
+		<% end %>
 		<% end %>
 	     <%= raw "à <b>" + event.address.city + "</b>" if !event.address.city.nil? %>
         </td>

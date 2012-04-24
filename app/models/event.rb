@@ -36,6 +36,7 @@ class Event < ActiveRecord::Base
   
   attr_accessible :name, :description, :tag_list
   validates_presence_of :name, :description, :message => "^Vous devez ajouter un nom et une description..."
+  validates_presence_of :begin_date, :end_date, :message => "^Vous devez ajouter les dates..."
   
   include Addressable
   
