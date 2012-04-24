@@ -94,7 +94,7 @@
 	<fieldset id="tags">
 	  <legend>Tags : </legend>
 	  <div class=" span4">
-		<%= f.label "Type de salon", :class => 'control-label' %>
+		<%= f.label I18n.translate( "typology"), :class => 'control-label' %>
       	<div class="controls">
 		      <% Tag.typology.each do |t| %>
 		         
@@ -105,7 +105,7 @@
       </div>
       
 	  <div class="span4">
-		<%= f.label "Thématique", :class => 'control-label' %>
+		<%= f.label I18n.translate( "theme"), :class => 'control-label' %>
       <div class="controls">
 	      <% Tag.theme.each do |t| %>
 		         

@@ -13,10 +13,9 @@
 	  <div class="controls">
 	  <%= select_tag "mois", options_for_select([["Indifférent",-1],["Janvier",1],["Février",2],["Mars",3],["Avril",4],["Mai",5],["Juin",6],["Juillet",7],["Août",8],["Septembre",9],["Octobre",10],["Novembre",11],["Décembre",12]], params[:mois]), :style => "width:100%" %>
 	  </div></div>
-	 
-	
+
 	  <div class="control-group">
-		<li class="icon-tag"></li><b> Type de salon</b>
+		<li class="icon-tag"></li><b><%= I18n.translate( "typology") %></b>
 		<div class="controls" style="padding-top:5px">
 	 <% Tag.typology.each do |t| %>
 	     <% if params[:search] != nil %>
@@ -28,7 +27,7 @@
 	  <% end %>
 	  </div></div>
 	  <div class="control-group">
-		<li class="icon-tag"></li><b> Thème</b>
+		<li class="icon-tag"></li><b><%= I18n.translate( "theme") %></b>
 		<div class="controls" style="padding-top:5px">
 	  <% Tag.theme.each do |t| %>
 	    <% if params[:search] != nil %>

@@ -1,6 +1,6 @@
 en:
-    typology: "Type de salon"
-    theme: "Theme"
+    typology: "Type de manifestation"
+    theme: "Thématique"
     full_month_by_index:
       1: "Janvier"
       2: "Février"

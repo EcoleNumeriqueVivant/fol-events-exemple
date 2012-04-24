@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
    def add_to_list
      puts params.inspect
      if session[:register].nil?
-       # MailChimp.subscribe params[:mail]
+       MailChimp.subscribe params[:mail]
        session[:register] = params[:mail]
      end
      render :nothing => true, :status => 200
