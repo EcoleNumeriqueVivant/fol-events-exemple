@@ -1,10 +1,14 @@
 <h1><%= @event.name %></h1>
+<% if !@event.begin_date.nil? && !@event.end_date.nil?  %>
 <% if  @event.begin_date.strftime('%d/%m/%Y') == @event.end_date.strftime('%d/%m/%Y')  %>
   <%= "le " + @event.begin_date.strftime('%d/%m/%Y')  %>
 <% else %>
   <%= "du " + @event.begin_date.strftime('%d/%m/%Y') %> au <%= @event.end_date.strftime('%d/%m/%Y') %>
 <% end %>
+<% end %>
 <i class="icon-share"></i> <%= link_to "sauver dans mon agenda", :controller => 'events', :action => :show, :format => :ics %> <li class="icon-map-marker"></li> <%= link_to "repérer sur google map", "http://maps.google.com/?ie=UTF8&hq=&ll=#{@event.address.latitude},#{@event.address.longitude}&z=18" %>
+<i class="icon-print"></i>
+<%= link_to "version imprimable", :controller => "doc_export", :action => "event", :format => "pdf", :event => @event.id %>
 
 <div id="star"></div>
 <script>
@@ -21,9 +25,6 @@
   }
 });
 </script>
-
-
-
 
 <br/><br/>
 <div class="row">

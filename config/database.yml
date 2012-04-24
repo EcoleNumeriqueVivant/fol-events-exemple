@@ -3,10 +3,13 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+encoding: UTF8
+
 common: &common
   host: localhost    
   adapter: postgresql
   password: 42cRu42cRu # from psql setup, see Postgresql
+  encoding: UTF8
 
 development:
   <<: *common

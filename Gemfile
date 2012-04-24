@@ -64,3 +64,12 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 # By_*
 gem 'by_star', :git =>'git://github.com/radar/by_star.git'
+
+# xml parser
+gem 'nokogiri'
+
+# use prawn to generate invoices, order_form
+gem 'ttfunk', :git => 'git://github.com/sandal/ttfunk.git'
+gem "prawn_rails"
+gem 'pdf-renderer', :git => 'git://github.com/Chussenot/pdf-renderer.git'
+gem "hpricot", "~> 0.8.6"

@@ -1,10 +1,9 @@
 FolEvents::Application.routes.draw do
 
   get "help/index"
-
   get "account/index"
 
-  namespace :backend do resources :users end
+  get '/fiche' => 'doc_export#event'
 
   get "application/index"
   
