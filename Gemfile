@@ -34,7 +34,6 @@ gem 'acts-as-taggable-on'
 
 # geolocation
 gem 'geocoder'
-gem 'gmaps4rails'
 
 gem 'simple_form' # https://github.com/plataformatec/simple_form
 

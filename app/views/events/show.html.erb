@@ -17,7 +17,7 @@
   start: <%= @event.rating_average.to_f %>,
   click: function(score, evt) {
     $.getJSON("/events/rate", {
-	      event: 18,
+	      event: <%=  @event.id %>,
 	      rate: score
 	    }, function(data) {
 	      return alert("ok");
