@@ -8,25 +8,25 @@
 //= require jquery_ujs
 //= require jquery-ui
 
-//= require twitter/bootstrap
-//= require_tree .
 
-//= require gmaps4rails/bing.js
-//= require gmaps4rails/googlemaps.js
-//= require gmaps4rails/mapquest.js
-//= require gmaps4rails/openlayers.js
-//= require gmaps4rails/all_apis.js
+//= require twitter/bootstrap
 
 //= require bootstrap-datepicker.js
 //= require tinymce-jquery
 
 //= require tweets
+//= require frontpage
+//= require tags
+
 //= require jquery.raty
 
-$().ready(function() {
-   $('.tiny').tinymce({
-      theme : "advanced",
-      theme_advanced_toolbar_location : "top",
-      theme_advanced_toolbar_align : "center"
-   });
-});
+//= require underscore
+//= require backbone
+//
+//= require fol_events
+//
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers

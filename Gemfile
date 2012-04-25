@@ -72,3 +72,5 @@ gem 'ttfunk', :git => 'git://github.com/sandal/ttfunk.git'
 gem "prawn_rails"
 gem 'pdf-renderer', :git => 'git://github.com/Chussenot/pdf-renderer.git'
 gem "hpricot", "~> 0.8.6"
+
+gem 'backbone-on-rails'

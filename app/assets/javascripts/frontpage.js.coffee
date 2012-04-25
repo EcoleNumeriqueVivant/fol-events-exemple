@@ -7,3 +7,8 @@ $(document).ready ->
   $("#events").carousel
     interval: 5000
 
+$().ready ->
+  $(".tiny").tinymce
+    theme: "advanced"
+    theme_advanced_toolbar_location: "top"
+    theme_advanced_toolbar_align: "center"
