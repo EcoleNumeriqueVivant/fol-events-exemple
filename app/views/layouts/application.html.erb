@@ -83,13 +83,21 @@
 	  <% end %>
     </div>
   </div>
-  <div class="push"><!--//--></div>
-  </div></div>
-  <footer class="container">
-  	  <p>
+  	<p style="text-align:center;">
 	   par <a href="http://www.fontaineolivres.com">Fontaine O Livres</a> - <%= Time.zone.now.year %> - 5 passage Piver 75011 Paris - Tél : 01 43 14 03 94 
-	  </p>
-  </footer>
+	</p>
+  <div class="push"><!--//--></div>
+  </div>
+</div>
+  
+  <!-- <footer id="footpanel">
+  	  <ul id="mainpanel">
+  	        <li><a href="/dashboard" class="home">Dashboard</a></li>
+  	        <li><a href="/account/show" class="profile">View Profile <small>View Profile</small></a></li>
+  	        <li><a href="/account/index" class="editprofile">Edit Profile <small>Edit Profile</small></a></li>
+  	        <li id="chatpanel"><%= render :partial => 'shared/chatpanel' %></li>
+  	  </ul>
+    </footer> -->
 </div>
 </body>
 </html>

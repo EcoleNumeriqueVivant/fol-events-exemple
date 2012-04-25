@@ -2,7 +2,8 @@ FolEvents::Application.routes.draw do
 
   get "help/index"
   get "account/index"
-
+  get "account/show"
+  
   get '/fiche' => 'doc_export#event'
 
   get "application/index"
