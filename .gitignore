@@ -7,3 +7,4 @@ tmp/
 .vagrant
 Vagrantfile
 public/.DS_Store
+.DS_Store
