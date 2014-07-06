@@ -6,9 +6,9 @@
 encoding: UTF8
 
 common: &common
-  host: localhost    
+  host: localhost
   adapter: postgresql
-  password: 42cRu42cRu # from psql setup, see Postgresql
+  password:
   encoding: UTF8
 
 development:
@@ -19,10 +19,9 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *common
+  username: postgres
+  database: fol_events_test
 
 production:
   adapter: sqlite3
