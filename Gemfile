@@ -19,7 +19,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
@@ -40,15 +39,14 @@ gem 'simple_form' # https://github.com/plataformatec/simple_form
 gem "country-select", "~> 1.0.5"
 
 gem 'will_paginate'
-gem 'bootstrap-will_paginate'
 
-# Wysiwyg editor 
+# Wysiwyg editor
 gem 'tinymce-rails'
 
 gem "icalendar"
 
 # Mailing solution
-gem 'gibbon'
+gem 'gibbon', "0.3.5"
 gem 'hominid'
 
 # gem 'bossman'
