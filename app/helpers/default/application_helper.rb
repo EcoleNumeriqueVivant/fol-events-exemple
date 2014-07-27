@@ -1,2 +1,0 @@
-module Default::ApplicationHelper
-end
