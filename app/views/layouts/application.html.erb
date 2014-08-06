@@ -1,6 +1,3 @@
-<% if current_user.blank? %>
- <%  check_user %>
-<% end %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +24,7 @@
         <a class="brand" href="/dashboard">Fontaine O Livres</a>
         <div class="nav-collapse">
           <ul class="nav">
-            
+
 			<li class="dropdown">
 			    <a href="#"
 			          class="dropdown-toggle"
@@ -42,22 +39,10 @@
 			    </ul>
 			 </li>
 
-   			<li><%= link_to "Voir les Tags", tags_path %></li>
-            <li><%= link_to "Mon Compte" , :controller => "account", :action => "index" %></li>
-            <li><%= link_to "Aide", :controller => "help", :action => "index" %></li>
-          </ul>
-        </div>
-         
         <div id="user_nav" style="color:white;margin-top:10px" class="pull-right">
-		  <% if current_user %>
-		    <%= current_user.email %> - 
-		    <%= link_to "déconnection", log_out_path %>
-		  <% else %>
-		    <%= link_to "s'inscrire", sign_up_path %> ou
-		    <%= link_to "se connecter", log_in_path %>
-		  <% end %>
+
 		</div>
-		
+
       </div>
     </div>
   </div>
@@ -72,32 +57,23 @@
     <div class="row">
       <% unless controller.action_name == "edit" || controller.action_name == "new" %>
 		<div class="span3">
-		 <% if session[:register].nil? %>	
+		 <% if session[:register].nil? %>
 	       <%= render "shared/mail_list" %>
 	     <% end %>
 	     <%= render "shared/search" %>
 	    </div>
         <div class="span9"><%= yield %><br/><br/></div>
-      <% else %> 
+      <% else %>
         <div class="span12"><%= yield %><br/><br/></div>
 	  <% end %>
     </div>
   </div>
   	<p style="text-align:center;">
-	   par <a href="http://www.fontaineolivres.com">Fontaine O Livres</a> - <%= Time.zone.now.year %> - 5 passage Piver 75011 Paris - Tél : 01 43 14 03 94 
+	   par <a href="http://www.fontaineolivres.com">Fontaine O Livres</a> - <%= Time.zone.now.year %> - 5 passage Piver 75011 Paris - Tél : 01 43 14 03 94
 	</p>
   <div class="push"><!--//--></div>
   </div>
 </div>
-  
-  <!-- <footer id="footpanel">
-  	  <ul id="mainpanel">
-  	        <li><a href="/dashboard" class="home">Dashboard</a></li>
-  	        <li><a href="/account/show" class="profile">View Profile <small>View Profile</small></a></li>
-  	        <li><a href="/account/index" class="editprofile">Edit Profile <small>Edit Profile</small></a></li>
-  	        <li id="chatpanel"><%= render :partial => 'shared/chatpanel' %></li>
-  	  </ul>
-    </footer> -->
 </div>
 </body>
 </html>

@@ -217,8 +217,7 @@ class EventsController < ApplicationController
     redirect_to :back
   end  
     
-  def rate  
-    puts "rate"
+  def rate
     event = Event.find(params[:event])
     event.rate params[:rate].to_f , current_user
     render :nothing => true, :status => 200
