@@ -1,22 +1,20 @@
 {
-  "name": "fol-events",
+  "name": "folfront",
   "version": "0.0.0",
-  "homepage": "https://github.com/chussenot/fol-events",
-  "authors": [
-    "chussenot <chussenot@gmail.com>"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "vendor/assets/components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
-    "bootstrap": "~3.2.0",
-    "jquery": "~2.1.1",
-    "jquery.sortable": "*"
-  }
+    "jasmine": "~1.3.1",
+    "jquery": "~2.1.0",
+    "lodash": "~2.4.1",
+    "underscore": "~1.5.0",
+    "backbone": "~1.1.0",
+    "requirejs": "~2.1.10",
+    "requirejs-text": "~2.0.10",
+    "modernizr": "~2.7.1",
+    "html5shiv": "~3.7.2",
+    "semantic-ui": "https://github.com/challet/Semantic-UI.git#master",
+    "zoomorscroll": "https://github.com/challet/zoomorscroll.git#master",
+    "leaflet": "~0.7.3",
+    "jquery.scrollTo": "~1.4.13"
+  },
+  "devDependencies": {}
 }
