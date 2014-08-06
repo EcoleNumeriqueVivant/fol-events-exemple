@@ -3,9 +3,9 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
-
 .vagrant
 Vagrantfile
 public/.DS_Store
 .DS_Store
 vendor/assets/components/
+.tmp
