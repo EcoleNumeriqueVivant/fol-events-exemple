@@ -9,13 +9,11 @@
 #
 
 class Tag < ActiveRecord::Base
-  
-  include Contextable 
-  CONTEXTS = ["typology","theme"]
-  add_scopes_for_contexts :context, CONTEXTS  
-  
   acts_as_list # to manage position
-  
-  default_scope order(:position) 
+  default_scope {order(:position)}
+
+  validates_inclusion_of :context, :in => %w{typology theme}, :message => "^invalid context"
+  scope :typology, -> { where(context: 'typology') }
+  scope :theme, -> { where(context: 'theme') }
 
 end

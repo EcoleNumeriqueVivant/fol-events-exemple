@@ -1,5 +1,6 @@
 FolEvents::Application.routes.draw do
 
+  devise_for :users
   get "help/index"
   get "account/index"
   get "account/show"
@@ -8,8 +9,8 @@ FolEvents::Application.routes.draw do
 
   get "application/index"
   
-  match '/add_to_list', :via => :post, :to => 'application#add_to_list'
-  match '/dashboard', :to => 'application#dashboard'
+  match '/add_to_list' => 'application#add_to_list', via: [:post]
+  match '/dashboard' => 'application#dashboard', via: [:get]
   
   # post "events/search"
   get "events/future"
@@ -40,7 +41,7 @@ FolEvents::Application.routes.draw do
   end
   # /backend
   
-  root :controller => 'Default::Application', :action => 'index'
+  root 'application#index'
   # root :to => "users#new"
   
   get "log_out" => "sessions#destroy", :as => "log_out"
