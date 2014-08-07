@@ -1,0 +1,41 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Fontaine O Livres</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+            <link rel="stylesheet" href="styles/reset.css">
+            <link rel="stylesheet" href="styles/customreset.css">
+            <link rel="stylesheet" href="bower_components/semantic-ui/build/packaged/css/semantic.css">
+            <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
+            <link rel="stylesheet" href="styles/layout.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+            <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        
+        <header class="ui black inverted main tiered menu" id="header_container"></header>
+        
+        <div class="ui stackable page grid" id="page_container"></div>
+
+        <!-- build:js scripts/main.js -->
+          <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/ie.js -->
+          <!--[if lt IE 9]>
+            <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+          <![endif]-->
+        <!-- endbuild -->
+        
+</body>
+</html>
