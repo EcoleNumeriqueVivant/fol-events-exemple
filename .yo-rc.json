@@ -1,0 +1,11 @@
+{
+  "generator-backbone": {
+    "appPath": "front",
+    "appName": "folfront",
+    "coffee": true,
+    "testFramework": "jasmine",
+    "templateFramework": "lodash",
+    "compassBootstrap": false,
+    "includeRequireJS": true
+  }
+}
