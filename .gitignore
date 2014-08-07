@@ -9,3 +9,5 @@ Vagrantfile
 public/.DS_Store
 .DS_Store
 vendor/assets/components/
+.tmp
+node_modules
