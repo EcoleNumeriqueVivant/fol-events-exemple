@@ -24,23 +24,23 @@
 #
 
 class Event < ActiveRecord::Base
-    
+
   include ActionView::Helpers::SanitizeHelper
-  
+
   include Publishable
-  
+
   acts_as_rated
   acts_as_commentable
   acts_as_taggable
   acts_as_taggable_on :typology, :theme
-  
+
   attr_accessible :name, :description, :tag_list
   validates_presence_of :name, :description, :message => "^Vous devez ajouter un nom et une description..."
   validates_presence_of :begin_date, :end_date, :message => "^Vous devez ajouter les dates..."
-  
+
   include Addressable
-  
-  default_scope order("begin_date asc")
+
+  default_scope {order("begin_date asc")}
 
   scope :begin_in, lambda { |value|
     where('events.begin_date >= ?', ( -1 * value ).days.ago).order("begin_date desc")
@@ -50,9 +50,9 @@ class Event < ActiveRecord::Base
   }
   scope :future, lambda { where('events.begin_date >= ?', Time.zone.now) }
   scope :past, lambda { where('events.begin_date <= ?', Time.zone.now) }
-  
+
   PUBLIC_URL = "http://fol-events.herokuapp.com/"
-  
+
   def to_ics
     event = Icalendar::Event.new
     event.start = self.begin_date.strftime("%Y%m%dT%H%M%S")
@@ -67,5 +67,5 @@ class Event < ActiveRecord::Base
     event.add_comment("par Fontaine O Livres")
     event
   end
-  
+
 end
