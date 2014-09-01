@@ -43,6 +43,7 @@ gem "hpricot",                    "~> 0.8.6"
 gem 'foreman'
 gem 'compass'
 gem 'grape'
+gem 'protected_attributes'
 
 group :test do
   # Pretty printed test output

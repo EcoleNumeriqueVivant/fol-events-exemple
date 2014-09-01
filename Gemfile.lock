@@ -204,6 +204,8 @@ GEM
     prawn_rails (0.0.11)
       prawn (>= 0.11.1)
       railties (>= 3.0.0)
+    protected_attributes (1.0.8)
+      activemodel (>= 4.0.1, < 5.0)
     puma (2.8.2)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
@@ -305,6 +307,7 @@ DEPENDENCIES
   pdf-renderer!
   pg (~> 0.17.1)
   prawn_rails
+  protected_attributes
   puma (~> 2.8.2)
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
