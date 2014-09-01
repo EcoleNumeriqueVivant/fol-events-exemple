@@ -83,9 +83,15 @@ GEM
     arel (5.0.1.20140414130214)
     awesome_nested_set (2.1.6)
       activerecord (>= 3.0.0)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.7)
     builder (3.2.2)
     chunky_png (1.3.1)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -101,6 +107,8 @@ GEM
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
     country-select (1.0.5)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -110,6 +118,7 @@ GEM
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
+    equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.2.1)
     faraday (0.9.0)
@@ -125,6 +134,16 @@ GEM
       json (> 1.4.0)
       json (> 1.4.0)
       rdoc
+    grape (0.7.0)
+      activesupport
+      builder
+      hashie (>= 1.2.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
     hashery (2.1.1)
     hashie (3.2.0)
     hike (1.2.3)
@@ -135,6 +154,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.6.11)
     icalendar (2.1.0)
+    ice_nine (0.11.0)
     json (1.8.1)
     jwt (1.0.0)
     mail (2.5.4)
@@ -187,6 +207,10 @@ GEM
     puma (2.8.2)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.1)
@@ -241,6 +265,11 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    virtus (1.0.2)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0.3)
+      equalizer (~> 0.0.9)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.7)
@@ -264,6 +293,7 @@ DEPENDENCIES
   foreman
   geocoder
   gibbon (= 0.3.5)
+  grape
   hominid
   hpricot (~> 0.8.6)
   icalendar
