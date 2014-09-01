@@ -10,3 +10,4 @@ public/.DS_Store
 vendor/assets/components/
 .tmp
 node_modules
+public
