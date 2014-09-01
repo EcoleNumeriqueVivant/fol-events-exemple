@@ -45,6 +45,8 @@ gem 'compass'
 gem 'grape'
 gem 'protected_attributes'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 group :test do
   # Pretty printed test output
   gem 'turn',                     :require => false
