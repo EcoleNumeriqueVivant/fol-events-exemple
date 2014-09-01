@@ -71,7 +71,7 @@ define ['jquery', 'underscore', 'backbone', 'semanticui', 'routes/router', 'view
     @app_router = new Router(main_view: @main_view)
     @main_view.setRouter(@app_router)
     # go live
-    Backbone.history.navigate('home') if not Backbone.history.start(pushState: false)
+    Backbone.history.navigate('home', trigger: true) if not Backbone.history.start(pushState: false)
 
 
     
