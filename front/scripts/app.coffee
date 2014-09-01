@@ -55,15 +55,18 @@ define ['jquery', 'underscore', 'backbone', 'semanticui', 'routes/router', 'view
         # if interval is falsy, stop the timer
         @periodicinterval = interval
         @stopperiodicfetch()
-        
+    
     # intercept 'sync' calls to add the API root to urls
     backboneSync = Backbone.sync;
     Backbone.sync = (method, model, options) =>
+      orginal_error_callback = options.error
       options = _.extend(options, {
           url: @config.api_root + _.result(model, 'url') || urlError()
-      });
-      # original stored method
-      backboneSync(method, model, options);
+          error: (jqXHR, statusText, error) -> # using the jQuery XHR object coming from the core Backbone sync method
+            console.error("#{jqXHR.status} #{error} : #{jqXHR.responseText}")
+            orginal_error_callback(jqXHR, statusText, error)
+      })
+      backboneSync(method, model, options)
   
   init_app: ->
     # set up the application main components

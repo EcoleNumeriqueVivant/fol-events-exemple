@@ -1,4 +1,3 @@
-require './app/api/fol/logger.rb'
 require './app/api/fol/v1/root.rb'
 
 module FOL
