@@ -6,4 +6,6 @@ FolEvents::Application.routes.draw do
      resources :comments
   end
 
+  mount FOL::API::Root => 'api'
+
 end

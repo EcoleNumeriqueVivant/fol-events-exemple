@@ -23,9 +23,9 @@ require.config
       exports: 'ui'
     leaflet:
       exports: 'L'
-  
+
 
 require ['app'], (App) ->
-  App.init_env(api_root: '/images/fakeapi') # TODO move this in a conf for each environment
+  App.init_env(api_root: '/api/v1') # TODO move this in a conf for each environment
   App.init_app()
 
