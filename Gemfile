@@ -42,6 +42,7 @@ gem 'pdf-renderer',               :git => 'git://github.com/Chussenot/pdf-render
 gem "hpricot",                    "~> 0.8.6"
 gem 'foreman'
 gem 'compass'
+gem 'grape'
 
 group :test do
   # Pretty printed test output
