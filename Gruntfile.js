@@ -198,7 +198,7 @@ module.exports = function (grunt) {
                     // paths for 'grunt build', see scripts/main.coffee for the 'grunt serve' config
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
-                        'jquery': '../../front/bower_componentsgit diff/jquery/dist/jquery',
+                        'jquery': '../../front/bower_components/jquery/dist/jquery',
                         'underscore': '../../front/bower_components/underscore/underscore',
                         'backbone': '../../front/bower_components/backbone/backbone',
                         'semanticui': '../../front/bower_components/semantic-ui/build/packaged/javascript/semantic',
