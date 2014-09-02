@@ -26,6 +26,8 @@ define [
       # TODO: move in some conf
       L.Icon.Default.imagePath = '/images' unless L.Icon.Default.imagePath # for 'public' build
 
+      @main_view = options.main_view
+
       @listenTo( @collection, 'add', @displayEvent )
       @listenTo( @collection, 'remove', @hideEvent )
       @listenTo( @collection, 'sync', =>  @activateEvent(options.focus_as_name) )
@@ -91,6 +93,7 @@ define [
     adaptFixedElements: (event) =>
       if($(window).prop('scrollY') > @$el.offset().top)
         $('#page_container').addClass('header_shifted')
+        @main_view.eventsearch_view.toggleForm(preventDefault: ->) if $('#event_search_trigger').hasClass('active')
       else
         $('#page_container').removeClass('header_shifted')
 

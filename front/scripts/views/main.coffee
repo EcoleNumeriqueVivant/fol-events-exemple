@@ -24,7 +24,7 @@ define [
       # clean and switch
       @current_page_view?.remove()
       # set up the new one
-      @current_page_view = new sub_view(_(options).defaults(el: @$page_container))
+      @current_page_view = new sub_view(_(options).defaults(el: @$page_container, main_view: @))
       @listenTo(@current_page_view, 'url:fragment', (fragment) => @router.navigate("home/#{fragment}", trigger: false))
       
   

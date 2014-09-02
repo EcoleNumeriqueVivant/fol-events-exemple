@@ -1,5 +1,11 @@
 <article class="ui piled segment">
-    <img class="ui image" src="<%= image %>" />
+    <% if(typeof image !== 'undefined') { %>
+        <img class="ui image" src="<%= image %>" />
+    <% } else { %>
+        <div class="ui image fakeimg">
+            <p><%= name %></p>
+        </div>
+    <% } %>
     <h2><%= name %></h2>
     <p class="description"><%= description %></p>
     <aside class="ui celled list">
@@ -23,5 +29,4 @@
     <i class="circular large down inverted angle link icon"></i>
     <i class="circular large up inverted double angle link icon"></i>
 </div>
-
 

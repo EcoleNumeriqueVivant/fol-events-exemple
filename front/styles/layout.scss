@@ -162,7 +162,7 @@ html {
               margin-left: 6rem;
               min-height: 5rem;
             }
-            img {
+            > img, > .fakeimg {
               height: 26rem;
               margin: 0 0 0.1em 6%;
               float: right;
@@ -170,9 +170,19 @@ html {
               background: none repeat scroll 0% 0% #FFF;
               border: 1px solid #555;
             }
+            > .fakeimg {
+              width: 16rem;
+              p {
+                font-size: 2.6em;
+                text-align: center;
+                padding: 3em 1em;
+                color: #F7F7F7;
+                
+              }
+            }
           }
           &.active article {
-            background-color: #F7F7F7;
+            background-color: #F9F9F9;
           }
           .separator {
             text-align: center;
