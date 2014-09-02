@@ -12,8 +12,15 @@ define [
 
     toggleForm: (event) =>
       event.preventDefault();
+      
       @$('#event_search').toggle()
       @$('#event_search_trigger').toggleClass('active')
+
+    closeIfOpen: ->
+      if @$('#event_search_trigger').hasClass('active')
+        $.scrollTo( $(window).prop('scrollY') - @$('#event_search').outerHeight(true))
+        @toggleForm(preventDefault: ->)
+        
 
     search: (event) ->
       event.preventDefault()

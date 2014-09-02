@@ -93,7 +93,7 @@ define [
     adaptFixedElements: (event) =>
       if($(window).prop('scrollY') > @$el.offset().top)
         $('#page_container').addClass('header_shifted')
-        @main_view.eventsearch_view.toggleForm(preventDefault: ->) if $('#event_search_trigger').hasClass('active')
+        @main_view.eventsearch_view.closeIfOpen()
       else
         $('#page_container').removeClass('header_shifted')
 
