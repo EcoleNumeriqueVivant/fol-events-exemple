@@ -13,16 +13,18 @@ define [
       @render() if not @model.isNew()
 
     render: ->
-      L.marker(@model.get('position')).addTo(@map)
+      if @model.get('position')
+        L.marker(@model.get('position')).addTo(@map)
       
     activate: ->
-      try 
-        @map.getCenter()
-        initialized = true
-      catch
-        initialized = false
-      finally
-        @map.setView(@model.get('position'), 12, animate: true) if initialized 
+      if @model.get('position')
+        try 
+          @map.getCenter()
+          initialized = true
+        catch
+          initialized = false
+        finally
+          @map.setView(@model.get('position'), 12, animate: true) if initialized
       @
       
       

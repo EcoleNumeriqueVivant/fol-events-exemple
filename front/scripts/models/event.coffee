@@ -9,7 +9,7 @@ define ['backbone', 'leaflet'], (Backbone, L) ->
       _(['description', 'infos_extra', 'how_to_participate', 'contacts']).each((field) -> 
         response[field] = $('<div></div>').html(response[field]).text() # get rid of HTML tags
       )
-      response.position = L.latLng(response.position.lat, response.position.lon) if response.position
+      response.position = if (typeof response.position isnt 'undefined') then L.latLng(response.position.lat, response.position.lon) else null
       response
 
 
