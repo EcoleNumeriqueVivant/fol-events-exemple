@@ -27,6 +27,7 @@ define [
       L.Icon.Default.imagePath = '/images' unless L.Icon.Default.imagePath # for 'public' build
 
       @main_view = options.main_view
+      @listenTo( @main_view.eventsearch_view, 'search:params', @collection.setParams )
 
       @listenTo( @collection, 'add', @displayEvent )
       @listenTo( @collection, 'remove', @hideEvent )
@@ -117,6 +118,7 @@ define [
       $('#map').removeClass('uninitialized')
       _(@displayedEvents).find((view) -> view.active)?.activate(scroll: false, url: false, map: true)
       # TODO : update EventCollection according to the new location params
+      @collection.setParams('around': "#{position.coords.latitude};#{position.coords.longitude}")
 
     toggleBackground: (event) =>
       event.preventDefault()

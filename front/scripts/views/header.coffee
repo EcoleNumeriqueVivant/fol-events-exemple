@@ -20,8 +20,14 @@ define [
       if @$('#event_search_trigger').hasClass('active')
         $.scrollTo( $(window).prop('scrollY') - @$('#event_search').outerHeight(true))
         @toggleForm(preventDefault: ->)
-        
 
     search: (event) ->
       event.preventDefault()
+      serialized_step1 = $(event.target).serializeArray()
+      reducer = (memo, value, index, list) ->
+        if(typeof memo[value.name] isnt 'undefined')
+          memo[value.name].push(value.value)
+        memo
+      serialized_step2 = _(serialized_step1).reduce(reducer, {'type': [], 'month': [], 'theme': []})
+      @trigger('search:params', serialized_step2)
       @toggleForm(event)
