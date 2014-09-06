@@ -8,13 +8,26 @@ Bundler.require(*Rails.groups)
 
 module FolEvents
   class Application < Rails::Application
-    # Add Bower components
+    config.autoload_paths << Rails.root.join('lib')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+
+    config.generators do |g|
+      g.test_framework      :rspec, fixture: true
+      g.fixture_replacement :fabrication
+    end
+    config.sass.preferred_syntax    = :sass
+    config.sass.line_comments       = false
+    config.sass.cache               = false
+
+    config.generators.stylesheets   = false
+    config.generators.javascripts   = false
+    config.generators.helper        = false
+
     config.middleware.use Rack::Cors do
         allow do
           origins '*'
           # location of your API
-          resource '/api/*', :headers => :any, :methods => [:get, :post, :options, :put]
+          resource '/api/*', :headers => :any, :methods => [:get, :post, :options, :put, :delete]
         end
     end
   end

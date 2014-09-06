@@ -4,8 +4,8 @@ common: &common
   host: localhost
   pool: 5
   timeout: 5000
-  username: 
-  password:   
+  username:
+  password:
 
 development:
   <<: *common

@@ -10,6 +10,21 @@ module FOL
       format :json
 
       helpers do
+        def warden
+          env['warden']
+        end
+
+        def current_user
+          warden.user
+        end
+
+        def authenticated?
+          if warden.authenticated?
+            true
+          else
+            error!({ message: '401 Unauthorized'}, 401)
+          end
+        end
       end
 
       get :ping do
