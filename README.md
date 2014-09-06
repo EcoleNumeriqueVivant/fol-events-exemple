@@ -22,3 +22,7 @@ RAILS_ENV=test bundle exec rake spec:javascript
 ```
 bundle exec rake rspec
 ```
+
+## use Gulp !
+http://gulpjs.com/
+http://jaysoo.ca/2014/01/27/gruntjs-vs-gulpjs/
