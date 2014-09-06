@@ -5,10 +5,13 @@ ruby '2.1.2'
 gem 'rails',                      '4.1.1'
 gem 'puma',                       '~> 2.8.2'
 gem 'pg',                         '~> 0.17.1'
-gem 'sass-rails',                 '~> 4.0.3'
 gem 'uglifier',                   '>= 1.3.0'
+
+gem 'sass-rails',                 '~> 4.0.3'
+gem 'haml-rails'
 gem 'coffee-rails',               '~> 4.0.0'
 gem 'compass-rails',              '~> 1.1.7'
+
 gem 'devise',                     '~> 3.2.0'
 gem 'omniauth',                   '~> 1.2.1'
 gem 'omniauth-twitter',           github: 'arunagw/omniauth-twitter'
@@ -47,7 +50,19 @@ gem 'protected_attributes'
 
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'pry'
+gem 'cancan'
+gem 'rolify'
+gem 'gaston'
+
 group :test do
   # Pretty printed test output
   gem 'turn',                     :require => false
+  gem 'faker'
+  gem 'fabrication'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-expectations'
 end
