@@ -56,42 +56,15 @@
           <div class="ui white field segment attached">
               
               <ul class="ui list">
-                <li class="item">
-                  <p class="ui checkbox">
-                      <input type="checkbox" value="Juillet" name="month" />
-                      <label>Juillet</label>
-                  </p>
-                </li>
-                <li class="item">
-                  <p class="ui checkbox">
-                      <input type="checkbox" value="Aout" name="month" />
-                      <label>Aout</label>
-                  </p>
-                </li>
-                <li class="item">
-                  <p class="ui checkbox">
-                      <input type="checkbox" value="Septembre" name="month" />
-                      <label>Septembre</label>
-                  </p>
-                </li>
-                <li class="item">
-                  <p class="ui checkbox">
-                      <input type="checkbox" value="Octobre" name="month" />
-                      <label>Octobre</label>
-                  </p>
-                </li>
-                <li class="item">
-                  <p class="ui checkbox">
-                      <input type="checkbox" value="Novembre" name="month" />
-                      <label>Novembre</label>
-                  </p>
-                </li>
-                <li class="item">
-                  <p class="ui checkbox">
-                      <input type="checkbox" value="Décembre" name="month" />
-                      <label>Décembre</label>
-                  </p>
-                </li>
+                <% for(var i=0; i <= 4; i++) { %>
+                    <% var date = new Date(); date.setMonth(date.getMonth() + i); %>
+                    <li class="item">
+                      <p class="ui checkbox">
+                          <input type="checkbox" value="<%= date.getMonth() %>" name="month" />
+                          <label><%= date.getMonth() + 1 %> / <%= date.getFullYear() %></label>
+                      </p>
+                    </li>
+                <% } %>
               </ul>
               
           </div>
