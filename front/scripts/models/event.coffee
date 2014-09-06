@@ -1,6 +1,6 @@
 define ['backbone', 'leaflet'], (Backbone, L) ->
   class EventModel extends Backbone.Model
-    urlRoot: '/events'
+    urlRoot: '/api/v1/events'
     idAttribute: 'id'
 
     initialize: ->

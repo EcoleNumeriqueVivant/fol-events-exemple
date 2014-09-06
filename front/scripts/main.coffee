@@ -27,6 +27,6 @@ require.config
 
 
 require ['app'], (App) ->
-  App.init_env(api_root: 'http://localhost:3000/api/v1') # TODO move this in a conf for each environment
+  App.init_env(api_root: 'http://localhost:3000') # TODO move this in a conf for each environment
   App.init_app()
 

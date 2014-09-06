@@ -13,6 +13,7 @@ define [
       'click #login_form_trigger':       'toggleLoginForm'
       'submit form#event_search':        'search'
       'submit form#login_form':          'login'
+      'submit form#account_form':        'account'
     
     session_view: null
     
@@ -48,3 +49,8 @@ define [
     login: (event) ->
       event.preventDefault()
       @model.save($(event.target).serializeBackbone())
+      
+    account: (event) ->
+      event.preventDefault()
+      account = new AccountModel()
+      account.save($(event.target).serializeBackbone())
