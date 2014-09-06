@@ -1,4 +1,5 @@
 require './app/api/fol/v1/events.rb'
+require './app/api/fol/v1/users.rb'
 module FOL
   module API
     module V1
@@ -6,6 +7,7 @@ module FOL
         content_type :json, "application/json;charset=utf-8"
         format :json
         version 'v1'
+        mount FOL::API::V1::Users
         mount FOL::API::V1::Events
       end
     end
