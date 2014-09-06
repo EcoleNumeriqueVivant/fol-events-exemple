@@ -1,5 +1,5 @@
 FolEvents::Application.routes.draw do
-
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # TODO
   # take a look at this gem
   # https://github.com/pluff/grape-devise/blob/master/lib/grape/devise/endpoints/authentication.rb
