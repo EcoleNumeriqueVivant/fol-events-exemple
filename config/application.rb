@@ -28,6 +28,7 @@ module FolEvents
           origins '*'
           # location of your API
           resource '/api/*', :headers => :any, :methods => [:get, :post, :options, :put, :delete]
+          resource '/users/*', :headers => :any, :methods => [:get, :post, :options, :put, :delete]
         end
     end
   end
