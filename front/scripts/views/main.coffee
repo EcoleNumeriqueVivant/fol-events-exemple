@@ -17,7 +17,7 @@ define [
       
     render: ->
       # it's handling the whole document, so add things inside instead of actually render it
-      @eventsearch_view = new HeaderView(el: @$header_container).render()
+      @eventsearch_view = new HeaderView(el: @$header_container, model: @model).render()
       @
       
     injectPageView: (sub_view, options) ->

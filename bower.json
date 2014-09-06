@@ -13,6 +13,7 @@
     "html5shiv": "~3.7.2",
     "semantic-ui": "https://github.com/challet/Semantic-UI.git#master",
     "zoomorscroll": "https://github.com/challet/zoomorscroll.git#master",
+    "serializeBackbone": "git@github.com:challet/serializeBackbone.git#master",
     "leaflet": "~0.7.3",
     "jquery.scrollTo": "~1.4.13"
   },

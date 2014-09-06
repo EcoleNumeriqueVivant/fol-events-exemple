@@ -204,7 +204,8 @@ module.exports = function (grunt) {
                         'semanticui': '../../front/bower_components/semantic-ui/build/packaged/javascript/semantic',
                         'leaflet': '../../front/bower_components/leaflet/dist/leaflet-src',
                         'zoomorscroll': '../../front/bower_components/zoomorscroll/dist/jquery.zoomorscroll',
-                        'scrollTo': '../../front/bower_components/jquery.scrollTo/jquery.scrollTo'
+                        'scrollTo': '../../front/bower_components/jquery.scrollTo/jquery.scrollTo',
+                        'serializeBackbone': '../../front/bower_components/serializeBackbone/dist/jquery.serializeBackbone'
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30

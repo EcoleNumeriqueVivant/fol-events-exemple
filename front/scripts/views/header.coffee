@@ -3,17 +3,36 @@ define [
   'underscore'
   'backbone'
   'templates'
-], ($, _, Backbone, JST) ->
+  'views/session',
+  'serializeBackbone'
+], ($, _, Backbone, JST, SessionView) ->
   class HeaderView extends Backbone.View
     template: JST['front/scripts/templates/header.ejs']
     events:
-      'click #event_search_trigger':  'toggleForm'
-      'submit form':                  'search'
-
-    toggleForm: (event) =>
+      'click #event_search_trigger':     'toggleEventForm'
+      'click #login_form_trigger':       'toggleLoginForm'
+      'submit form#event_search':        'search'
+      'submit form#login_form':          'login'
+    
+    session_view: null
+    
+    initialize: ->
+      #@on('render', -> 
+      #  @session_view = new SessionView(model: @model, el: @$('#login_form'))
+      #)
+    
+    destroy: ->
+      @session_view.destroy()
+      super()
+    
+    toggleLoginForm: (event) =>
+      event.preventDefault()
+      @$('#user_forms').toggleClass('displayed')
+      @$('#login_form_trigger').toggleClass('active')
+    
+    toggleEventForm: (event) =>
       event.preventDefault();
-      
-      @$('#event_search').toggle()
+      @$('#event_search').toggleClass('displayed')
       @$('#event_search_trigger').toggleClass('active')
 
     closeIfOpen: ->
@@ -23,11 +42,9 @@ define [
 
     search: (event) ->
       event.preventDefault()
-      serialized_step1 = $(event.target).serializeArray()
-      reducer = (memo, value, index, list) ->
-        if(typeof memo[value.name] isnt 'undefined')
-          memo[value.name].push(value.value)
-        memo
-      serialized_step2 = _(serialized_step1).reduce(reducer, {'type': [], 'month': [], 'theme': []})
-      @trigger('search:params', serialized_step2)
+      @trigger('search:params', $(event.target).serializeBackbone())
       @toggleForm(event)
+      
+    login: (event) ->
+      event.preventDefault()
+      @model.save($(event.target).serializeBackbone())

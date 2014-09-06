@@ -35,42 +35,50 @@ html {
     }
   }
   
-  #event_search {
-    font-size: 1em;
+  .sub.menu {
     display: none;
-    padding: 0.8rem 1rem; 
-    background-color: rgba(255, 255, 255, 0.2);
-    .equal.height.row {
-      .column {
-        padding-top: 0;
-        padding-bottom: 0;
-        .header.attached {
-          display: block;
-          padding-left: 1.7em;
-        }
-        .segment.attached {
-          ul li {
-            width: 50%;
-            display: inline-block;
-            margin-right: -1%;
-          }
-        }
-      }
-    }
-    .row {
-      padding: 0;
-      margin: 0;
-      text-align: center;
-      input {
-        display: inline-block;
-        margin: 1rem 28.75% 0 28.75%;
-        width: 42.5%;
-      }
-    }
     &.displayed {
       display: block;
     }
+    &#event_search {
+      font-size: 1em;
+    
+      padding: 0.8rem 1rem; 
+      background-color: rgba(255, 255, 255, 0.2);
+      .equal.height.row {
+        .column {
+          padding-top: 0;
+          padding-bottom: 0;
+          .header.attached {
+            display: block;
+            padding-left: 1.7em;
+          }
+          .segment.attached {
+            ul li {
+              width: 50%;
+              display: inline-block;
+              margin-right: -1%;
+            }
+          }
+        }
+      }
+      .row {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        input {
+          display: inline-block;
+          margin: 1rem 28.75% 0 28.75%;
+          width: 42.5%;
+        }
+      }
+    
+    }
   }
+  &#user_forms {
+    
+  }
+  
   .ui.steps {
     overflow: visible;
     .step, .step.active {

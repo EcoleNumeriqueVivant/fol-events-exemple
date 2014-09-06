@@ -12,6 +12,7 @@ require.config
     leaflet: '../bower_components/leaflet/dist/leaflet-src'
     zoomorscroll: '../bower_components/zoomorscroll/dist/jquery.zoomorscroll'
     scrollTo: '../bower_components/jquery.scrollTo/jquery.scrollTo'
+    serializeBackbone: '../bower_components/serializeBackbone/dist/jquery.serializeBackbone'
   shim:
     underscore:
       exports: '_'

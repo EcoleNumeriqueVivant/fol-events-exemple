@@ -1,4 +1,4 @@
-define ['jquery', 'underscore', 'backbone', 'semanticui', 'routes/router', 'views/main' ], ($, _, Backbone, ui, Router, MainView) ->
+define ['jquery', 'underscore', 'backbone', 'semanticui', 'routes/router', 'views/main', 'models/session' ], ($, _, Backbone, ui, Router, MainView, SessionModel) ->
 
   init_env: (config) ->
     
@@ -70,7 +70,7 @@ define ['jquery', 'underscore', 'backbone', 'semanticui', 'routes/router', 'view
   
   init_app: ->
     # set up the application main components
-    @main_view = new MainView(el: document).render()
+    @main_view = new MainView(el: document, model: new SessionModel()).render()
     @app_router = new Router(main_view: @main_view)
     @main_view.setRouter(@app_router)
     # go live

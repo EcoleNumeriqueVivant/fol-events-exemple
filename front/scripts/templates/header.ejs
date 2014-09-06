@@ -1,13 +1,11 @@
 <a class="item header" href="#">Fontaine O Livres</a>
 
 <div class="right menu">
-    <span class="item text">email@email.com</span>
-    <a class="item text" href="logout">déconnection</a>
+    <a class="item text" href="#login" id="login_form_trigger">Login</a>
 </div>
 
 <span class="left menu">
     <a class="item" id="event_search_trigger"><i class="search inverted teal circular icon"></i> Trouver des évènements</a>
-    <a class="item" href="#account">Mon compte</a>
     <a class="item" href="#help">Aide</a>
 </span>
 
@@ -205,3 +203,77 @@
     </div>
 
 </form>
+
+
+<div class="ui sub menu three column stackable grid" id="user_forms">
+    
+    <form class="column ui form" id="login_form">
+    
+        <label class="ui top attached header black">Log in</label>
+    
+        <div class="field">
+          <label>Email</label>
+          <div class="ui left icon input">
+            <input placeholder="Email" type="text" name="email">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="ui left icon input">
+            <input type="password" name="password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+
+        <input type="submit" value="Login" class="ui teal  submit button" />
+
+    </form>
+    
+    <form class="column ui form" id="account_form">
+    
+        <label class="ui top attached header black">Créer un compte</label>
+    
+        <div class="field">
+          <label>Email</label>
+          <div class="ui left icon input">
+            <input placeholder="Email" type="text" name="email">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="ui left  icon input">
+            <input type="password" name="password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password Confirmation</label>
+          <div class="ui left  icon input">
+            <input type="password" name="password_confirmation">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+
+        <input type="submit" value="Créer" class="ui teal  submit button" />
+
+    </form>
+    
+    <form class="column ui form" id="password_form">
+    
+        <label class="ui top attached header black">Nouveau mot de passe</label>
+    
+        <div class="field">
+          <label>Email</label>
+          <div class="ui left icon input">
+            <input placeholder="Email" type="text" name="email">
+            <i class="user icon"></i>
+          </div>
+        </div>
+
+        <input type="submit" value="Créer" class="ui teal  submit button" />
+
+    </form>
+    
+</div>
