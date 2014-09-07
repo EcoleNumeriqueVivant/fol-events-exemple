@@ -6,7 +6,7 @@ define [
 
   class SessionModel extends Backbone.Model
     
-    url: '/users/sign'
+    url: '/users/login'
   
     #initialize: ->
       

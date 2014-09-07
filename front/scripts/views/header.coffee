@@ -3,9 +3,11 @@ define [
   'underscore'
   'backbone'
   'templates'
-  'views/session',
+  'views/login_status',
+  'models/account',
+  'models/session',
   'serializeBackbone'
-], ($, _, Backbone, JST, SessionView) ->
+], ($, _, Backbone, JST, LoginStatusView, AccountModel, SessionModel) ->
   class HeaderView extends Backbone.View
     template: JST['front/scripts/templates/header.ejs']
     events:
@@ -18,9 +20,7 @@ define [
     session_view: null
     
     initialize: ->
-      #@on('render', -> 
-      #  @session_view = new SessionView(model: @model, el: @$('#login_form'))
-      #)
+      @on( 'render', ->  @session_view = new LoginStatusView(model: @model, el: @$('#session_menu')) )
     
     destroy: ->
       @session_view.destroy()
@@ -48,7 +48,8 @@ define [
       
     login: (event) ->
       event.preventDefault()
-      @model.save($(event.target).serializeBackbone())
+      session = new SessionModel()
+      session.save($(event.target).serializeBackbone())
       
     account: (event) ->
       event.preventDefault()
