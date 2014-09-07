@@ -3,7 +3,7 @@ FolEvents::Application.routes.draw do
   # TODO
   # take a look at this gem
   # https://github.com/pluff/grape-devise/blob/master/lib/grape/devise/endpoints/authentication.rb
-  devise_for :users, path: "api/auth", path_names: {
+  devise_for :users, path: "auth", path_names: {
     sign_in:      'login',
     sign_out:     'logout',
     password:     'secret',
@@ -11,7 +11,8 @@ FolEvents::Application.routes.draw do
     unlock:       'unlock',
     registration: 'register',
     sign_up:      'sign_up'
-  }
+  }, controllers: {sessions: 'sessions'}
+
 
   mount FOL::API::Root => 'api'
 

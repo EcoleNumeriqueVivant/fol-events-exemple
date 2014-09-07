@@ -25,8 +25,5 @@ RSpec.configure do |config|
   config.warnings = false
   config.include Devise::TestHelpers, type: :controller
   config.include Warden::Test::Helpers, :type => :request
-  config.after :each do
-    Warden.test_reset!
-  end
   config.include API::Helper
 end
