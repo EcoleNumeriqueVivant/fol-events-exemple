@@ -1,6 +1,5 @@
 # coding: utf-8
 
-# CONTEXT 1
-Tag.create(:name => "Jeunesse")
-Tag.create(:name => "Littérature")
-# CONTEXT 2
+user = User.create(email:'user@fontaineolivres.com',password:'fontaine')
+user.add_role :admin if user # sets a global role
+user.save
