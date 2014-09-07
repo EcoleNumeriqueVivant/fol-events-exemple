@@ -1,6 +1,6 @@
 %h2 Sign in
 = form_for(resource, :as => resource_name,
-                     :url => session_path(resource_name) ,
+                     :url => '/api/v1/auth',
                      :html => {:id => "sign_in_user"},
                      :format => :json,
                      :remote => true ) do |f|

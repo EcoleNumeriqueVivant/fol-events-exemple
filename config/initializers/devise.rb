@@ -253,4 +253,28 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.warden do |manager|
+    manager.strategies.add(:api) do
+      def valid?
+        params[:email], params[:password] = params[:user][:email], params[:user][:password] if params[:user]
+        params[:email] || params[:password]
+      end
+
+      def authenticate!
+        request.env['warden.strategies'] ||= []
+        request.env['warden.strategies'] << :api
+        user = User.find_by_email(params[:email].downcase)
+        if user && user.valid_password?(params[:password])
+          success!(user)
+          true
+        else
+          fail!('Could not login!')
+          false
+        end
+      end
+    end
+    manager.default_strategies(:scope=>:user).unshift :api
+  end
+
 end
