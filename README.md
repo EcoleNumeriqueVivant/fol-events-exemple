@@ -10,3 +10,19 @@ heroku pgbackups:capture --app fol-events
 curl -o latest.dump `heroku pgbackups:url`
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d fol_events_development latest.dump
 ```
+
+## Running Tests
+
+### Jasmine
+```
+RAILS_ENV=test bundle exec rake spec:javascript
+```
+
+### Rspec
+```
+bundle exec rake rspec
+```
+
+## use Gulp !
+http://gulpjs.com/
+http://jaysoo.ca/2014/01/27/gruntjs-vs-gulpjs/
