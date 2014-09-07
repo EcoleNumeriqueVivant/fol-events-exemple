@@ -46,7 +46,6 @@ gem "hpricot",                    "~> 0.8.6"
 gem 'foreman'
 gem 'compass'
 gem 'grape'
-gem 'protected_attributes'
 
 gem 'rack-cors', :require => 'rack/cors'
 
