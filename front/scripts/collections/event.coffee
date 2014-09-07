@@ -1,7 +1,7 @@
 define ['backbone', 'models/event'], (Backbone, EventModel) ->
   class EventCollection extends Backbone.Collection
     model: EventModel
-    url: '/api/v1/events'
+    url: '/events'
     params: 
       type: [],
       theme: [],

@@ -9,5 +9,5 @@ define [
     events: {}
 
     initialize: () ->
-      @listenTo(@model, 'auth:statuschanged', @render)
+      @listenTo(@model, 'change', -> @render() )
       @model.fetch()

@@ -16,6 +16,7 @@ define [
       'submit form#event_search':        'search'
       'submit form#login_form':          'login'
       'submit form#account_form':        'account'
+      'click #logout_trigger':           'logout'
     
     session_view: null
     
@@ -49,7 +50,12 @@ define [
     login: (event) ->
       event.preventDefault()
       session = new SessionModel()
-      session.save($(event.target).serializeBackbone())
+      session.save($(event.target).serializeBackbone(), success: => @model.fetch())
+      
+    logout: (event) ->
+      event.preventDefault()
+      session = new SessionModel()
+      session.destroy(success: => @model.fetch())
       
     account: (event) ->
       event.preventDefault()

@@ -1,5 +1,6 @@
-<% if(!auth_status) { %>
+<% if(!authenticated) { %>
     <a class="item text" href="#login" id="login_form_trigger">Login</a>
 <% } else { %>
-    Logged in !
+    <span class="item text"><%= email %></span>
+    <a class="item text" href="#logout" id="logout_trigger">logout</a>
 <% } %>

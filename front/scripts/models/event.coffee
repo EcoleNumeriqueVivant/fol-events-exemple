@@ -1,9 +1,7 @@
 define ['backbone', 'leaflet'], (Backbone, L) ->
   class EventModel extends Backbone.Model
-    urlRoot: '/api/v1/events'
+    urlRoot: '/events'
     idAttribute: 'id'
-
-    initialize: ->
     
     parse: (response, options) ->
       _(['description', 'infos_extra', 'how_to_participate', 'contacts']).each((field) -> 
