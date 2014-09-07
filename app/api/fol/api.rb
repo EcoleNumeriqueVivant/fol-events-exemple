@@ -25,18 +25,25 @@ module FOL
             error!({ message: '401 Unauthorized'}, 401)
           end
         end
+
+        def logout!
+          warden.logout
+        end
       end
 
-      get :ping do
-        { message: "pong" }
-      end
-
+      desc "Here just a welcome message"
       get do
         {message:'Welcome to the API'}
       end
 
+      desc "Return pong"
+      get :ping do
+        { message: "pong" }
+      end
+
       mount FOL::API::V1::Root
 
+      desc "404 for invalid routes"
       route :any, '*path' do
         error!({ message: 'This is not a valid route for our API'}, 404)
       end

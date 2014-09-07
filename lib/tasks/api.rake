@@ -1,7 +1,7 @@
 desc "Print out API routes"
 namespace :api do
   task :routes => :environment do
-    FOL::API::V1::Root.routes.each do |route|
+    FOL::API::Root.routes.each do |route|
       info = route.instance_variable_get :@options
       description = "%-40s..." % info[:description][0..39]
       method = "%-7s" % info[:method]
