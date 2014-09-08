@@ -50,7 +50,7 @@ module FOL
           end
 
           desc "Find events near a location"
-          post :near do
+          get :near do
             represent_list(Address.near(params[:location], params[:radius] ||= 20, :units => :km ).map(&:addressable))
           end
 
