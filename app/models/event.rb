@@ -24,10 +24,11 @@
 #
 
 class Event < ActiveRecord::Base
+  PUBLIC_URL = "http://fol-events.herokuapp.com/"
 
   include ActionView::Helpers::SanitizeHelper
-
   include Publishable
+  include Addressable
 
   acts_as_rated
   acts_as_commentable
@@ -37,20 +38,11 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :description, :message => "^Vous devez ajouter un nom et une description..."
   validates_presence_of :begin_date, :end_date, :message => "^Vous devez ajouter les dates..."
 
-  include Addressable
-
   default_scope {order("begin_date asc")}
-
-  scope :begin_in, lambda { |value|
-    where('events.begin_date >= ?', ( -1 * value ).days.ago).order("begin_date desc")
-  }
-  scope :upcoming, lambda {
-    where("begin_date between ? and ?", Date.today, Date.today.next_month.beginning_of_month)
-  }
+  scope :begin_in, lambda { |value| where('events.begin_date >= ?', ( -1 * value ).days.ago).order("begin_date desc") }
+  scope :upcoming, lambda { where("begin_date between ? and ?", Date.today, Date.today.next_month.beginning_of_month)}
   scope :future, lambda { where('events.begin_date >= ?', Time.zone.now) }
   scope :past, lambda { where('events.begin_date <= ?', Time.zone.now) }
-
-  PUBLIC_URL = "http://fol-events.herokuapp.com/"
 
   def to_ics
     event = Icalendar::Event.new

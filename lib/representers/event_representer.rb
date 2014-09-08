@@ -4,11 +4,13 @@ module EventRepresenter
 
   property  :id
   property  :name
-  property  :begin_date
   property  :description
 
-  property  :subscibe_limit_date
+  property  :begin_date
   property  :end_date
+  property  :publish_state
+
+  property  :subscibe_limit_date
   property  :attendance
   property  :contacts
   property  :how_to_participate
@@ -16,10 +18,10 @@ module EventRepresenter
   property  :participants
   property  :related_events
   property  :infos_extra
+
   property  :rating_count
   property  :rating_total
   property  :rating_avg
-  property  :publish_state
 
   property :position
   property :event_address
