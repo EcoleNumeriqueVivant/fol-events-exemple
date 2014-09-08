@@ -18,29 +18,35 @@ define [
       'submit form#account_form':        'account'
       'click #logout_trigger':           'logout'
     
-    session_view: null
+    login_view: null
     
     initialize: ->
-      @on( 'render', ->  @session_view = new LoginStatusView(model: @model, el: @$('#session_menu')) )
+      @on( 'render', -> @login_view = new LoginStatusView(model: @model, el: @$('#session_menu')) )
+      super()
     
     destroy: ->
-      @session_view.destroy()
+      @login_view.destroy()
       super()
     
     toggleLoginForm: (event) =>
       event.preventDefault()
+      @toggleEventForm(preventDefault: ->) if @$('#event_search_trigger').hasClass('active')
       @$('#user_forms').toggleClass('displayed')
       @$('#login_form_trigger').toggleClass('active')
     
     toggleEventForm: (event) =>
       event.preventDefault();
+      @toggleLoginForm(preventDefault: ->) if @$('#login_form_trigger').hasClass('active')
       @$('#event_search').toggleClass('displayed')
       @$('#event_search_trigger').toggleClass('active')
 
     closeIfOpen: ->
       if @$('#event_search_trigger').hasClass('active')
         $.scrollTo( $(window).prop('scrollY') - @$('#event_search').outerHeight(true))
-        @toggleForm(preventDefault: ->)
+        @toggleEventForm(preventDefault: ->)
+      if @$('#login_form_trigger').hasClass('active')
+        $.scrollTo( $(window).prop('scrollY') - @$('#login_form').outerHeight(true))
+        @toggleLoginForm(preventDefault: ->)
 
     search: (event) ->
       event.preventDefault()
