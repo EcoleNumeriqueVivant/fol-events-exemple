@@ -8,9 +8,9 @@ module EventRepresenter
 
   property  :begin_date
   property  :end_date
+  property  :subscibe_limit_date
   property  :publish_state
 
-  property  :subscibe_limit_date
   property  :attendance
   property  :contacts
   property  :how_to_participate
@@ -19,15 +19,21 @@ module EventRepresenter
   property  :related_events
   property  :infos_extra
 
-  property  :rating_count
-  property  :rating_total
-  property  :rating_avg
+  property  :rating
 
   property :position
   property :event_address
 
   property :types
   property :themes
+
+  def rating
+    {
+      count: represented.rating_count,
+      total: represented.rating_total,
+      avg: represented.rating_avg
+    }
+  end
 
   def position
     {lat: represented.address.latitude , lon: represented.address.longitude}
