@@ -11,21 +11,26 @@ module EventRepresenter
   property  :subscibe_limit_date
   property  :publish_state
 
-  property  :attendance
-  property  :contacts
-  property  :how_to_participate
-  property  :registration_fees
-  property  :participants
-  property  :related_events
-  property  :infos_extra
-
+  property  :infos
   property  :rating
 
-  property :position
-  property :event_address
+  property  :position
+  property  :location
 
   property :types
   property :themes
+
+  def infos
+    {
+      attendance: represented.attendance,
+      contacts: represented.contacts,
+      how_to_participate: represented.how_to_participate,
+      registration_fees: represented.registration_fees,
+      participants: represented.participants,
+      related_events: represented.related_events,
+      infos_extra: represented.infos_extra
+    }
+  end
 
   def rating
     {
@@ -39,7 +44,7 @@ module EventRepresenter
     {lat: represented.address.latitude , lon: represented.address.longitude}
   end
 
-  def event_address
+  def location
     represented.address.address
   end
 
