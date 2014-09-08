@@ -7,17 +7,20 @@ module FOL
         version 'v1'
         resource :events do
 
+          def represent_list events
+            events.map{|a| a.extend(EventRepresenter).to_hash}
+          end
+
           desc "Return list of all events"
           get do
-            Event.all.as_json
-            Event.all.map{|a| a.extend(EventRepresenter).to_hash}
+            represent_list(Event.all)
           end
 
           desc "Return an event by :id"
           get ':id' do
             event = Event.find(params[:id])
             error! {message:"Not Found"}  unless event
-            event.as_json
+            event.extend(EventRepresenter).to_hash
           end
 
           desc "Update an event by :id",
@@ -29,7 +32,7 @@ module FOL
             error! {message:"Not Found"} unless event
             values = {}
             event.update_attributes!(values)
-            event.as_json
+            event.extend(EventRepresenter).to_hash
           end
 
           desc "Delete an event by :id"
@@ -37,14 +40,20 @@ module FOL
             event = Event.find(params[:id])
             error! {message:"Not Found"} unless event
             event.destroy
-            event.as_json
+            event.extend(EventRepresenter).to_hash
           end
 
           desc "Create an event"
           post do
             event = Event.create!()
-            event.as_json
+            event.extend(EventRepresenter).to_hash
           end
+
+          desc "Find events near a location"
+          post :near do
+            represent_list(Address.near(params[:location], params[:radius] ||= 20, :units => :km ).map(&:addressable))
+          end
+
         end
       end
     end
