@@ -8,7 +8,9 @@ Bundler.require(*Rails.groups)
 
 module FolEvents
   class Application < Rails::Application
+
     config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('lib', 'representers')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
 
     config.generators do |g|

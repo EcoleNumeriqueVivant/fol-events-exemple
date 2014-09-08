@@ -40,6 +40,15 @@ GIT
   specs:
     ttfunk (1.0.2)
 
+GIT
+  remote: git@github.com:Chussenot/grape-devise.git
+  revision: 998fa817c7797d66e0a6dba392bb08c07cfb8b59
+  specs:
+    grape-devise (0.0.1)
+      activesupport (>= 3.2.6, < 5)
+      devise (> 3.2)
+      grape (> 0.7)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -109,6 +118,7 @@ GEM
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
     country-select (1.0.5)
+    crass (0.2.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (3.2.4)
@@ -142,10 +152,10 @@ GEM
       json (> 1.4.0)
       json (> 1.4.0)
       rdoc
-    grape (0.7.0)
+    grape (0.9.0)
       activesupport
       builder
-      hashie (>= 1.2.0)
+      hashie (>= 2.1.0)
       multi_json (>= 1.3.2)
       multi_xml (>= 0.5.2)
       rack (>= 1.3.0)
@@ -160,7 +170,7 @@ GEM
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
     hashery (2.1.1)
-    hashie (3.2.0)
+    hashie (3.3.1)
     hike (1.2.3)
     hominid (3.0.5)
     hpricot (0.8.6)
@@ -185,12 +195,14 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.4.0)
+    minitest (5.4.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    nokogumbo (1.1.12)
+      nokogiri
     oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -260,6 +272,12 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    representable (1.8.5)
+      multi_json
+      nokogiri
+      uber
+    roar (0.12.8)
+      representable (>= 1.6.0, < 2.0.0)
     rolify (3.4.0)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
@@ -278,6 +296,10 @@ GEM
       rspec-support (~> 3.0.0)
     rspec-support (3.0.4)
     ruby-rc4 (0.1.5)
+    sanitize (3.0.2)
+      crass (~> 0.2.0)
+      nokogiri (>= 1.4.4)
+      nokogumbo (= 1.1.12)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -307,16 +329,17 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.9.6)
       ansi
-    tzinfo (1.2.1)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.8)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    virtus (1.0.2)
+    virtus (1.0.3)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
-      descendants_tracker (~> 0.0.3)
-      equalizer (~> 0.0.9)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.7)
@@ -344,7 +367,8 @@ DEPENDENCIES
   gaston
   geocoder
   gibbon (= 0.3.5)
-  grape
+  grape (~> 0.9.0)
+  grape-devise!
   haml-rails
   hominid
   hpricot (~> 0.8.6)
@@ -362,9 +386,12 @@ DEPENDENCIES
   puma (~> 2.8.2)
   rack-cors
   rails (= 4.1.1)
+  representable
+  roar
   rolify
   rspec-expectations
   rspec-rails (~> 3.0.0)
+  sanitize
   sass-rails (~> 4.0.3)
   simple_form
   tinymce-rails

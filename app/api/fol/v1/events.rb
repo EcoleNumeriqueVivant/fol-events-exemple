@@ -10,6 +10,7 @@ module FOL
           desc "Return list of all events"
           get do
             Event.all.as_json
+            Event.all.map{|a| a.extend(EventRepresenter).to_hash}
           end
 
           desc "Return an event by :id"

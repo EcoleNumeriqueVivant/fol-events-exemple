@@ -11,12 +11,16 @@ gem 'sass-rails',                 '~> 4.0.3'
 gem 'haml-rails'
 gem 'coffee-rails',               '~> 4.0.0'
 gem 'compass-rails',              '~> 1.1.7'
+gem 'compass'
+
+gem 'gaston'
 
 gem 'devise',                     '~> 3.2.0'
 gem 'omniauth',                   '~> 1.2.1'
 gem 'omniauth-twitter',           github: 'arunagw/omniauth-twitter'
 gem 'omniauth-facebook',          github: 'mkdynamic/omniauth-facebook'
 gem 'omniauth-linkedin-oauth2'
+
 gem 'zobi', '~> 4.0.0.rc2'
 gem 'acts_as_list'
 gem 'acts-as-taggable-on'
@@ -44,15 +48,19 @@ gem "prawn_rails"
 gem 'pdf-renderer',               :git => 'git://github.com/Chussenot/pdf-renderer.git'
 gem "hpricot",                    "~> 0.8.6"
 gem 'foreman'
-gem 'compass'
-gem 'grape'
 
+gem 'grape',                      '~> 0.9.0'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'grape-devise',               :git => 'git@github.com:Chussenot/grape-devise.git'
+gem 'roar'
+gem 'representable'
+gem 'sanitize'
 
-gem 'pry'
 gem 'cancan'
 gem 'rolify'
-gem 'gaston'
+
+
+gem 'pry'
 
 group :test do
   # Pretty printed test output
