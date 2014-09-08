@@ -9,6 +9,7 @@ module FOL
         format :json
         version 'v1'
         mount FOL::API::V1::Auth
+        # include Grape::Devise::Endpoints
         mount FOL::API::V1::Users
         mount FOL::API::V1::Events
       end

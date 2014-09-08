@@ -9,6 +9,8 @@ module FOL
       content_type :json, "application/json;charset=utf-8"
       format :json
 
+      # helpers Grape::Devise::Helpers
+
       helpers do
         def warden
           env['warden']
