@@ -6,21 +6,27 @@ module FOL
         format :json
         version 'v1'
 
+        helpers do
+          def represent_list events
+            events.map{|a| a.extend(EventRepresenter).to_hash}
+          end
+        end
+
         resource :types do
-          Tag.typology
+          get do
+            Tag.typology
+          end
         end
 
         resource :themes do
-          Tag.theme
+          get do
+            Tag.theme
+          end
         end
 
         resource :events do
 
-          def represent_list events
-            events.map{|a| a.extend(EventRepresenter).to_hash}
-          end
-
-          desc "Return list of all events"
+         desc "Return list of all events"
           get do
             represent_list(Event.all)
           end
@@ -40,8 +46,8 @@ module FOL
 
           desc "Find events with any of the type or theme based on context"
           params do
-            optional :type, type: String, values: -> { Tag.typology.map(&:name) }
-            optional :theme, type: String, values: -> { Tag.theme.map(&:name) }
+            optional :type, type: String #, values: -> { Tag.typology.map(&:name) }
+            optional :theme, type: String #, values: -> { Tag.theme.map(&:name) }
             optional :location, type: String
             optional :radius, type: Integer
           end
@@ -106,6 +112,7 @@ module FOL
           end
 
         end
+
       end
     end
   end
