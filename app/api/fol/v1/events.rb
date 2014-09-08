@@ -26,11 +26,6 @@ module FOL
 
         resource :events do
 
-         desc "Return list of all events"
-          get do
-            represent_list(Event.all)
-          end
-
           desc "Find events near a location"
           params do
             optional :location, type: String
@@ -41,25 +36,35 @@ module FOL
               end
           end
           get :near do
-            represent_list(Address.near(params[:location], params[:radius] ||= 20, :units => :km ).map(&:addressable))
+            represent_list(Address.near(params[:location], params[:radius] ||= 20, :units => :km ).map(&:addressable).compact)
           end
 
-          desc "Find events with any of the type or theme based on context"
+          desc "Find events with any of the type or theme based on context or location"
           params do
             optional :type, type: String #, values: -> { Tag.typology.map(&:name) }
             optional :theme, type: String #, values: -> { Tag.theme.map(&:name) }
             optional :location, type: String
             optional :radius, type: Integer
           end
-          get :find do
+          get do
             events = if params[:type] && params[:theme]
               Event.tagged_with(params[:type].split(','), :on => :typology, :any => true).tagged_with(params[:theme].split(','), :on => :theme, :any => true)
             elsif params[:type]
               Event.tagged_with(params[:type].split(','), :on => :typology, :any => true)
             elsif params[:theme]
               Event.tagged_with(params[:theme].split(','), :on => :theme, :any => true)
+            else
+              Event.all
             end
-            represent_list(events)
+
+            if params[:location]
+              location = params[:location].split(',')
+              location = location[0] if location.size == 1
+              represent_list(events) & represent_list(Address.near(location, params[:radius] ||= 20, :units => :km ).map(&:addressable).compact)
+            else
+              represent_list(events)
+            end
+
           end
 
           desc "Future events"
