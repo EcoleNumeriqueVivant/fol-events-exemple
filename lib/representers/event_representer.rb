@@ -26,12 +26,23 @@ module EventRepresenter
   property :position
   property :event_address
 
+  property :types
+  property :themes
+
   def position
     {lat: represented.address.latitude , lon: represented.address.longitude}
   end
 
   def event_address
     represented.address.address
+  end
+
+  def types
+    represented.typology_list
+  end
+
+  def themes
+    represented.theme_list
   end
 
 end
