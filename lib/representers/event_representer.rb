@@ -9,7 +9,6 @@ module EventRepresenter
   property  :begin_date
   property  :end_date
   property  :subscibe_limit_date
-  property  :publish_state
 
   property  :infos
   property  :rating
