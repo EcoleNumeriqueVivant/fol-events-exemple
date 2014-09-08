@@ -59,7 +59,6 @@ gem 'sanitize'
 gem 'cancan'
 gem 'rolify'
 
-
 gem 'pry'
 
 group :test do
@@ -73,4 +72,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-expectations'
   gem 'jasmine-rails'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
 end
