@@ -2,11 +2,7 @@ define ['backbone', 'models/event'], (Backbone, EventModel) ->
   class EventCollection extends Backbone.Collection
     model: EventModel
     url: '/events'
-    params: 
-      type: [],
-      theme: [],
-      month: [],
-      around: null
+    params: {}
     
     setParams: (params) =>
       for name, value of params
@@ -15,8 +11,7 @@ define ['backbone', 'models/event'], (Backbone, EventModel) ->
       @
     
     setParam: (param, value) =>
-      if typeof @params[param] isnt 'undefined'
-        @params[param] = value
+      @params[param] = value
     
     fetch: (options={}) ->
       options = _.defaults(options, data: $.param(@params))

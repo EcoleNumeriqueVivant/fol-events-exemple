@@ -118,7 +118,7 @@ define [
       $('#map').removeClass('uninitialized')
       _(@displayedEvents).find((view) -> view.active)?.activate(scroll: false, url: false, map: true)
       # TODO : update EventCollection according to the new location params
-      @collection.setParams('around': "#{position.coords.latitude};#{position.coords.longitude}")
+      @collection.setParams('location': "#{position.coords.latitude},#{position.coords.longitude}")
 
     toggleBackground: (event) =>
       event.preventDefault()

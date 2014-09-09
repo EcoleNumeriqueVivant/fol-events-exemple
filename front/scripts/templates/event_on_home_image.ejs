@@ -7,19 +7,23 @@
         </div>
     <% } %>
     <h2><%= name %></h2>
+    <p>
+        Du <span class="ui label"><%= begin_date %></span>
+        au <span class="ui label"><%= end_date %></span>
+    </p>
     <p class="description"><%= description %></p>
     <aside class="ui celled list">
         <div class="item">
             <h3><i class="ui info icon"></i>Info :</h3>
-            <p><%= infos_extra %></p>
+            <p><%= infos.infos_extra %></p>
         </div>
         <div class="item">
             <h3><i class="ui tag icon"></i>Inscriptions / Résèrvations :</h3>
-            <p><%= how_to_participate %></p>
+            <p><%= infos.how_to_participate %></p>
         </div>
         <div class="item">
             <h3><i class="ui inbox icon"></i>Contacts :</h3>
-            <p><%= contacts %></p>
+            <p><%= infos.contacts %></p>
         </div>
     </aside>
     <div class="clear"></div>

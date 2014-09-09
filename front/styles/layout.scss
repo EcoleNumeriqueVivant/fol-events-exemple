@@ -166,7 +166,6 @@ html {
             }
             > p {
               margin-left: 6rem;
-              min-height: 5rem;
             }
             > img, > .fakeimg {
               height: 26rem;
@@ -214,7 +213,7 @@ html {
         display: none;
       }
     }
-    .ui.label {
+    > .ui.label {
       position: absolute;
       top: 0;
       left: 0;
