@@ -2,6 +2,10 @@ source 'http://rubygems.org'
 
 ruby '2.1.2'
 
+def linux?; !! RUBY_PLATFORM =~ /linux/ end
+def darwin?; !! RUBY_PLATFORM =~ /darwin/ end
+def darwin12?; !! RUBY_PLATFORM =~ /darwin12/ end
+
 gem 'rails',                      '4.1.1'
 gem 'puma',                       '~> 2.8.2'
 gem 'pg',                         '~> 0.17.1'
@@ -21,7 +25,6 @@ gem 'omniauth-twitter',           github: 'arunagw/omniauth-twitter'
 gem 'omniauth-facebook',          github: 'mkdynamic/omniauth-facebook'
 gem 'omniauth-linkedin-oauth2'
 
-gem 'zobi', '~> 4.0.0.rc2'
 gem 'acts_as_list'
 gem 'acts-as-taggable-on'
 # geolocation
@@ -51,7 +54,7 @@ gem 'foreman'
 
 gem 'grape',                      '~> 0.9.0'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'grape-devise',               :git => 'git@github.com:Chussenot/grape-devise.git'
+gem 'grape-devise',               :git => 'git://github.com/Chussenot/grape-devise.git'
 gem 'roar'
 gem 'representable'
 gem 'sanitize'
@@ -74,5 +77,7 @@ group :development, :test do
   gem 'jasmine-rails'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'rb-inotify',               '~> 0.8' ,  require: linux?
+  gem 'rb-fsevent',               '~> 0.9.1', require: darwin?
+  gem 'terminal-notifier-guard',  '~> 1.5.3', require: darwin12?
 end
