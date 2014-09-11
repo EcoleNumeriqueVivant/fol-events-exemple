@@ -31,7 +31,6 @@ class Event < ActiveRecord::Base
   include Addressable
 
   acts_as_rated
-  acts_as_commentable
   acts_as_taggable
   acts_as_taggable_on :typology, :theme
 

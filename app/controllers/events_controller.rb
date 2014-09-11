@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  
+
   def future
     @events = Event.future.paginate(:page => params[:page], :per_page => 6)
     respond_to do |format|
@@ -13,11 +13,11 @@ class EventsController < ApplicationController
       format.html # index.html.erb
     end
   end
-    
+
   # GET /events
   # GET /events.json
   def index
-    @events   = Event.paginate(:page => params[:page], :per_page => 6)   
+    @events   = Event.paginate(:page => params[:page], :per_page => 6)
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   def show
 
     if params[:id] == "rate"
-    else  
+    else
       @event = Event.find(params[:id])
       respond_to do |format|
         format.html # show.html.erb
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
         end
       end
     end
-   
+
   end
 
   # GET /events/new
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     if @event.address.nil?
-      
+
       @event.build_address
     end
   end
@@ -68,9 +68,9 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    
+
     @event = Event.new
-    
+
     @event.name = params[:event][:name]
     @event.begin_date = params[:event][:begin_date]
     @event.end_date = params[:event][:end_date]
@@ -83,14 +83,14 @@ class EventsController < ApplicationController
     @event.participants = params[:event][:participants]
     @event.related_events = params[:event][:related_events]
     @event.infos_extra = params[:event][:infos_extra]
-    
+
     # address_attributes
     @event.build_address
     @event.address.update_attributes params[:event][:address_attributes]
-    
+
     @event.theme_list = params[:event][:theme_list]
     @event.typology_list = params[:event][:typology_list]
-   
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -104,8 +104,8 @@ class EventsController < ApplicationController
 
   # PUT /events/1
   # PUT /events/1.json
-  
-  
+
+
   # {"utf8"=>"✓",
   #    "_method"=>"put",
   #    "authenticity_token"=>"s9ovB5/EXHUXmefwMMsTm1jetArVQHZWfk5TGqu07II=",
@@ -127,11 +127,11 @@ class EventsController < ApplicationController
   #    "state"=>""}},
   #    "commit"=>"Update Event",
   #    "id"=>"2"}
-  
+
   def update
-    
+
     @event = Event.find(params[:id])
-    
+
     @event.name = params[:event][:name]
     @event.begin_date = params[:event][:begin_date]
     @event.end_date = params[:event][:end_date]
@@ -144,14 +144,14 @@ class EventsController < ApplicationController
     @event.participants = params[:event][:participants]
     @event.related_events = params[:event][:related_events]
     @event.infos_extra = params[:event][:infos_extra]
-    
+
     # address_attributes
     @event.build_address
     @event.address.update_attributes params[:event][:address_attributes]
-    
+
     @event.theme_list = params[:event][:theme_list]
     @event.typology_list = params[:event][:typology_list]
-    
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -174,53 +174,44 @@ class EventsController < ApplicationController
       format.json { head :ok }
     end
   end
-  
+
   def search
     @events = nil
-    # raise params.inspect 
+    # raise params.inspect
     region = params[:region]
-  
+
     # if params[:search] != nil && params[:search][:tag_list].count > 0
     #       @events = Event.tagged_with(params[:search][:tag_list], :any => true).paginate(:page => params[:page], :per_page => 6)
     #     else
     #      @events = Event.paginate(:page => params[:page], :per_page => 6)
-    #     end 
-   
+    #     end
+
     # Event.tagged_with("Festival").by_month(4, :field => :begin_date)
-     
+
     if params[:search] != nil && params[:search][:tag_list].count > 0
       if params[:mois].to_i == -1
-        @events = Event.tagged_with(params[:search][:tag_list]) #, :any => true)   
+        @events = Event.tagged_with(params[:search][:tag_list]) #, :any => true)
       else
-        @events = Event.tagged_with(params[:search][:tag_list]).by_month(params[:mois].to_i, :field => :begin_date)            
-      end   
+        @events = Event.tagged_with(params[:search][:tag_list]).by_month(params[:mois].to_i, :field => :begin_date)
+      end
     else
        if params[:mois].to_i == -1
-         @events = Event.all  
+         @events = Event.all
        else
-         @events = Event.by_month(params[:mois].to_i, :field => :begin_date)  
+         @events = Event.by_month(params[:mois].to_i, :field => :begin_date)
        end
     end
-       
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
     end
   end
-  
-  def comment
-    if params[:body] != ""
-     c = Comment.build_from(Event.find(params[:event]),session[:user_id],params[:body])
-     c.save
-     # raise c.errors.inspect
-    end
-    redirect_to :back
-  end  
-    
+
   def rate
     event = Event.find(params[:event])
     event.rate params[:rate].to_f , current_user
     render :nothing => true, :status => 200
-  end  
-    
+  end
+
 end
