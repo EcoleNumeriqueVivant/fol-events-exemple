@@ -17,16 +17,8 @@ define [
         L.marker(@model.get('position')).addTo(@map)
       
     activate: ->
-      if @model.get('position')
-        try 
-          @map.getCenter()
-          initialized = true
-        catch
-          initialized = false
-        finally
-          @map.setView(@model.get('position'), 12, animate: true) if initialized
+      @map.setView(@model.get('position'), 12, animate: true)
       @
-      
-      
+
     deactivate: ->
 

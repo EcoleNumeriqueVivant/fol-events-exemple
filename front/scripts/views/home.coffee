@@ -31,7 +31,7 @@ define [
 
       @listenTo( @collection, 'add', @displayEvent )
       @listenTo( @collection, 'remove', @hideEvent )
-      @listenTo( @collection, 'sync', =>  @activateEvent(options.focus_as_name) )
+      @listenTo( @collection, 'sync', =>  @activateEvent(if options.focus_as_name then options.focus_as_name else @collection.first.get('name')) )
       @.on( 'render', -> @adaptResponsive(); @initMap(); @collection.fetch() )
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
@@ -50,7 +50,7 @@ define [
       super()
 
     displayEvent: (event) ->
-      view = new EventOnHomeProxyView(model: event, map: @map, $gallery: @$('#gallery') )
+      view = new EventOnHomeProxyView(model: event, map: @map, $gallery: @$('#carousel_container') )
       view.on 'activate', (view, options) =>
         _(@displayedEvents).find((view) -> view.active)?.deactivate() # find the already active one and deactivate it)
         @trigger 'url:fragment', view.model.get('name') if options.url
@@ -63,7 +63,7 @@ define [
       @displayedEvents.push(view)
 
       @$('#steps_container ol').append(view.as_step.$el)
-      @$('#gallery ol').append(view.as_image.$el)
+      @$('#carousel_container ol').append(view.as_image.$el)
 
     activateEvent: (event_as_name) ->
       # called by the router, find the new one and activate it
@@ -98,8 +98,8 @@ define [
       else
         $('#page_container').removeClass('header_shifted')
 
-    initMap: (position) ->
-      @map = new L.Map($('#map .tiles').get(0), zoomControl: false)
+    initMap: (position) =>
+      @map = new L.Map(@$('#tiles').get(0), zoomControl: false)
       @map.addLayer new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         minZoom: 6, maxZoom: 18,
         attribution: "Map data © <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors"
@@ -113,7 +113,6 @@ define [
       navigator.geolocation.getCurrentPosition( @setLocation, ((error) -> console.log(error)), maximumAge: 900000 )
 
     setLocation: (position) =>
-      @map.setView new L.latLng(position.coords.latitude, position.coords.longitude), 12
       @$('#map .ui.label .icon').removeClass('loading').addClass('map marker')
       $('#map').removeClass('uninitialized')
       _(@displayedEvents).find((view) -> view.active)?.activate(scroll: false, url: false, map: true)

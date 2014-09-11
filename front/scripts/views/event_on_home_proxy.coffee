@@ -45,7 +45,7 @@ define [
       @
 
     activate: (options = {}) ->
-      options = _.defaults(options, scroll: true)
+      options = _.defaults(options, scroll: true, map: true)
       @trigger('activate', @, options)
       @active = true
       @as_step.activate(options)

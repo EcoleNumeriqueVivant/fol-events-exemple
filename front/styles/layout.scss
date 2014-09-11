@@ -88,168 +88,110 @@ html {
   }
 }
 
+#page_container {
+  .column {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
 
 
 #carousel_container { 
   padding-left: 0;
   padding-right: 0;
   position: relative;
-  section {
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    padding: 0.8rem 0.5rem;
+  ol {
+    height: auto;
     display: inline-block;
-    z-index: 1;
-    background: #ffffff;
-    border: 1px rgba(0,0,0,0) solid;
-    border-radius: 0em;
-    @include transition(width 0.4s, height 0.4s, top 0.3s, left 0.3s, border 0.4s, border-radius 0.25s, z-index 0.2s, padding 0.25s);
-    &.background {
-      width: 8em;
-      height: 8em;
-      margin: 1.5rem 0 0 -0.8rem;
+    position: relative;
+    li {
+      margin: 0 0 5rem 0;
       padding: 0;
-      border-radius: 4em;
-      z-index: 2;
-      border: 1px rgba(60,60,60,1) solid;
-    }
-    &#map {
-      &:not(.background) {
-        height: 40em;
-        width: 100%;
-      }
-      .tiles {
-        width: 100%;
-        height: 100%;
-      }
-      &.background .leaflet-control-attribution {
-        display: none;
-      }
-    }
-    &#gallery {
-      overflow: hidden;
-      ol {
-        height: auto;
-        display: inline-block;
-        position: relative;
-        li {
-          margin: 0 0 5rem 0;
-          padding: 0;
-          article {
-            margin: 0;
-            padding: 2%;
-            text-align: justify;
-            @include transition(background-color 8s);
-            h2 {
-              margin: 0 0 1rem 6rem;
-              font-weight: bold;
-              font-size: 1.4rem;
-              text-align: left;
-            }
-            aside {
-              .item:after {
-                clear: none;
-              }
-              h3 {
-                float: left;
-                font-weight: bold;
-                font-size: 1em;
-                display: inline;
-                line-height: 1em;
-                margin-right: 0.7em;
-              }
-              p {
-                padding-bottom: 1rem;
-              }
-            }
-            > p {
-              margin-left: 6rem;
-            }
-            > img, > .fakeimg {
-              height: 26rem;
-              margin: 0 0 0.1em 6%;
-              float: right;
-              padding: 1em;
-              background: none repeat scroll 0% 0% #FFF;
-              border: 1px solid #555;
-            }
-            > .fakeimg {
-              width: 16rem;
-              p {
-                font-size: 2.6em;
-                text-align: center;
-                padding: 3em 1em;
-                color: #F7F7F7;
-                
-              }
-            }
+      article {
+        margin: 0;
+        padding: 2%;
+        text-align: justify;
+        @include transition(background-color 8s);
+        h2 {
+          margin: 0 0 1rem 6rem;
+          font-weight: bold;
+          font-size: 1.4rem;
+          text-align: left;
+        }
+        aside {
+          .item:after {
+            clear: none;
           }
-          &.active article {
-            background-color: #F9F9F9;
+          h3 {
+            float: left;
+            font-weight: bold;
+            font-size: 1em;
+            display: inline;
+            line-height: 1em;
+            margin-right: 0.7em;
           }
-          .separator {
+          p {
+            padding-bottom: 1rem;
+          }
+        }
+        > p {
+          margin-left: 6rem;
+        }
+        > img, > .fakeimg {
+          height: 26rem;
+          margin: 0 0 0.1em 6%;
+          float: right;
+          padding: 1em;
+          background: none repeat scroll 0% 0% #FFF;
+          border: 1px solid #555;
+        }
+        > .fakeimg {
+          width: 16rem;
+          p {
+            font-size: 2.6em;
             text-align: center;
-            position: relative;
-            top: -1.4em;
-            .link.icon {
-              opacity: 1;
-              background: #555555;
-            }
-          }
-          &:last-child .separator .down.link,
-          &:not(:last-child) .separator .up.link {
-            display: none;
-          }
-          &:last-child {
-            margin-bottom: 26rem;
+            padding: 3em 1em;
+            color: #F7F7F7;
+            
           }
         }
       }
-    }
-    &#gallery.background {
-      ol {
+      &.active article {
+        background-color: #F9F9F9;
+      }
+      .separator {
+        text-align: center;
+        position: relative;
+        top: -1.4em;
+        .link.icon {
+          opacity: 1;
+          background: #555555;
+        }
+      }
+      &:last-child .separator .down.link,
+      &:not(:last-child) .separator .up.link {
         display: none;
       }
-    }
-    > .ui.label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 3;
-      text-decoration: none;
-      font-size: 5em;
-      margin: 0;
-      padding: 0;
-      display: none;
-      z-index: 2;
-      i {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        margin: auto;
+      &:last-child {
+        margin-bottom: 26rem;
       }
     }
-    > * {
-      z-index: 1;
-    }
-    &.background.uninitialized .ui.label,
-    &.background:not(.transitioning):hover .ui.label {
-      display: block;
-    }
-    
-  }  
-   
+  }
+}
+
+#map_container {
+  #tiles {
+    width: 100%;
+    height: 8rem;
+  }
+  &.background .leaflet-control-attribution {
+    display: none;
+  }
 }
 
 #steps_container {
-  padding-left: 0;
+
   white-space: nowrap;
   ol.steps {
     width: 100%;
@@ -266,18 +208,23 @@ html {
 
 #page_container.header_shifted {
   
-  #steps_container {
-    position: fixed;
-    top: 0;
-    left: 8%;
-    padding-right: 5.25%;
-  }
+  .four.wide.column {
   
-  #carousel_container section.background {
-    position: fixed;
-    top: auto;
-    left: auto;
-    margin-top: -2.5rem;
+    &#steps_container {
+      position: fixed;
+      top: 12rem;
+      left: 8%;
+      padding-right: 5.25%;
+    }
+  
+    &#map_container.background {
+      position: fixed;
+      top: 1rem;
+      left: auto;
+      margin-top: 0;
+      padding-right: 5.25%;
+    }
+    
   }
   
 }
