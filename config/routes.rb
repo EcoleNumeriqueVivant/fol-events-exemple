@@ -17,5 +17,5 @@ FolEvents::Application.routes.draw do
   mount FOL::API::Root => 'api'
 
   get 'admin' => 'admin#index', :as => :admin_index
-  root :controller => 'home', :action => '/'
+  root :controller => 'home', :action => '/public'
 end
