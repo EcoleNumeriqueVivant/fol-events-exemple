@@ -324,7 +324,38 @@ module.exports = function (grunt) {
                     ]
                 }
             }
+        },
+        
+        config: {
+          dev: {
+            options: {
+              variables: {
+                'api_root': 'http://localhost:3000/api/v1'
+              }
+            }
+          },
+          prod: {
+            options: {
+              variables: {
+                'api_root': '/api/v1'
+              }
+            }
+          }
+        },
+        replace: {
+          dist: {
+            options: {
+              variables: {
+                'api_root': '<%= grunt.config.get("api_root") %>'
+              },
+              force: true
+            },
+            files: [
+              {expand: true, flatten: false, src: ['.tmp/scripts/main.js']}
+            ]
+          }
         }
+        
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -359,6 +390,8 @@ module.exports = function (grunt) {
             'coffee:dist',
             'createDefaultTemplate',
             'jst',
+            'config:dev',
+            'replace',
             'compass:server',
             'connect:livereload',
             'open:server',
@@ -392,6 +425,8 @@ module.exports = function (grunt) {
         'coffee',
         'createDefaultTemplate',
         'jst',
+        'config:prod',
+        'replace',
         'compass:dist',
         'useminPrepare',
         'requirejs',
