@@ -15,7 +15,6 @@ html {
   clear: both;
 }
 
-
 #header_container {
   
   span.left.menu { 
@@ -114,7 +113,7 @@ html {
         text-align: justify;
         @include transition(background-color 8s);
         h2 {
-          margin: 0 0 1rem 6rem;
+          margin: 0 0 1rem 0;
           font-weight: bold;
           font-size: 1.4rem;
           text-align: left;
@@ -134,9 +133,6 @@ html {
           p {
             padding-bottom: 1rem;
           }
-        }
-        > p {
-          margin-left: 6rem;
         }
         > img, > .fakeimg {
           height: 26rem;

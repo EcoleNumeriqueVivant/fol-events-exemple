@@ -31,7 +31,7 @@ define [
 
       @listenTo( @collection, 'add', @displayEvent )
       @listenTo( @collection, 'remove', @hideEvent )
-      @listenTo( @collection, 'sync', =>  @activateEvent(if options.focus_as_name then options.focus_as_name else @collection.first.get('name')) )
+      @listenTo( @collection, 'sync', =>  @activateEvent(if options.focus_as_name then options.focus_as_name else @collection.first().get('name')) )
       @.on( 'render', -> @adaptResponsive(); @initMap(); @collection.fetch() )
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
@@ -48,6 +48,7 @@ define [
       _(@displayedEvents).each (view) ->
         view.remove()
       super()
+
 
     displayEvent: (event) ->
       view = new EventOnHomeProxyView(model: event, map: @map, $gallery: @$('#carousel_container') )
