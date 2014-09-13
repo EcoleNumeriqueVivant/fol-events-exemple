@@ -34,7 +34,7 @@ module.exports = function (grunt) {
             },
             coffee: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist', 'config:dev', 'replace']
+                tasks: ['coffee:dist']
             },
             coffeeTest: {
                 files: ['test/spec/{,*/}*.coffee'],
@@ -66,6 +66,10 @@ module.exports = function (grunt) {
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
+            }
+            replace: {
+              files: ['.tmp/scripts/main.js'],
+              tasks: ['config:dev', 'replace']
             }
         },
         connect: {
