@@ -51,7 +51,7 @@ define [
     search: (event) ->
       event.preventDefault()
       @trigger('search:params', $(event.target).serializeBackbone(array_as_string: true))
-      @toggleForm(event)
+      @toggleEventForm(event)
       
     login: (event) ->
       event.preventDefault()
