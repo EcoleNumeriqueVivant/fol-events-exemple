@@ -3,7 +3,8 @@ define [
   'underscore'
   'backbone'
   'templates'
-], ($, _, Backbone, JST) ->
+  'moment'
+], ($, _, Backbone, JST, moment) ->
   class EventOnHomeImageView extends Backbone.View
     template: JST['front/scripts/templates/event_on_home_image.ejs']
     tagName: 'li'
@@ -26,4 +27,10 @@ define [
 
     deactivate: ->
       @$el.removeClass('active')
+      
+    render: ->
+      super(
+        begin_date: moment(@model.get('begin_date')).format('D MMMM YYYY')
+        end_date: moment(@model.get('end_date')).format('D MMMM YYYY')
+      )
 

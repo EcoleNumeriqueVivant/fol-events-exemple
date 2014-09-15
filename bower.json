@@ -15,7 +15,8 @@
     "zoomorscroll": "https://github.com/challet/zoomorscroll.git#master",
     "serializeBackbone": "https://github.com/challet/serializeBackbone.git#master",
     "leaflet": "~0.7.3",
-    "jquery.scrollTo": "~1.4.13"
+    "jquery.scrollTo": "~1.4.13",
+    "moment": "~2.8.3"
   },
   "devDependencies": {}
 }

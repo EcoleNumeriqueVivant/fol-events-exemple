@@ -99,7 +99,6 @@ html {
 }
 
 
-
 #carousel_container { 
   padding-left: 0;
   padding-right: 0;
@@ -216,7 +215,16 @@ html {
     li {
       white-space: normal;
       padding: 1em 0.3em 1em 0.2em;
-      width: 100%
+      width: 100%;
+      padding-left: 1em;
+      .ui.ribbon.label {
+        position: absolute;
+        left: -1.2em;
+        top: auto;
+        width: 2em;
+        box-sizing: content-box;
+        padding-left: 1rem;
+      }
     }
     &.ui.vertical {
       text-align: center;

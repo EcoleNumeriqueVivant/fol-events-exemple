@@ -13,6 +13,10 @@ require.config
     zoomorscroll: '../bower_components/zoomorscroll/dist/jquery.zoomorscroll'
     scrollTo: '../bower_components/jquery.scrollTo/jquery.scrollTo'
     serializeBackbone: '../bower_components/serializeBackbone/dist/jquery.serializebackbone'
+    moment: '../bower_components/moment/moment'
+  config:
+    moment:
+      noGlobal: true
   shim:
     underscore:
       exports: '_'

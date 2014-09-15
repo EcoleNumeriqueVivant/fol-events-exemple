@@ -2,8 +2,9 @@ define [
   'jquery'
   'underscore'
   'backbone'
-  'templates',
-], ($, _, Backbone, JST) ->
+  'templates'
+  'moment'
+], ($, _, Backbone, JST, moment) ->
   class EventOnHomeStepView extends Backbone.View
     template: JST['front/scripts/templates/event_on_home_step.ejs']
     tagName: 'li'
@@ -20,3 +21,6 @@ define [
     deactivate: ->
       @$el.removeClass('active')
       @
+    
+    render: ->
+      super(month_name: moment(@model.get('begin_date')).format('MMM'))
