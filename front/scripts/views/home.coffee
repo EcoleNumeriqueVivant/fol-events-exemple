@@ -18,8 +18,9 @@ define [
     events:
       #'mouseenter':                                     'stopCarousel'
       #'mouseleave':                                     'startCarousel'
-      'click section.background:not(.uninitialized)':   'toggleBackground'
-      'click #map.background.uninitialized':            'askLocation'
+      #'click section.background:not(.uninitialized)':   'toggleBackground'
+      'click #call_action_location':                    'askLocation'
+
 
     initialize: (options) ->
       super()
@@ -110,25 +111,24 @@ define [
 
     askLocation: (event) ->
       event.preventDefault()
-      @$('#map .ui.label .icon').addClass('loading').removeClass('map marker')
-      navigator.geolocation.getCurrentPosition( @setLocation, ((error) -> console.log(error)), maximumAge: 900000 )
+      @$('#map_container').addClass('loading')
+      navigator.geolocation.getCurrentPosition( @setLocation, ( (error) -> console.log(error)), maximumAge: 900000 )
 
     setLocation: (position) =>
-      @$('#map .ui.label .icon').removeClass('loading').addClass('map marker')
-      $('#map').removeClass('uninitialized')
+      @$('#map_container').removeClass('loading').addClass('haslocation')
       _(@displayedEvents).find((view) -> view.active)?.activate(scroll: false, url: false, map: true)
-      # TODO : update EventCollection according to the new location params
+      # update EventCollection according to the new location params
       @collection.setParams('location': "#{position.coords.latitude},#{position.coords.longitude}")
 
-    toggleBackground: (event) =>
-      event.preventDefault()
-      mapchange_timer = window.setInterval(_(@map.invalidateSize).bind(@map, { pan: true, debounceMoveend: false} ), 100)
-      that = @
-      @$('section')
-        .addClass('transitioning').toggleClass('background')
-        .on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', (event) ->
-          if event.originalEvent.propertyName is 'width' # one of the transitioning property
-            that.displayedEvents[0].activate()
-            $(this).removeClass('transitioning').off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd')
-            window.clearInterval(mapchange_timer)
-        )
+    #toggleBackground: (event) =>
+    #  event.preventDefault()
+    #  mapchange_timer = window.setInterval(_(@map.invalidateSize).bind(@map, { pan: true, debounceMoveend: false} ), 100)
+    #  that = @
+    #  @$('section')
+    #    .addClass('transitioning').toggleClass('background')
+    #    .on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', (event) ->
+    #      if event.originalEvent.propertyName is 'width' # one of the transitioning property
+    #        that.displayedEvents[0].activate()
+    #        $(this).removeClass('transitioning').off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd')
+    #        window.clearInterval(mapchange_timer)
+    #    )

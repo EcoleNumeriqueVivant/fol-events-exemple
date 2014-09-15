@@ -5,10 +5,17 @@
 
 <section class="background four wide column" id="map_container">
   <h3 class="ui top attached header">géoloc</h3>
-  <div id="tiles"></div>
+  <div class="ui basic attached segment">
+    <a href="javascript:void(0)" id="call_action_location">
+      <i class="ui huge icon location"></i> Se localiser
+      <em>et afficher les évènements proches</em>
+    </a>
+    <div class="loader"><i class="ui huge icon loading"></i></div>
+    <div id="tiles"></div>
+  </div>
 </section>
 
-  
+
 <aside class="four wide column" id="steps_container">
   <h3 class="ui top attached header">évènements</h3>
   <ol class="ui attached vertical steps">
