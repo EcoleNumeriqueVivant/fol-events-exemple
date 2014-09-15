@@ -209,7 +209,29 @@ module.exports = function (grunt) {
                         'leaflet': '../../front/bower_components/leaflet/dist/leaflet-src',
                         'zoomorscroll': '../../front/bower_components/zoomorscroll/dist/jquery.zoomorscroll',
                         'scrollTo': '../../front/bower_components/jquery.scrollTo/jquery.scrollTo',
-                        'serializeBackbone': '../../front/bower_components/serializeBackbone/dist/jquery.serializebackbone'
+                        'serializeBackbone': '../../front/bower_components/serializeBackbone/dist/jquery.serializebackbone',
+                        'moment': '../../front/bower_components/moment/moment'
+                      },
+                      config: {
+                        moment: {
+                          noGlobal: true
+                        }
+                      },
+                      shim: {
+                        underscore: {
+                          exports: '_'
+                        },
+                        backbone: {
+                          deps: ['underscore', 'jquery'],
+                          exports: 'Backbone'
+                        },
+                        semanticui: {
+                          deps: ['jquery'],
+                          exports: 'ui'
+                        },
+                        leaflet: {
+                          exports: 'L'
+                        }
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
