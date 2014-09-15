@@ -66,7 +66,7 @@ module.exports = function (grunt) {
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
-            }
+            },
             replace: {
               files: ['.tmp/scripts/main.js'],
               tasks: ['config:dev', 'replace']
@@ -394,6 +394,8 @@ module.exports = function (grunt) {
             'coffee:dist',
             'createDefaultTemplate',
             'jst',
+            'config:dev',
+            'replace',
             'compass:server',
             'connect:livereload',
             'open:server',
