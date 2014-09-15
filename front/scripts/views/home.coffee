@@ -16,9 +16,9 @@ define [
     carouselTimer: null
 
     events:
-      #'mouseenter':                                     'stopCarousel'
-      #'mouseleave':                                     'startCarousel'
-      #'click section.background:not(.uninitialized)':   'toggleBackground'
+      #'mouseenter':                                    'stopCarousel'
+      #'mouseleave':                                    'startCarousel'
+      #'click section.background:not(.uninitialized)':  'toggleBackground'
       'click #call_action_location':                    'askLocation'
 
 
