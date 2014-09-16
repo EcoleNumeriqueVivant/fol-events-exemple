@@ -61,12 +61,18 @@ define ['jquery', 'underscore', 'backbone', 'semanticui', 'routes/router', 'view
     backboneSync = Backbone.sync;
     Backbone.sync = (method, model, options) =>
       orginal_error_callback = options.error
-      options = _.extend(options, {
-          url: @config.api_root + _.result(model, 'url') || urlError()
+      model_url = _.result(model, 'url')
+      re = /^http:\/\//
+      if re.test(model_url)
+        url = model_url
+      else
+        url = @config.api_root + model_url
+      options = _.extend(options, 
+          url: url
           error: (jqXHR, statusText, error) -> # using the jQuery XHR object coming from the core Backbone sync method
             console.error("#{jqXHR.status} #{error} : #{jqXHR.responseText}")
             orginal_error_callback(jqXHR, statusText, error)
-      })
+      )
       backboneSync(method, model, options)
       
     moment.locale 'fr',

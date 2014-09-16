@@ -7,17 +7,16 @@ define [
   'leaflet',
   'views/mail_alert',
   'views/event_on_home_proxy',
+  'collections/region'
   'scrollTo'
   'zoomorscroll'
-], (App, $, _, Backbone, JST, L, MailAlertView, EventOnHomeProxyView) ->
+], (App, $, _, Backbone, JST, L, MailAlertView, EventOnHomeProxyView, RegionCollection) ->
   class HomeView extends Backbone.View
     template: JST['front/scripts/templates/home.ejs']
     displayedEvents: []
     carouselTimer: null
 
     events:
-      #'mouseenter':                                    'stopCarousel'
-      #'mouseleave':                                    'startCarousel'
       #'click section.background:not(.uninitialized)':  'toggleBackground'
       'click #call_action_location':                    'askLocation'
 
@@ -32,7 +31,7 @@ define [
 
       @listenTo( @collection, 'add', @displayEvent )
       @listenTo( @collection, 'remove', @hideEvent )
-      @listenTo( @collection, 'sync', =>  @activateEvent(if options.focus_as_name then options.focus_as_name else @collection.first().get('name')) )
+      @listenTo( @collection, 'sync', =>  @activateEventAsName(if options.focus_as_name then options.focus_as_name else @collection.first().get('name')) )
       @.on( 'render', -> @adaptResponsive(); @initMap(); @collection.fetch() )
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
@@ -50,16 +49,15 @@ define [
         view.remove()
       super()
 
-
     displayEvent: (event) ->
       view = new EventOnHomeProxyView(model: event, map: @map, $gallery: @$('#carousel_container') )
       view.on 'activate', (view, options) =>
         _(@displayedEvents).find((view) -> view.active)?.deactivate() # find the already active one and deactivate it)
         @trigger 'url:fragment', view.model.get('name') if options.url
       # requests to navigate to an event
-      view.on 'navigate:self', (self) => self.activate(scroll: true, url: true, map: true)
-      view.on 'navigate:next', (origin) => @displayedEvents[_(@displayedEvents).indexOf(origin) + 1].activate(scroll: true, url: true, map: true)
-      view.on 'navigate:first', => @displayedEvents[0].activate(scroll: true, url: true, map: true)
+      view.on 'navigate:self', (self) => self.activate(scroll: true, url: true, map: false)
+      view.on 'navigate:next', (origin) => @displayedEvents[_(@displayedEvents).indexOf(origin) + 1].activate(scroll: true, url: true, map: false)
+      view.on 'navigate:first', => @displayedEvents[0].activate(scroll: true, url: true, map: false)
       view.on 'scroll:start', => @scrolling = true
       view.on 'scroll:stop', => @scrolling = false
       @displayedEvents.push(view)
@@ -67,10 +65,10 @@ define [
       @$('#steps_container ol').append(view.as_step.$el)
       @$('#carousel_container ol').append(view.as_image.$el)
 
-    activateEvent: (event_as_name) ->
+    activateEventAsName: (event_as_name) ->
       # called by the router, find the new one and activate it
       event = if event_as_name then _(@displayedEvents).find( (view) -> view.model.get('name') is event_as_name ) else @displayedEvents[0]
-      event?.activate() if not event?.active
+      event?.activate(map: false) if not event?.active
 
     hideEvent: (event) =>
       predicate = (view) -> view.model.id is event.id
@@ -80,7 +78,7 @@ define [
     activateFirstVisible: (event) =>
       if not @scrolling
         visible = _(@displayedEvents).find( (view) -> view.as_image.$el.offset().top + view.as_image.$el.height() > $(window).prop('scrollY') )
-        visible.activate(scroll: false, url: true, map: true) if visible and not visible?.active
+        visible.activate(scroll: false, url: true, map: false) if visible and not visible?.active
 
     # TODO : check what it does and if it's still useful
     adaptResponsive: =>
@@ -100,14 +98,17 @@ define [
       else
         $('#page_container').removeClass('header_shifted')
 
-    initMap: (position) =>
+    initMap: =>
       @map = new L.Map(@$('#tiles').get(0), zoomControl: false)
       @map.addLayer new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        minZoom: 6, maxZoom: 18,
+        minZoom: 2, maxZoom: 18,
         attribution: "Map data © <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors"
       )
+      region_layer = L.geoJson().addTo(@map)
+      @regions = new RegionCollection().on('add', (region) => region_layer.addData(region.attributes) ).fetch()
       $('#map').zoomorscroll(reset: {no_scroll_timer: 400, click: true})
                .on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', )
+      @map.setView(L.latLng(48.853537, 2.348305), 4, animate: true)
 
     askLocation: (event) ->
       event.preventDefault()
@@ -116,7 +117,7 @@ define [
 
     setLocation: (position) =>
       @$('#map_container').removeClass('loading').addClass('haslocation')
-      _(@displayedEvents).find((view) -> view.active)?.activate(scroll: false, url: false, map: true)
+      _(@displayedEvents).find((view) -> view.active)?.activate(scroll: false, url: false, map: false)
       # update EventCollection according to the new location params
       @collection.setParams('location': "#{position.coords.latitude},#{position.coords.longitude}")
 
