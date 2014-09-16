@@ -6,4 +6,4 @@ define [
 
   class RegionCollection extends Backbone.Collection
     model: RegionModel
-    url: 'http://localhost:9000/images/fakeapi/regions.json'
+    url: "#{location.protocol}//#{location.host}/images/fakeapi/regions.json"
