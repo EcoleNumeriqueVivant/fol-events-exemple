@@ -205,7 +205,7 @@ module.exports = function (grunt) {
                         'jquery': '../../front/bower_components/jquery/dist/jquery',
                         'underscore': '../../front/bower_components/underscore/underscore',
                         'backbone': '../../front/bower_components/backbone/backbone',
-                        'semanticui': '../../front/bower_components/semantic-ui/build/packaged/javascript/semantic',
+                        'semanticui': 'semantic',
                         'leaflet': '../../front/bower_components/leaflet/dist/leaflet-src',
                         'zoomorscroll': '../../front/bower_components/zoomorscroll/dist/jquery.zoomorscroll',
                         'scrollTo': '../../front/bower_components/jquery.scrollTo/jquery.scrollTo',
@@ -321,6 +321,12 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>/bower_components/leaflet/dist',
                     dest: '<%= yeoman.dist %>',
                     src: [ 'images/{,*/}*.*' ]
+                }, {
+                  expand: true,
+                  dot: true,
+                  cwd: '<%= yeoman.app %>/scripts',
+                  dest: '.tmp/scripts',
+                  src: [ '*.js' ]
                 }]
             }
         },
@@ -454,6 +460,7 @@ module.exports = function (grunt) {
         'config:prod',
         'replace',
         'compass:dist',
+        'copy',
         'useminPrepare',
         'requirejs',
         'imagemin',
@@ -461,7 +468,7 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
+        
         //'rev',
         'usemin'
     ]);

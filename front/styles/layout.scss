@@ -225,6 +225,7 @@ html {
         }
         > .fakeimg {
           width: 16rem;
+          overflow: hidden;
           p {
             font-size: 2.6em;
             text-align: center;
@@ -249,6 +250,7 @@ html {
 }
 
 #map_container {
+  display: none;
   .ui.basic.segment {
     padding: 0;
     width: 100%;
@@ -302,7 +304,8 @@ html {
 }
 
 
-#page_container.header_shifted {
+/*
+#page_container.header_shifted.disabled {
   
   .four.wide.column {
     
@@ -322,3 +325,4 @@ html {
   
 }
 
+*/
