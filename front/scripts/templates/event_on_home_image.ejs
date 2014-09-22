@@ -6,31 +6,45 @@
             <p><%= name %></p>
         </div>
     <% } %>
+    <div class="ui ribbon label">
+      <%= themes.join(' | ')%>
+    </div>
+    <h3><%= types %></h3>
     <h2><%= name %></h2>
-    <p>
-        Du <span class="ui label"><%= begin_date %></span>
-        au <span class="ui label"><%= end_date %></span>
-    </p>
-    <p class="description"><%= description %></p>
+    <div class="ui circular segment">
+      <h4 class="ui header">
+        <% if(time_advert_level === -1) { %>
+          Evènement passé
+        <% } else if(time_advert_level === 0) { %>
+          C'est en ce moment
+        <% } else if(time_advert_level === 1) { %>
+          C'est bientôt
+        <% } else if(time_advert_level === 2) { %>
+          A venir
+        <% } %>
+      </h4>
+    </div>
+    
     <aside class="ui celled list">
-        <div class="item">
-            <h3><i class="ui info icon"></i>Info :</h3>
-            <p><%= infos.infos_extra %></p>
-        </div>
-        <div class="item">
-            <h3><i class="ui tag icon"></i>Inscriptions / Résèrvations :</h3>
-            <p><%= infos.how_to_participate %></p>
-        </div>
-        <div class="item">
-            <h3><i class="ui inbox icon"></i>Contacts :</h3>
-            <p><%= infos.contacts %></p>
-        </div>
+      <div class="item">
+          <h5 class="header">Dates</h5>
+          <p class="content">
+            Du <span class="ui label"><%= begin_date.format('D MMMM YYYY') %></span>
+            au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
+          </p>
+      </div>
+      <div class="item">
+          <h5 class="header">Lieu</h5>
+          <p class="content"><%= location %></span></p>
+      </div>
     </aside>
+    
+    <p class="description"><%= description %></p>
+    
+    <hr class="ui separator" />
+    
+    <a href="#"><i class="ui icon plus"></i> Plus d'informations</a>
+    
     <div class="clear"></div>
+    
 </article>
-
-<div class="separator">
-    <i class="circular large down inverted angle link icon"></i>
-    <i class="circular large up inverted double angle link icon"></i>
-</div>
-

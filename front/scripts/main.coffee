@@ -8,7 +8,7 @@ require.config
     jquery: '../bower_components/jquery/dist/jquery'
     backbone: '../bower_components/backbone/backbone'
     underscore: '../bower_components/underscore/underscore'
-    semanticui: '../bower_components/semantic-ui/build/packaged/javascript/semantic'
+    semanticui: 'semantic'
     leaflet: '../bower_components/leaflet/dist/leaflet-src'
     zoomorscroll: '../bower_components/zoomorscroll/dist/jquery.zoomorscroll'
     scrollTo: '../bower_components/jquery.scrollTo/jquery.scrollTo'

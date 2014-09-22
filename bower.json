@@ -11,7 +11,7 @@
     "requirejs-text": "~2.0.10",
     "modernizr": "~2.7.1",
     "html5shiv": "~3.7.2",
-    "semantic-ui": "https://github.com/challet/Semantic-UI.git#master",
+    "semantic-ui": "https://github.com/Semantic-Org/Semantic-UI.git#css",
     "zoomorscroll": "https://github.com/challet/zoomorscroll.git#master",
     "serializeBackbone": "https://github.com/challet/serializeBackbone.git#master",
     "leaflet": "~0.7.3",
