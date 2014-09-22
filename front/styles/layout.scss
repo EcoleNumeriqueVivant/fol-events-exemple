@@ -304,15 +304,15 @@ html {
 }
 
 
-/*
-#page_container.header_shifted.disabled {
+
+#page_container.header_shifted {
   
   .four.wide.column {
     
     &#steps_container {
       position: fixed;
-      top: 11rem;
-      left: 8%;
+      top: 0;
+      left: auto;
     }
   
     &#map_container.background {
@@ -324,5 +324,3 @@ html {
   }
   
 }
-
-*/
