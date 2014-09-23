@@ -1,50 +1,53 @@
 <article class="ui piled segment">
-    <% if(typeof image !== 'undefined') { %>
-        <img class="ui image" src="<%= image %>" />
-    <% } else { %>
-        <div class="ui image fakeimg">
-            <p><%= name %></p>
-        </div>
-    <% } %>
-    <div class="ui ribbon label">
-      <%= themes.join(' | ')%>
-    </div>
-    <h3><%= types %></h3>
-    <h2><%= name %></h2>
-    <div class="ui circular segment">
-      <h4 class="ui header">
-        <% if(time_advert_level === -1) { %>
-          Evènement passé
-        <% } else if(time_advert_level === 0) { %>
-          C'est en ce moment
-        <% } else if(time_advert_level === 1) { %>
-          C'est bientôt
-        <% } else if(time_advert_level === 2) { %>
-          A venir
-        <% } %>
-      </h4>
-    </div>
-    
-    <aside class="ui celled list">
-      <div class="item">
-          <h5 class="header">Dates</h5>
-          <p class="content">
-            Du <span class="ui label"><%= begin_date.format('D MMMM YYYY') %></span>
-            au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
-          </p>
+  
+  <div class="ui ribbon label">
+    <%= themes.join(' | ')%>
+  </div>
+  
+  <% if(typeof image !== 'undefined') { %>
+      <img class="ui image" src="<%= image %>" />
+  <% } else { %>
+      <div class="ui image fakeimg">
+          <p><%= name %></p>
       </div>
-      <div class="item">
-          <h5 class="header">Lieu</h5>
-          <p class="content"><%= location %></span></p>
-      </div>
-    </aside>
-    
-    <p class="description"><%= description %></p>
-    
-    <hr class="ui separator" />
-    
-    <a href="#"><i class="ui icon plus"></i> Plus d'informations</a>
-    
-    <div class="clear"></div>
+  <% } %>
+  
+  <h3><%= types %></h3>
+  <h2><%= name %></h2>
+  <div class="ui circular segment">
+    <h4 class="ui header">
+      <% if(time_advert_level === -1) { %>
+        Evènement passé
+      <% } else if(time_advert_level === 0) { %>
+        C'est en ce moment
+      <% } else if(time_advert_level === 1) { %>
+        C'est bientôt
+      <% } else if(time_advert_level === 2) { %>
+        A venir
+      <% } %>
+    </h4>
+  </div>
+  
+  <aside class="ui celled list">
+    <div class="item">
+        <h5 class="header">Dates</h5>
+        <p class="content">
+          Du <span class="ui label"><%= begin_date.format('D MMMM YYYY') %></span>
+          au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
+        </p>
+    </div>
+    <div class="item">
+        <h5 class="header">Lieu</h5>
+        <p class="content"><%= location %></span></p>
+    </div>
+  </aside>
+  
+  <p class="description"><%= description %></p>
+  
+  <hr class="ui separator" />
+  
+  <a href="#"><i class="ui icon plus"></i> Plus d'informations</a>
+  
+  <div class="clear"></div>
     
 </article>

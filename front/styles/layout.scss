@@ -52,9 +52,7 @@ html {
 #header_container {
   
   font-size: 1rem;
-  
-  
-  
+
   .left.menu { 
     width: 100%;
     text-align: center;
@@ -66,6 +64,7 @@ html {
   }
   
   #logo_container {
+    background-color: #f5f2f0;
     background-image: url(/images/int/logo_background.png);
     background-position: center center;
     background-repeat: no-repeat;
@@ -281,17 +280,34 @@ html {
 #steps_container {
 
   white-space: nowrap;
+  
+  .button {
+    width: 14em;
+    margin: 1em calc(50% - 7em);
+    white-space: normal;
+    text-align: left;
+    .icon {
+      display: block;
+      float: left;
+      width: 1em;
+      height: 1em;
+      margin: 0 0.25em;
+    }
+  }
+  
   ol.steps {
-    width: 100%;
+    display: block;
+    width: calc(100% - 1rem);
+    margin-left: 1rem;
     li {
       white-space: normal;
-      padding: 1em 0.3em 1em 0.2em;
+      padding: 1em 0.3em 1em 2.5em;
       width: 100%;
-      padding-left: 1em;
+      cursor: pointer;
       .ui.ribbon.label {
         position: absolute;
         left: -1.2em;
-        top: auto;
+        top: 0.1em;
         width: 2em;
         box-sizing: content-box;
         padding-left: 1rem;

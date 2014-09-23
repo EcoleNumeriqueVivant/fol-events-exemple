@@ -2480,7 +2480,7 @@ body > .ui.grid:not(.page) {
   content: '';
   top: 0%;
   right: 0px;
-  width: 1px;
+  width: 0;
   height: 100%;
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
   background: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
@@ -2783,6 +2783,7 @@ body > .ui.grid:not(.page) {
   top: 0%;
   left: 0px;
   width: 100%;
+  height: 0;
   background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
   background: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
   height: 1px;
@@ -2839,7 +2840,7 @@ body > .ui.grid:not(.page) {
 .ui.tiered.menu > .menu .item.active:after {
   position: absolute;
   content: '';
-  margin-top: -1px;
+  margin-top: 0;
   top: 100%;
   left: 0px;
   width: 100%;
@@ -15075,13 +15076,13 @@ a.ui.yellow.label:hover:before {
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: #f0f0f0;
+  background: #022954;
 }
 .ui.steps .step.active:after {
-  background: #f0f0f0;
+  background: #022954;
 }
 .ui.steps .step.active .title {
-  color: #a8948c;
+  color: #ffffff;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {
@@ -15882,7 +15883,7 @@ body {
   height: 100%;
 }
 body {
-  background: #d0d0d0;
+  background: #ffffff;
   font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;

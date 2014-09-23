@@ -9,125 +9,125 @@
 
 <div class="left menu">
     <a class="item" id="event_search_trigger"></i> Trouver des évènements</a>
-</span>
+</div>
 
 <form class="ui sub menu form three column stackable grid" id="event_search">
 
-    <div class="equal height row">
+  <div class="equal height row">
 
-        <div class="column item">
-          <label class="ui top attached header black">Type de manifestation</label>
-          <div class="ui white field segment attached">
-            <ul class="ui list" id="types_list_container">
+      <div class="column item">
+        <label class="ui top attached header black">Type de manifestation</label>
+        <div class="ui white field segment attached">
+          <ul class="ui list" id="types_list_container">
+          </ul>
+        </div>
+      </div>
+
+      <div class="column item">
+        <label class="ui top attached header black">Mois de l'évènement</label>
+        <div class="ui white field segment attached">
+            
+            <ul class="ui list">
+              <% for(var i=0; i <= 4; i++) { %>
+                  <% var date = new Date(); date.setMonth(date.getMonth() + i); %>
+                  <li class="item">
+                    <p class="ui checkbox">
+                        <input type="checkbox" value="<%= date.getMonth() %>" name="month" />
+                        <label><%= date.getMonth() + 1 %> / <%= date.getFullYear() %></label>
+                    </p>
+                  </li>
+              <% } %>
             </ul>
-          </div>
+            
         </div>
+      </div>
 
-        <div class="column item">
-          <label class="ui top attached header black">Mois de l'évènement</label>
-          <div class="ui white field segment attached">
-              
-              <ul class="ui list">
-                <% for(var i=0; i <= 4; i++) { %>
-                    <% var date = new Date(); date.setMonth(date.getMonth() + i); %>
-                    <li class="item">
-                      <p class="ui checkbox">
-                          <input type="checkbox" value="<%= date.getMonth() %>" name="month" />
-                          <label><%= date.getMonth() + 1 %> / <%= date.getFullYear() %></label>
-                      </p>
-                    </li>
-                <% } %>
-              </ul>
-              
-          </div>
+      <div class="column item">
+        <label class="ui top attached header black">Thématique</label>
+        <div class="ui white field segment attached">
+          <ul class="ui list" id="themes_list_container">
+          </ul>
         </div>
+      </div>
+      
+  </div>
 
-        <div class="column item">
-          <label class="ui top attached header black">Thématique</label>
-          <div class="ui white field segment attached">
-            <ul class="ui list" id="themes_list_container">
-            </ul>
-          </div>
-        </div>
-        
-    </div>
-
-    <div class="row">
-      <input type="submit" value="Afficher" class="ui teal fluid submit button" />
-    </div>
+  <div class="row">
+    <input type="submit" value="Afficher" class="ui teal fluid submit button" />
+  </div>
 
 </form>
 
 
 <div class="ui sub menu three column stackable grid" id="user_forms">
     
-    <form class="column ui form" id="login_form">
-    
-        <label class="ui top attached header black">Log in</label>
-    
-        <div class="field">
-          <label>Email</label>
-          <div class="ui left icon input">
-            <input placeholder="Email" type="text" name="email">
-            <i class="user icon"></i>
-          </div>
+  <form class="column ui form" id="login_form">
+  
+      <label class="ui top attached header black">Log in</label>
+  
+      <div class="field">
+        <label>Email</label>
+        <div class="ui left icon input">
+          <input placeholder="Email" type="text" name="email">
+          <i class="user icon"></i>
         </div>
-        <div class="field">
-          <label>Password</label>
-          <div class="ui left icon input">
-            <input type="password" name="password">
-            <i class="lock icon"></i>
-          </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="ui left icon input">
+          <input type="password" name="password">
+          <i class="lock icon"></i>
         </div>
+      </div>
 
-        <input type="submit" value="Login" class="ui teal  submit button" />
+      <input type="submit" value="Login" class="ui teal  submit button" />
 
-    </form>
+  </form>
     
-    <form class="column ui form" id="account_form">
-    
-        <label class="ui top attached header black">Créer un compte</label>
-    
-        <div class="field">
-          <label>Email</label>
-          <div class="ui left icon input">
-            <input placeholder="Email" type="text" name="email">
-            <i class="user icon"></i>
-          </div>
+  <form class="column ui form" id="account_form">
+  
+      <label class="ui top attached header black">Créer un compte</label>
+  
+      <div class="field">
+        <label>Email</label>
+        <div class="ui left icon input">
+          <input placeholder="Email" type="text" name="email">
+          <i class="user icon"></i>
         </div>
-        <div class="field">
-          <label>Password</label>
-          <div class="ui left  icon input">
-            <input type="password" name="password">
-            <i class="lock icon"></i>
-          </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="ui left  icon input">
+          <input type="password" name="password">
+          <i class="lock icon"></i>
         </div>
-        <div class="field">
-          <label>Password Confirmation</label>
-          <div class="ui left  icon input">
-            <input type="password" name="password_confirmation">
-            <i class="lock icon"></i>
-          </div>
+      </div>
+      <div class="field">
+        <label>Password Confirmation</label>
+        <div class="ui left  icon input">
+          <input type="password" name="password_confirmation">
+          <i class="lock icon"></i>
         </div>
+      </div>
 
-        <input type="submit" value="Créer" class="ui teal  submit button" />
+      <input type="submit" value="Créer" class="ui teal  submit button" />
 
-    </form>
-    
-    <form class="column ui form" id="password_form">
-    
-        <label class="ui top attached header black">Nouveau mot de passe</label>
-    
-        <div class="field">
-          <label>Email</label>
-          <div class="ui left icon input">
-            <input placeholder="Email" type="text" name="email">
-            <i class="user icon"></i>
-          </div>
+  </form>
+  
+  <form class="column ui form" id="password_form">
+  
+      <label class="ui top attached header black">Nouveau mot de passe</label>
+  
+      <div class="field">
+        <label>Email</label>
+        <div class="ui left icon input">
+          <input placeholder="Email" type="text" name="email">
+          <i class="user icon"></i>
         </div>
+      </div>
 
-        <input type="submit" value="Envoyer" class="ui teal  submit button" />
+      <input type="submit" value="Envoyer" class="ui teal  submit button" />
 
-    </form>
+  </form>
     
 </div>
