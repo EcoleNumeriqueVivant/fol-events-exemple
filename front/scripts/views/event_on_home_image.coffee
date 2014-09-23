@@ -27,7 +27,7 @@ define [
 
     deactivate: ->
       @$el.removeClass('active')
-      
+    
     render: ->
       begin_date = @model.get('begin_date')
       end_date= @model.get('end_date')

@@ -15918,7 +15918,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #3a99d8;
+  color: #ff8436;
 }
 /*******************************
           Highlighting
@@ -23177,7 +23177,7 @@ body.pushed.scrolling.ui.dimmable {
 }
 .ui.cards > .card > .content a:hover,
 .ui.card > .content a:hover {
-  color: #3a99d8;
+  color: #ff8436;
 }
 /* Header */
 .ui.cards > .card > .content > a.header,
@@ -23186,7 +23186,7 @@ body.pushed.scrolling.ui.dimmable {
 }
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: #3a99d8;
+  color: #ff8436;
 }
 /* Meta */
 .ui.cards > .card .meta a,
@@ -23921,7 +23921,7 @@ a.ui.card:hover,
   cursor: pointer;
 }
 .ui.comments .comment a.author:hover {
-  color: #3a99d8;
+  color: #ff8436;
 }
 /*--------------
      Metadata
@@ -24817,14 +24817,14 @@ a.ui.card:hover,
           transition: color 0.25s ease;
 }
 .ui.items > .item > .content a:hover {
-  color: #3a99d8;
+  color: #ff8436;
 }
 /* Header */
 .ui.items > .item > .content > a.header {
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.items > .item > .content > a.header:hover {
-  color: #3a99d8;
+  color: #ff8436;
 }
 /* Meta */
 .ui.items > .item .meta a {
@@ -24921,7 +24921,7 @@ a.ui.card:hover,
 }
 .ui.items a.item:hover .content .header,
 .ui.link.item > .item:hover .content .header {
-  color: #3a99d8;
+  color: #ff8436;
 }
 /*--------------
       Size
@@ -25271,7 +25271,7 @@ ol.ui.list ol,
   color: #022954;
 }
 .ui.list a:hover {
-  color: #3a99d8;
+  color: #ff8436;
 }
 .ui.list a .icon {
   color: rgba(0, 0, 0, 0.4);
