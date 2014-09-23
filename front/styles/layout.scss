@@ -175,10 +175,14 @@ html {
         text-align: justify;
         position: relative;
         @include transition(background-color 8s);
+        h3 {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1.2em;
+        }
         h2 {
           margin: 0 0 1rem 0;
-          font-weight: bold;
-          font-size: 1.4rem;
+          font-size: 2em;
           text-align: left;
         }
         .ui.circular.segment {
@@ -196,41 +200,49 @@ html {
             @include rotate(-6);
           }
         }
-        aside {
-          .item:after {
-            clear: none;
-          }
-          h5 {
-            float: left;
-            font-weight: bold;
-            font-size: 1em;
-            display: inline;
-            margin-right: 0.7em;
-          }
-          p {
-            padding-bottom: 1rem;
-            .ui.label {
-              padding: 0.2em 0.4em;
+        .basic.segment {
+          max-width: 36em;
+          padding: 0;
+          display: inline-block;
+          aside {
+            .item:after {
+              clear: none;
+            }
+            h5 {
+              font-weight: lighter;
+              text-transform: uppercase;
+              font-size: 1em;
+              display: inline;
+              margin-right: 0.3em;
+              font-weight: lighter;
+            }
+            span.content {
+              font-weight: bold;
+              padding-bottom: 1rem;
+              .ui.label {
+                padding: 0.2em 0.4em;
+              }
             }
           }
         }
         > img, > .fakeimg {
+          display: inline-block;
+          vertical-align: top;
           height: 26rem;
-          margin: 0 0 0.1em 6%;
-          float: right;
+          margin: 0 0 0.1em 4%;
           padding: 1em;
           background: none repeat scroll 0% 0% #FFF;
           border: 1px solid #555;
         }
         > .fakeimg {
-          width: 16rem;
+          width: 16.06rem;
           overflow: hidden;
           p {
             font-size: 2.6em;
             text-align: center;
             padding: 3em 1em;
             color: #F7F7F7;
-            
+          
           }
         }
       }

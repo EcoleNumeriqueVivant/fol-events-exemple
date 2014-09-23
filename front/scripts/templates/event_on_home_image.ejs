@@ -4,14 +4,6 @@
     <%= themes.join(' | ')%>
   </div>
   
-  <% if(typeof image !== 'undefined') { %>
-      <img class="ui image" src="<%= image %>" />
-  <% } else { %>
-      <div class="ui image fakeimg">
-          <p><%= name %></p>
-      </div>
-  <% } %>
-  
   <h3><%= types %></h3>
   <h2><%= name %></h2>
   <div class="ui circular segment">
@@ -28,25 +20,38 @@
     </h4>
   </div>
   
-  <aside class="ui celled list">
-    <div class="item">
-        <h5 class="header">Dates</h5>
-        <p class="content">
-          Du <span class="ui label"><%= begin_date.format('D MMMM YYYY') %></span>
-          au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
-        </p>
-    </div>
-    <div class="item">
-        <h5 class="header">Lieu</h5>
-        <p class="content"><%= location %></span></p>
-    </div>
-  </aside>
+  <div class="ui basic segment">
+    
+    <aside class="ui celled list">
+    
+      <div class="item">
+          <h5 class="header">Dates</h5>
+          <span class="content">
+            Du <span class="ui label"><%= begin_date.format('D MMMM YYYY') %></span>
+            au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
+          </span>
+      </div>
+      <div class="item">
+          <h5 class="header">Lieu</h5>
+          <span class="content"><%= location %> <a href="#">Voir carte</a></span>
+      </div>
+    </aside>
+
+    <p class="description"><%= description %></p>
   
-  <p class="description"><%= description %></p>
+    <hr class="ui separator" />
   
-  <hr class="ui separator" />
+    <a href="#"><i class="ui icon plus"></i> Plus d'informations</a>
+    
+  </div>
   
-  <a href="#"><i class="ui icon plus"></i> Plus d'informations</a>
+  <% if(typeof image !== 'undefined') { %>
+      <img class="ui image" src="<%= image %>" />
+  <% } else { %>
+      <div class="ui image fakeimg">
+          <p><%= name %></p>
+      </div>
+  <% } %>
   
   <div class="clear"></div>
     
