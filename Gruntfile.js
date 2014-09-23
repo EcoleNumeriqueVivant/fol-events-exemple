@@ -34,7 +34,7 @@ module.exports = function (grunt) {
             },
             coffee: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
+                tasks: ['coffee:dist', 'config:dev', 'replace']
             },
             coffeeTest: {
                 files: ['test/spec/{,*/}*.coffee'],
@@ -66,6 +66,10 @@ module.exports = function (grunt) {
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
+            },
+            replace: {
+              files: ['.tmp/scripts/main.js'],
+              tasks: ['config:dev', 'replace']
             }
         },
         connect: {
@@ -201,11 +205,33 @@ module.exports = function (grunt) {
                         'jquery': '../../front/bower_components/jquery/dist/jquery',
                         'underscore': '../../front/bower_components/underscore/underscore',
                         'backbone': '../../front/bower_components/backbone/backbone',
-                        'semanticui': '../../front/bower_components/semantic-ui/build/packaged/javascript/semantic',
+                        'semanticui': 'semantic',
                         'leaflet': '../../front/bower_components/leaflet/dist/leaflet-src',
                         'zoomorscroll': '../../front/bower_components/zoomorscroll/dist/jquery.zoomorscroll',
                         'scrollTo': '../../front/bower_components/jquery.scrollTo/jquery.scrollTo',
-                        'serializeBackbone': '../../front/bower_components/serializeBackbone/dist/jquery.serializeBackbone'
+                        'serializeBackbone': '../../front/bower_components/serializeBackbone/dist/jquery.serializebackbone',
+                        'moment': '../../front/bower_components/moment/moment'
+                      },
+                      config: {
+                        moment: {
+                          noGlobal: true
+                        }
+                      },
+                      shim: {
+                        underscore: {
+                          exports: '_'
+                        },
+                        backbone: {
+                          deps: ['underscore', 'jquery'],
+                          exports: 'Backbone'
+                        },
+                        semanticui: {
+                          deps: ['jquery'],
+                          exports: 'ui'
+                        },
+                        leaflet: {
+                          exports: 'L'
+                        }
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
@@ -295,6 +321,12 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>/bower_components/leaflet/dist',
                     dest: '<%= yeoman.dist %>',
                     src: [ 'images/{,*/}*.*' ]
+                }, {
+                  expand: true,
+                  dot: true,
+                  cwd: '<%= yeoman.app %>/scripts',
+                  dest: '.tmp/scripts',
+                  src: [ '*.js' ]
                 }]
             }
         },
@@ -324,7 +356,38 @@ module.exports = function (grunt) {
                     ]
                 }
             }
+        },
+        
+        config: {
+          dev: {
+            options: {
+              variables: {
+                'api_root': 'http://localhost:3000/api/v1'
+              }
+            }
+          },
+          prod: {
+            options: {
+              variables: {
+                'api_root': '/api/v1'
+              }
+            }
+          }
+        },
+        replace: {
+          dist: {
+            options: {
+              variables: {
+                'api_root': '<%= grunt.config.get("api_root") %>'
+              },
+              force: true
+            },
+            files: [
+              {expand: true, flatten: false, src: ['.tmp/scripts/main.js']}
+            ]
+          }
         }
+        
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -359,6 +422,8 @@ module.exports = function (grunt) {
             'coffee:dist',
             'createDefaultTemplate',
             'jst',
+            'config:dev',
+            'replace',
             'compass:server',
             'connect:livereload',
             'open:server',
@@ -392,7 +457,10 @@ module.exports = function (grunt) {
         'coffee',
         'createDefaultTemplate',
         'jst',
+        'config:prod',
+        'replace',
         'compass:dist',
+        'copy',
         'useminPrepare',
         'requirejs',
         'imagemin',
@@ -400,7 +468,7 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
+        
         //'rev',
         'usemin'
     ]);

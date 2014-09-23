@@ -12,8 +12,8 @@ define [
       @main_view = options.main_view
 
     home: (focus_as_name = null) ->
-      focus_as_name = decodeURIComponent(focus_as_name)
+      focus_as_name = if focus_as_name is null then null else decodeURIComponent(focus_as_name)
       if(@main_view?.current_page_view instanceof HomeView)
-        @main_view.current_page_view.activateEvent(focus_as_name)
+        @main_view.current_page_view.activateEventAsName(focus_as_name)
       else
-        @main_view.injectPageView(HomeView, collection: new EventCollection(), focus_as_name: decodeURIComponent(focus_as_name))
+        @main_view.injectPageView(HomeView, collection: new EventCollection(), focus_as_name: focus_as_name)

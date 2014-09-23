@@ -6,8 +6,42 @@
     transition: $transition-parameters;
 }
 
+// generic transform
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+	 @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+       -o-transform-origin: $origin;
+      -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
 html {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 10pt;
 }
 
@@ -15,21 +49,45 @@ html {
   clear: both;
 }
 
-
 #header_container {
   
-  span.left.menu { 
-    float: none;
-    white-space: nowrap;
-    .item {
-      font-size: 1.05rem;
-      i.icon {
-        border: 1px solid #333333;
-        text-shadow: #555555 -0.1em 0.05em 0.35em;
-        font-size: 1.2em;
-        margin: -0.5em 0.4em -0.5em 0;
-        text-align: right;
-      }
+  font-size: 1rem;
+
+  .left.menu { 
+    width: 100%;
+    text-align: center;
+    background: #A8948C;
+  }
+  
+  &.ui.tiered.menu > .left.menu > .item:hover, &.ui.tiered.menu > .left.menu > .active.item {
+    color: #022954
+  }
+  
+  #logo_container {
+    background-color: #f5f2f0;
+    background-image: url(/images/int/logo_background.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 150px;
+    position: relative;
+    em {
+      position: absolute;
+      top: 0.618em;
+      left: 1em;
+      font-style: italic;
+      font-size: 1.4em;
+      max-width: 16em;
+      z-index: 2;
+      margin: 0;
+      padding: 0;
+    }
+    img {
+      position: absolute;
+      bottom: 0.618em;
+      left: 1em;
+      z-index: 1;
     }
   }
   
@@ -40,9 +98,7 @@ html {
     }
     &#event_search {
       font-size: 1em;
-    
       padding: 0.8rem 1rem; 
-      background-color: rgba(255, 255, 255, 0.2);
       .equal.height.row {
         .column {
           padding-top: 0;
@@ -73,9 +129,6 @@ html {
     
     }
   }
-  &#user_forms {
-    
-  }
   
   .ui.steps {
     overflow: visible;
@@ -92,9 +145,15 @@ html {
   .column {
     margin-bottom: 0;
     margin-top: 0;
+    padding: 0 1rem;
+    &.four.wide {
+      width: 26rem;
+    }
+    &.twelve.wide {
+      width: calc(100% - 26rem);
+    }
   }
 }
-
 
 
 #carousel_container { 
@@ -103,8 +162,9 @@ html {
   position: relative;
   ol {
     height: auto;
-    display: inline-block;
+    display: block;
     position: relative;
+    width: 100%;
     li {
       margin: 0 0 5rem 0;
       padding: 0;
@@ -112,62 +172,85 @@ html {
         margin: 0;
         padding: 2%;
         text-align: justify;
+        position: relative;
         @include transition(background-color 8s);
-        h2 {
-          margin: 0 0 1rem 6rem;
+        white-space: nowrap;
+        > * {
+          white-space: normal;
+        }
+        h3 {
+          text-transform: uppercase;
           font-weight: bold;
-          font-size: 1.4rem;
+          font-size: 1.2em;
+        }
+        h2 {
+          margin: 0 0 1rem 0;
+          font-size: 2em;
           text-align: left;
         }
-        aside {
-          .item:after {
-            clear: none;
-          }
-          h3 {
-            float: left;
-            font-weight: bold;
-            font-size: 1em;
-            display: inline;
+        .ui.circular.segment {
+          width: 6em;
+          height: 6em;
+          padding: 1em 0.4em;
+          box-sizing: padding-box;
+          position: absolute;
+          top: -3em;
+          right: 21rem;
+          h4 {
+            margin: 1.25em 0;
             line-height: 1em;
-            margin-right: 0.7em;
-          }
-          p {
-            padding-bottom: 1rem;
+            font-size: 0.9em;
+            @include rotate(-6);
           }
         }
-        > p {
-          margin-left: 6rem;
+        .basic.segment {
+          max-width: 36em;
+          padding: 0;
+          display: inline-block;
+          aside {
+            .item:after {
+              clear: none;
+            }
+            h5 {
+              font-weight: lighter;
+              text-transform: uppercase;
+              font-size: 1em;
+              display: inline;
+              margin-right: 0.3em;
+              font-weight: lighter;
+            }
+            span.content {
+              font-weight: bold;
+              padding-bottom: 1rem;
+              .ui.label {
+                padding: 0.2em 0.4em;
+              }
+            }
+          }
         }
         > img, > .fakeimg {
+          display: inline-block;
+          vertical-align: top;
           height: 26rem;
-          margin: 0 0 0.1em 6%;
-          float: right;
+          margin: 0 0 0.1em 4%;
           padding: 1em;
           background: none repeat scroll 0% 0% #FFF;
           border: 1px solid #555;
         }
         > .fakeimg {
-          width: 16rem;
+          width: 16.06rem;
+          overflow: hidden;
           p {
             font-size: 2.6em;
             text-align: center;
             padding: 3em 1em;
             color: #F7F7F7;
-            
+          
           }
         }
       }
       &.active article {
         background-color: #F9F9F9;
-      }
-      .separator {
-        text-align: center;
-        position: relative;
-        top: -1.4em;
-        .link.icon {
-          opacity: 1;
-          background: #555555;
-        }
       }
       &:last-child .separator .down.link,
       &:not(:last-child) .separator .up.link {
@@ -181,24 +264,69 @@ html {
 }
 
 #map_container {
-  #tiles {
+  display: none;
+  .ui.basic.segment {
+    padding: 0;
     width: 100%;
     height: 8rem;
+    position: relative;
+    #tiles, #call_action_location, .loader {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #call_action_location, .loader {
+      z-index: 2;
+      display: none;
+      background: white;
+    }
   }
-  &.background .leaflet-control-attribution {
-    display: none;
+  &:not(.loading):not(.haslocation) .ui.basic.segment:hover #call_action_location {
+    display: block;
+  }
+  &.loading .ui.basic.segment .loader {
+    display: block;
   }
 }
 
 #steps_container {
 
   white-space: nowrap;
+  
+  .button {
+    width: 14em;
+    margin: 1em calc(50% - 7em);
+    white-space: normal;
+    text-align: left;
+    .icon {
+      display: block;
+      float: left;
+      width: 1em;
+      height: 1em;
+      margin: 0 0.25em;
+    }
+  }
+  
   ol.steps {
-    width: 100%;
+    display: block;
+    width: calc(100% - 1rem);
+    margin-left: 1rem;
     li {
       white-space: normal;
-      padding: 1em 0.3em 1em 0.2em;
-      width: 100%
+      padding: 1em 0.3em 1em 2.5em;
+      width: 100%;
+      cursor: pointer;
+      .ui.ribbon.label {
+        position: absolute;
+        left: -1.2em;
+        top: 0.1em;
+        width: 2em;
+        box-sizing: content-box;
+        padding-left: 1rem;
+      }
     }
     &.ui.vertical {
       text-align: center;
@@ -206,34 +334,24 @@ html {
   }
 }
 
+
+
 #page_container.header_shifted {
   
   .four.wide.column {
-  
+    
     &#steps_container {
       position: fixed;
-      top: 12rem;
-      left: 8%;
-      padding-right: 5.25%;
+      top: 0;
+      left: auto;
     }
   
     &#map_container.background {
       position: fixed;
-      top: 1rem;
+      top: 0;
       left: auto;
-      margin-top: 0;
-      padding-right: 5.25%;
     }
     
   }
   
-}
-
-
-#mail_alert_container {
-  padding-left: 0;
-}
-
-html:not(.geolocation) #home_grid #carousel_container .ui.corner {
-  display: none;
 }

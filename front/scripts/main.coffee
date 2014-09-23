@@ -8,11 +8,15 @@ require.config
     jquery: '../bower_components/jquery/dist/jquery'
     backbone: '../bower_components/backbone/backbone'
     underscore: '../bower_components/underscore/underscore'
-    semanticui: '../bower_components/semantic-ui/build/packaged/javascript/semantic'
+    semanticui: 'semantic'
     leaflet: '../bower_components/leaflet/dist/leaflet-src'
     zoomorscroll: '../bower_components/zoomorscroll/dist/jquery.zoomorscroll'
     scrollTo: '../bower_components/jquery.scrollTo/jquery.scrollTo'
-    serializeBackbone: '../bower_components/serializeBackbone/dist/jquery.serializeBackbone'
+    serializeBackbone: '../bower_components/serializeBackbone/dist/jquery.serializebackbone'
+    moment: '../bower_components/moment/moment'
+  config:
+    moment:
+      noGlobal: true
   shim:
     underscore:
       exports: '_'
@@ -27,6 +31,6 @@ require.config
 
 
 require ['app'], (App) ->
-  App.init_env(api_root: 'http://localhost:3000/api/v1') # TODO move this in a conf for each environment
+  App.init_env(api_root: '@@api_root')
   App.init_app()
 

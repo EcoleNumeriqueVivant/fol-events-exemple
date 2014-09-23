@@ -4,10 +4,13 @@ define [
   'backbone'
   'templates'
   'views/login_status',
+  'views/semantic_checkbox'
   'models/account',
   'models/session',
+  'collections/type',
+  'collections/theme',
   'serializeBackbone'
-], ($, _, Backbone, JST, LoginStatusView, AccountModel, SessionModel) ->
+], ($, _, Backbone, JST, LoginStatusView, SemanticCheckboxView, AccountModel, SessionModel, TypeCollection, ThemeCollection) ->
   class HeaderView extends Backbone.View
     template: JST['front/scripts/templates/header.ejs']
     events:
@@ -21,7 +24,27 @@ define [
     login_view: null
     
     initialize: ->
-      @on( 'render', -> @login_view = new LoginStatusView(model: @model, el: @$('#session_menu')) )
+      @on 'render', -> 
+        @login_view = new LoginStatusView(model: @model, el: @$('#session_menu'))
+        
+        types = new TypeCollection()
+        types.on('add', (type) => 
+          view = new SemanticCheckboxView (
+            model: new Backbone.Model(value: type.get('name'), label: type.get('name'), name: 'type'),
+            container: @$('#types_list_container')
+          )
+        )
+        types.fetch()
+        
+        themes= new ThemeCollection()
+        themes.on('add', (theme) => 
+          view = new SemanticCheckboxView (
+            model: new Backbone.Model(value: theme.get('name'), label: theme.get('name'), name: 'theme'),
+            container: @$('#themes_list_container')
+          )
+        )
+        themes.fetch()
+        
       super()
     
     destroy: ->
@@ -51,7 +74,7 @@ define [
     search: (event) ->
       event.preventDefault()
       @trigger('search:params', $(event.target).serializeBackbone(array_as_string: true))
-      @toggleForm(event)
+      @toggleEventForm(event)
       
     login: (event) ->
       event.preventDefault()
