@@ -2845,11 +2845,11 @@ body > .ui.grid:not(.page) {
   left: 0px;
   width: 100%;
   height: 2px;
-  background-color: none;
+  background-color: #b3a29b;
 }
 /* Sub Menu */
 .ui.tiered.menu .sub.menu {
-  background-color: none;
+  background-color: #b3a29b;
   border-radius: 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: none;

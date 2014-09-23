@@ -7,7 +7,7 @@ define [
 ], ($, _, Backbone, JST, moment) ->
   class EventOnHomeImageView extends Backbone.View
     template: JST['front/scripts/templates/event_on_home_image.ejs']
-    tagName: 'li'
+    tagName: 'li' 
 
     initialize: ->
       super()
