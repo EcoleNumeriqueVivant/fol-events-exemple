@@ -199,18 +199,39 @@ html {
           margin: 0;
         }
         .ui.circular.segment {
-          width: 6em;
-          height: 6em;
-          padding: 1em 0.4em;
-          box-sizing: padding-box;
+          width: 4em;
+          height: 4em;
+          padding: 1em 1em 2em 1em;
+          box-sizing: content-box;
           position: absolute;
           top: -1.5em;
           right: 38rem;
+          border: none;
+          overflow: visible;
+          background: transparent;
+          box-shadow: none;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border-radius: 0;
+          text-transform: lowercase;
+          &.level-1 {
+            background-image: url("/images/int/pastille_grise.png");
+          }
+          &.level0 {
+            background-image: url("/images/int/pastille_orange.png");
+          }
+          &.level1 {
+            background-image: url("/images/int/pastille_orange.png");
+          }
+          &.level2 {
+            background-image: url("/images/int/pastille_bleue.png");
+          }
           h4 {
             margin: 1.25em 0;
             line-height: 1em;
             font-size: 0.9em;
             @include rotate(-6);
+            color: white;
           }
         }
         .basic.segment {

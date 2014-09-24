@@ -6,16 +6,16 @@
   
   <h3><%= types %></h3>
   <h2><%= name %></h2>
-  <div class="ui circular segment">
+  <div class="ui circular segment level<%= time_advert_level %>">
     <h4 class="ui header">
       <% if(time_advert_level === -1) { %>
-        Evènement passé
+        évènement passé
       <% } else if(time_advert_level === 0) { %>
-        C'est en ce moment
+        c'est en ce moment
       <% } else if(time_advert_level === 1) { %>
-        C'est bientôt
+        c'est bientôt
       <% } else if(time_advert_level === 2) { %>
-        A venir
+        à venir
       <% } %>
     </h4>
   </div>
