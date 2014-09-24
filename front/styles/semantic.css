@@ -4005,7 +4005,7 @@ body > .ui.grid:not(.page) {
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -5403,7 +5403,7 @@ body > .ui.grid:not(.page) {
   color: #022954;
   margin: 0em 0 0 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: normal;
@@ -8776,7 +8776,7 @@ i.flag.zimbabwe {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -11979,7 +11979,7 @@ img.ui.bordered.image {
   width: 100%;
   outline: none;
   line-height: 1.2em;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   padding: 0.8em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -14947,7 +14947,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -15884,7 +15884,7 @@ body {
 }
 body {
   background: #ffffff;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;
   color: #022954;
@@ -16146,7 +16146,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: #022954;
@@ -18588,7 +18588,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #333333;
   margin: 0em;
   padding: 1.5rem 2rem;
@@ -19345,7 +19345,7 @@ a.ui.nag {
 }
 .ui.popup .header {
   padding: 0em;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -20110,7 +20110,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -20142,7 +20142,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -20160,7 +20160,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: #022954;
@@ -20252,7 +20252,7 @@ a.ui.nag {
   box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -23086,7 +23086,7 @@ body.pushed.scrolling.ui.dimmable {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
@@ -24741,7 +24741,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: block;
   margin: 0em;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
@@ -25280,7 +25280,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: #022954;
 }
@@ -26006,7 +26006,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -26020,7 +26020,7 @@ ol.ui.horizontal.list li:before,
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
   margin-top: 0.25rem;
-  font-family: roboto, Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

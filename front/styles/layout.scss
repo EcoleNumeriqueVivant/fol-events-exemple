@@ -41,7 +41,7 @@
 }
 
 html {
-  font-family: roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Roboto Slab',"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 10pt;
 }
 
@@ -66,12 +66,17 @@ html {
   #logo_container {
     background-color: #f5f2f0;
     background-image: url(/images/int/logo_background.png);
-    background-position: center center;
+    background-position: center right;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
+    background-origin: content-box;
+    padding-left: 24em;
     width: 100%;
-    min-height: 220px;
+    height: 147px;
     position: relative;
+    @media screen and (max-width: 930px) {
+      background-position: center left;
+    }
     em {
       position: absolute;
       top: 0.618em;
@@ -182,11 +187,13 @@ html {
           text-transform: uppercase;
           font-weight: bold;
           font-size: 1.2em;
+          margin: 0.5em 0 0 0;
         }
         h2 {
           margin: 0 0 1rem 0;
           font-size: 2em;
           text-align: left;
+          margin: 0;
         }
         .ui.circular.segment {
           width: 6em;
@@ -206,6 +213,7 @@ html {
         .basic.segment {
           max-width: 36em;
           padding: 0;
+          margin-top: 0.5em;
           display: inline-block;
           aside {
             .item:after {
@@ -227,25 +235,27 @@ html {
               }
             }
           }
+          > p {
+            margin-top: 0.5em;
+          }
         }
         > img, > .fakeimg {
           display: inline-block;
           vertical-align: top;
-          height: 26rem;
+          height: 13rem;
           margin: 0 0 0.1em 4%;
           padding: 1em;
           background: none repeat scroll 0% 0% #FFF;
           border: 1px solid #555;
         }
         > .fakeimg {
-          width: 16.06rem;
+          width: 8.08rem;
           overflow: hidden;
           p {
-            font-size: 2.6em;
+            font-size: 1.8em;
             text-align: center;
-            padding: 3em 1em;
+            padding: 1em 0;
             color: #F7F7F7;
-          
           }
         }
       }
