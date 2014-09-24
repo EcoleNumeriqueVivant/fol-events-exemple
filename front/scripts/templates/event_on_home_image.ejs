@@ -1,8 +1,10 @@
 <article class="ui piled segment">
   
-  <div class="ui ribbon label">
-    <%= themes.join(' | ')%>
-  </div>
+  <% if(themes.length != 0) { %>
+    <div class="ui ribbon label">
+      <%= themes.join(' | ')%>
+    </div>
+  <% } %>
   
   <h3><%= types %></h3>
   <h2><%= name %></h2>
@@ -21,6 +23,14 @@
   </div>
   
   <div class="ui basic segment">
+    
+    <% if(typeof image !== 'undefined') { %>
+        <img class="ui rounded image" src="<%= image %>" />
+    <% } else { %>
+        <div class="ui rounded image fakeimg">
+            <p><%= name %></p>
+        </div>
+    <% } %>
     
     <aside class="ui celled list">
     
@@ -45,12 +55,6 @@
     
   </div>
   
-  <% if(typeof image !== 'undefined') { %>
-      <img class="ui image" src="<%= image %>" />
-  <% } else { %>
-      <div class="ui image fakeimg">
-          <p><%= name %></p>
-      </div>
-  <% } %>
+  
     
 </article>

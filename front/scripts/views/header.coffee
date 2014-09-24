@@ -17,6 +17,7 @@ define [
       'click #event_search_trigger':     'toggleEventForm'
       'click #login_form_trigger':       'toggleLoginForm'
       'submit form#event_search':        'search'
+      'change form#event_search':        'search_autosubmit'
       'submit form#login_form':          'login'
       'submit form#account_form':        'account'
       'click #logout_trigger':           'logout'
@@ -71,10 +72,13 @@ define [
         $.scrollTo( $(window).prop('scrollY') - @$('#login_form').outerHeight(true))
         @toggleLoginForm(preventDefault: ->)
 
+    search_autosubmit: ->
+      _(@$('form#event_search').submit()).defer()
+
     search: (event) ->
       event.preventDefault()
       @trigger('search:params', $(event.target).serializeBackbone(array_as_string: true))
-      @toggleEventForm(event)
+      #@toggleEventForm(event)
       
     login: (event) ->
       event.preventDefault()

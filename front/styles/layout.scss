@@ -181,6 +181,7 @@ html {
         padding: 2%;
         text-align: justify;
         position: relative;
+        background-color: #f3f2f0;
         @include transition(background-color 8s);
         white-space: nowrap;
         > * {
@@ -205,7 +206,7 @@ html {
           box-sizing: content-box;
           position: absolute;
           top: -1.5em;
-          right: 38rem;
+          left: 30rem;
           border: none;
           overflow: visible;
           background: transparent;
@@ -235,10 +236,10 @@ html {
           }
         }
         .basic.segment {
-          max-width: 36em;
+          max-width: 46em;
           padding: 0;
           margin-top: 0.5em;
-          display: inline-block;
+          display: block;
           aside {
             .item:after {
               clear: none;
@@ -262,29 +263,34 @@ html {
           > p {
             margin-top: 0.5em;
           }
-        }
-        > img, > .fakeimg {
-          display: inline-block;
-          vertical-align: top;
-          height: 13rem;
-          margin: 0 0 0.1em 4%;
-          padding: 1em;
-          background: none repeat scroll 0% 0% #FFF;
-          border: 1px solid #555;
-        }
-        > .fakeimg {
-          width: 8.08rem;
-          overflow: hidden;
-          p {
-            font-size: 1.8em;
-            text-align: center;
-            padding: 1em 0;
-            color: #F7F7F7;
+          > .image {
+            display: block;
+            float: right;
+            vertical-align: top;
+            width: 8.08rem;
+            margin: 0 0 0.1em 4%;
+            padding: 1em;
+            background: none repeat scroll 0% 0% #FFF;
+            border: 1px solid #555;
+            &.fakeimg {
+              height: 13rem;
+              overflow: hidden;
+              p {
+                font-size: 1.8em;
+                text-align: center;
+                padding: 1em 0;
+                color: #F7F7F7;
+              }
+            }
+          }
+          > *:not(.image) {
+            padding-right: 9rem;
           }
         }
+        
       }
       &.active article {
-        background-color: #f3f2f0;
+        
       }
       &:last-child .separator .down.link,
       &:not(:last-child) .separator .up.link {

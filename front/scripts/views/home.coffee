@@ -31,7 +31,9 @@ define [
 
       @listenTo( @collection, 'add', @displayEvent )
       @listenTo( @collection, 'remove', @hideEvent )
-      @listenTo( @collection, 'sync', =>  @activateEventAsName(if options.focus_as_name then options.focus_as_name else @collection.first().get('name')) )
+      @listenTo( @collection, 'sync', _( =>  
+          @activateEventAsName(if options.focus_as_name then options.focus_as_name else @collection.first().get('name'))
+      ).defer())
       @.on( 'render', -> @adaptResponsive(); @initMap(); @collection.fetch() )
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
