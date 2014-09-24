@@ -36,11 +36,13 @@ define [
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
       $(window).on( 'scroll', @activateFirstVisible )
+      $(window).on( 'scroll', @itemsProportionalSccroll )
 
       @render()
 
     render: ->
       super()
+      @$items_list_container = @$('#steps_container ol')
       #@mailalert_view = new MailAlertView(el: @$('#mail_alert_container')).render()
 
     remove: ->
@@ -97,6 +99,13 @@ define [
         @main_view.eventsearch_view.closeIfOpen()
       else
         $('#page_container').removeClass('header_shifted')
+
+    itemsProportionalSccroll: (event) =>
+      ratio = $(window).prop('scrollY') / ($(window).prop('scrollMaxY'))
+      console.log(ratio)
+      container_height = @$items_list_container.height() / 2
+      items_scroll = ((@$items_list_container.prop('scrollTopMax') + container_height) * ratio) - container_height
+      @$items_list_container.prop('scrollTop', items_scroll)
 
     initMap: =>
       @map = new L.Map(@$('#tiles').get(0), zoomControl: false)

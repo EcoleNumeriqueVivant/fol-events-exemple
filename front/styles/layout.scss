@@ -332,9 +332,11 @@ html {
   
   .button {
     width: 14em;
-    margin: 1em calc(50% - 7em);
+    height: 4rem;
+    margin: 1rem calc(50% - 7em);
     white-space: normal;
     text-align: left;
+    
     .icon {
       display: block;
       float: left;
@@ -347,7 +349,9 @@ html {
   ol.steps {
     display: block;
     width: calc(100% - 1rem);
-    margin-left: 1rem;
+    height: calc(100% - 6rem);
+    padding: 1px 1rem 1px;
+    overflow: hidden;
     li {
       white-space: normal;
       padding: 1em 0.3em 1em 2.5em;
@@ -378,6 +382,7 @@ html {
       position: fixed;
       top: 0;
       left: auto;
+      height: 100%;
     }
   
     &#map_container.background {

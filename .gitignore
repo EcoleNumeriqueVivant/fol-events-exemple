@@ -11,3 +11,4 @@ vendor/assets/components/
 .tmp
 node_modules
 public
+.grunt
