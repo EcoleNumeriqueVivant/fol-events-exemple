@@ -36,7 +36,7 @@ define [
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
       $(window).on( 'scroll', @activateFirstVisible )
-      $(window).on( 'scroll', @itemsProportionalSccroll )
+      $(window).on( 'scroll', @itemsProportionalScroll )
 
       @render()
 
@@ -93,18 +93,18 @@ define [
       #else
       #  $columns.removeClass('sixteen wide').find('.steps').addClass('vertical reversed')
 
-    adaptFixedElements: (event) =>
+    adaptFixedElements: =>
       if($(window).prop('scrollY') > @$el.offset().top)
         $('#page_container').addClass('header_shifted')
         @main_view.eventsearch_view.closeIfOpen()
       else
         $('#page_container').removeClass('header_shifted')
 
-    itemsProportionalSccroll: (event) =>
+    itemsProportionalScroll: =>
       ratio = $(window).prop('scrollY') / ($(window).prop('scrollMaxY'))
       console.log(ratio)
-      container_height = @$items_list_container.height() / 2
-      items_scroll = ((@$items_list_container.prop('scrollTopMax') + container_height) * ratio) - container_height
+      magic_shift = (ratio - 0.5) * @$items_list_container.height() # makes it more natural on both start and end sides
+      items_scroll = @$items_list_container.prop('scrollTopMax') * ratio + magic_shift 
       @$items_list_container.prop('scrollTop', items_scroll)
 
     initMap: =>
