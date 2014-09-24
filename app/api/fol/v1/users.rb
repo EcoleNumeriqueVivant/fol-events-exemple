@@ -10,6 +10,17 @@ module FOL
           get :me do
             current_user.as_json if authenticated?
           end
+          params do
+          end
+          desc "Add a new user"
+          post do
+            user = User.create(email: params[:email], password: params[:password])
+            if user.valid?
+              user
+            else
+              error!({message:user.errors}, 400)
+            end
+          end
         end
       end
     end
