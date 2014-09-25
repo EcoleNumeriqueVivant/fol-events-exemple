@@ -1,1 +1,51 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('/fonts/robotoslab-bold.eot');
+    src: url('/fonts/robotoslab-bold.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/robotoslab-bold.woff2') format('woff2'),
+         url('/fonts/robotoslab-bold.woff') format('woff'),
+         url('/fonts/robotoslab-bold.ttf') format('truetype'),
+         url('/fonts/robotoslab-bold.svg#roboto_slabbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('/fonts/robotoslab-thin.eot');
+    src: url('/fonts/robotoslab-thin.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/robotoslab-thin.woff2') format('woff2'),
+         url('/fonts/robotoslab-thin.woff') format('woff'),
+         url('/fonts/robotoslab-thin.ttf') format('truetype'),
+         url('/fonts/robotoslab-thin.svg#roboto_slabthin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('/fonts/robotoslab-light.eot');
+    src: url('/fonts/robotoslab-light.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/robotoslab-light.woff2') format('woff2'),
+         url('/fonts/robotoslab-light.woff') format('woff'),
+         url('/fonts/robotoslab-light.ttf') format('truetype'),
+         url('/fonts/robotoslab-light.svg#roboto_slablight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('/fonts/robotoslab-regular.eot');
+    src: url('/fonts/robotoslab-regular.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/robotoslab-regular.woff2') format('woff2'),
+         url('/fonts/robotoslab-regular.woff') format('woff'),
+         url('/fonts/robotoslab-regular.ttf') format('truetype'),
+         url('/fonts/robotoslab-regular.svg#roboto_slabregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
+}

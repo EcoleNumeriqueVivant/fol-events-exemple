@@ -9,7 +9,7 @@ define [
     template: JST['front/scripts/templates/event_on_home_image.ejs']
     tagName: 'li' 
 
-    initialize: ->
+    initialize: (options) ->
       super()
       @.on 'render', => @ref_shift = parseInt($('#carousel_container').css('margin-top'))
       @render() if not @model.isNew()
