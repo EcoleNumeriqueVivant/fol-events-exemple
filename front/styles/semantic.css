@@ -5400,7 +5400,7 @@ body > .ui.grid:not(.page) {
   outline: none;
   border: none;
   background-color: #ffffff;
-  color: #022954;
+  color: #ff8436;
   margin: 0em 0 0 0em;
   padding: 0.8em 1.5em 0.8em;
   font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -5411,7 +5411,8 @@ body > .ui.grid:not(.page) {
   font-style: normal;
   text-align: center;
   text-decoration: none;
-  background-image: none;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
   border-radius: 2px;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
@@ -5430,8 +5431,9 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.button:hover {
   background-color: '';
-  background-image: none;
-  color: rgba(0, 0, 0, 0.8);
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
+  color: #ff8436;
 }
 .ui.button:hover .icon {
   opacity: 0.85;
@@ -5443,7 +5445,7 @@ body > .ui.grid:not(.page) {
   background-color: '';
   background-image: '';
   box-shadow: 0px 0px 1px rgba(81, 167, 232, 0.8) inset, 0px 0px 3px 2px rgba(81, 167, 232, 0.8);
-  color: rgba(0, 0, 0, 0.8);
+  color: #ff8436;
 }
 .ui.button:focus .icon {
   opacity: 0.85;
@@ -5455,7 +5457,7 @@ body > .ui.grid:not(.page) {
 .ui.active.button:active {
   background-color: #f1f1f1;
   background-image: '';
-  color: rgba(0, 0, 0, 0.8);
+  color: #ff8436;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset;
 }
 /*--------------
@@ -5650,7 +5652,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.button:hover {
   background: #ffffff none;
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-  color: #022954;
+  color: #ff8436;
 }
 /*-------------------
        Primary
@@ -6009,7 +6011,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: #022954 !important;
+  color: #ff8436 !important;
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;

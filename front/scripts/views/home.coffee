@@ -104,7 +104,6 @@ define [
 
     itemsProportionalScroll: =>
       ratio = $(window).prop('scrollY') / ($(window).prop('scrollMaxY'))
-      console.log(ratio)
       magic_shift = (ratio - 0.5) * @$items_list_container.height() # makes it more natural on both start and end sides
       items_scroll = @$items_list_container.prop('scrollTopMax') * ratio + magic_shift 
       @$items_list_container.prop('scrollTop', items_scroll)

@@ -337,24 +337,22 @@ html {
   
   .button {
     width: 14em;
-    height: 4rem;
+    height: 4.5rem;
     margin: 1rem calc(50% - 7em);
     white-space: normal;
     text-align: left;
-    
-    .icon {
-      display: block;
-      float: left;
-      width: 1em;
-      height: 1em;
-      margin: 0 0.25em;
+    line-height: 1.15em;
+    font-size: 1.25em;
+    font-style: italic;
+    img {
+      margin: 0 1.5em;
     }
   }
   
   ol.steps {
     display: block;
     width: calc(100% - 1rem);
-    height: calc(100% - 6rem);
+    height: calc(100% - 6.5rem);
     padding: 1px 1rem 1px;
     overflow: hidden;
     li {
