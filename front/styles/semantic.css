@@ -14950,8 +14950,8 @@ a.ui.yellow.label:hover:before {
 /* Title */
 .ui.steps .step .title {
   font-family: "Roboto Slab", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 1.1em;
-  font-weight: bold;
+  font-size: 1em;
+  font-weight: normal;
 }
 /* Description */
 .ui.steps .step .description {
