@@ -14916,7 +14916,7 @@ a.ui.yellow.label:hover:before {
   display: inline-block;
   position: relative;
   margin: 0em 0em;
-  padding: 0.8em 1.75em 0.8em 2.5em;
+  padding: 0.8em 1.75em 0.8em 1.75em;
   vertical-align: top;
   background: #ffffff;
   color: #022954;
@@ -14931,8 +14931,8 @@ a.ui.yellow.label:hover:before {
   right: 0em;
   border: medium none;
   background-color: #ffffff;
-  width: 1.5em;
-  height: 1.5em;
+  width: 0;
+  height: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);

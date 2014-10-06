@@ -31,9 +31,9 @@ define [
 
       @listenTo( @collection, 'add', @displayEvent )
       @listenTo( @collection, 'remove', @hideEvent )
-      @listenTo( @collection, 'sync', _( =>  
-          @activateEventAsName(if options.focus_as_name then options.focus_as_name else @collection.first().get('name'))
-      ).defer())
+      @listenTo( @collection, 'sync', (collection) =>  
+          @activateEventAsName(if options.focus_as_name then options.focus_as_name else collection.first().get('name'))
+      )
       @.on( 'render', -> @adaptResponsive(); @initMap(); @collection.fetch() )
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
@@ -103,9 +103,10 @@ define [
         $('#page_container').removeClass('header_shifted')
 
     itemsProportionalScroll: =>
-      ratio = $(window).prop('scrollY') / ($(window).prop('scrollMaxY'))
+      ratio = $(document).scrollTop() / ($(document.documentElement).prop('scrollHeight') - $(document.documentElement).prop('clientHeight'))
       magic_shift = (ratio - 0.5) * @$items_list_container.height() # makes it more natural on both start and end sides
-      items_scroll = @$items_list_container.prop('scrollTopMax') * ratio + magic_shift 
+      items_scroll = (@$items_list_container.prop('scrollHeight') - @$items_list_container.prop('clientHeight')) * ratio + magic_shift 
+      console.log(ratio, magic_shift, items_scroll,'---')
       @$items_list_container.prop('scrollTop', items_scroll)
 
     initMap: =>

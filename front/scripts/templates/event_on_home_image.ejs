@@ -6,10 +6,10 @@
     </div>
   <% } %>
   
-  <h3><%= types %></h3>
+  <h3><%= types.join(', ') %></h3>
   <h2><%= name %></h2>
   <div class="ui circular segment level<%= time_advert_level %>">
-    <h4 class="ui header">
+    <h4>
       <% if(time_advert_level === -1) { %>
         évènement passé
       <% } else if(time_advert_level === 0) { %>
