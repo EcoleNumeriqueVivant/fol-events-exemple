@@ -2845,11 +2845,11 @@ body > .ui.grid:not(.page) {
   left: 0px;
   width: 100%;
   height: 2px;
-  background-color: #b3a29b;
+  background-color: #ff9450;
 }
 /* Sub Menu */
 .ui.tiered.menu .sub.menu {
-  background-color: #b3a29b;
+  background-color: #ff9450;
   border-radius: 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: none;
@@ -8982,8 +8982,7 @@ h5.ui.header {
   color: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.attached.header {
-  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(0, 0, 0, 0.1);
   box-shadow: none;
 }
 .ui.inverted.block.header {
@@ -9110,10 +9109,10 @@ h5.ui.header {
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.1);
   margin: 0em;
   padding: 0.75rem 1rem;
-  box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: none;
   border: none;
   margin-left: 0px;
   margin-right: 0px;
@@ -14689,7 +14688,7 @@ a.ui.yellow.label:hover:before {
   bottom: 0px;
   margin: 0em;
   border-radius: 0px;
-  box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: none;
 }
 .ui.top.attached.segment {
   top: -1px;
@@ -14706,7 +14705,7 @@ a.ui.yellow.label:hover:before {
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 1em;
-  box-shadow: 0px 0px 0px 1px #dddddd, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: none, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0em 0em 0.25em 0.25em;
 }
 .ui.segment.bottom.attached:last-child {

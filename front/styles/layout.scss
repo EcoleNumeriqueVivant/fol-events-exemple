@@ -57,10 +57,15 @@ html {
     width: 100%;
     text-align: center;
     background: #A8948C;
+    padding: 0.5em 0;
+  }
+  
+  &.ui.tiered.menu > .menu .item.active:after {
+    display: none;
   }
   
   &.ui.tiered.menu > .left.menu > .item:hover, &.ui.tiered.menu > .left.menu > .active.item {
-    color: #022954
+    color: white
   }
   
   #logo_container {

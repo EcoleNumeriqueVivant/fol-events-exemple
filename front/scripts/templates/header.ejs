@@ -18,16 +18,24 @@
   <div class="equal height row">
 
       <div class="column item">
-        <label class="ui top attached header black">Type de manifestation</label>
-        <div class="ui white field segment attached">
+        <label class="ui top attached header white inverted">Quel type ?</label>
+        <div class="ui white field basic segment attached">
           <ul class="ui list" id="types_list_container">
           </ul>
         </div>
       </div>
-
+      
       <div class="column item">
-        <label class="ui top attached header black">Mois de l'évènement</label>
-        <div class="ui white field segment attached">
+        <label class="ui top attached header white inverted">Quelle thématique ?</label>
+        <div class="ui white field basic segment attached">
+          <ul class="ui list" id="themes_list_container">
+          </ul>
+        </div>
+      </div>
+      
+      <div class="column item">
+        <label class="ui top attached header white inverted">Quand ?</label>
+        <div class="ui field basic segment attached">
             
             <ul class="ui list">
               <% for(var i=0; i <= 4; i++) { %>
@@ -41,14 +49,6 @@
               <% } %>
             </ul>
             
-        </div>
-      </div>
-
-      <div class="column item">
-        <label class="ui top attached header black">Thématique</label>
-        <div class="ui white field segment attached">
-          <ul class="ui list" id="themes_list_container">
-          </ul>
         </div>
       </div>
       
