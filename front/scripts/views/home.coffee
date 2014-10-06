@@ -106,7 +106,6 @@ define [
       ratio = $(document).scrollTop() / ($(document.documentElement).prop('scrollHeight') - $(document.documentElement).prop('clientHeight'))
       magic_shift = (ratio - 0.5) * @$items_list_container.height() # makes it more natural on both start and end sides
       items_scroll = (@$items_list_container.prop('scrollHeight') - @$items_list_container.prop('clientHeight')) * ratio + magic_shift 
-      console.log(ratio, magic_shift, items_scroll,'---')
       @$items_list_container.prop('scrollTop', items_scroll)
 
     initMap: =>
