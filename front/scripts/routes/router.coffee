@@ -24,6 +24,8 @@ define [
       else
         @main_view.injectPageView(HomeView, collection: @data.events.clone(), focus_as_name: focus_as_name)
         
+      @listenTo(@main_view.current_page_view, 'url:fragment', (fragment) => @navigate("evenements/#{fragment}", trigger: false))
+        
     eventfull: (focus_as_name) ->
       focus_as_name = if focus_as_name is null then null else decodeURIComponent(focus_as_name)
       @eventsfetched.done => @main_view.injectPageView(EventView, model: @data.events.findWhere( 'name': focus_as_name ) )

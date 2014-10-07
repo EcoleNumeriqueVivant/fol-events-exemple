@@ -32,7 +32,15 @@ define [
       @listenTo( @collection, 'sync', (collection) =>  
           @activateEventAsName(if options.focus_as_name then options.focus_as_name else collection.first().get('name'))
       )
-      @.on( 'render', -> @adaptResponsive(); @initMap(); @collection.fetch() )
+      @.on( 'render', -> 
+        @adaptResponsive()
+        @initMap()
+        if @collection.length is 0
+          @collection.fetch()
+        else
+          models = @collection.models
+          @collection.reset(models, silent: false)
+      )
       $(window).on( 'resize', @adaptResponsive )
       $(window).on( 'scroll', @adaptFixedElements )
       $(window).on( 'scroll', @activateFirstVisible )

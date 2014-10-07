@@ -22,7 +22,7 @@ define ['jquery', 'underscore', 'backbone', 'semanticui', 'routes/router', 'view
 
     # custom method to remove a view
     Backbone.View.prototype.remove = ->
-      @$el.remove()
+      @$el.empty()
       @stopListening()
       @undelegateEvents() # Unbind this view relating events
       @hasRendered = false
