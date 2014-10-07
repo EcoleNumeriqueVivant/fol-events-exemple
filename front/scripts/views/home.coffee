@@ -14,12 +14,10 @@ define [
   class HomeView extends Backbone.View
     template: JST['front/scripts/templates/home.ejs']
     displayedEvents: []
-    carouselTimer: null
 
     events:
       #'click section.background:not(.uninitialized)':  'toggleBackground'
       'click #call_action_location':                    'askLocation'
-
 
     initialize: (options) ->
       super()
@@ -71,7 +69,7 @@ define [
 
     activateEventAsName: (event_as_name) ->
       # called by the router, find the new one and activate it
-      event = if event_as_name then _(@displayedEvents).find( (view) -> view.model.get('name') is event_as_name ) else @displayedEvents[0]
+      event = if event_as_name then _(@displayedEvents).findWhere( 'name': event_as_name ) else @displayedEvents[0]
       event?.activate(map: false) if not event?.active
 
     hideEvent: (event) =>

@@ -1,0 +1,94 @@
+<article class="ui piled segment full">
+
+  <% if(themes.length != 0) { %>
+    <div class="ui ribbon label">
+      <%= themes.join(' | ')%>
+    </div>
+  <% } %>
+  
+  <h3><%= types.join(', ') %></h3>
+  <h2><%= name %></h2>
+  <div class="ui circular segment level<%= time_advert_level %>">
+    <h4>
+      <% if(time_advert_level === -1) { %>
+        évènement passé
+      <% } else if(time_advert_level === 0) { %>
+        c'est en ce moment
+      <% } else if(time_advert_level === 1) { %>
+        c'est bientôt
+      <% } else if(time_advert_level === 2) { %>
+        à venir
+      <% } %>
+    </h4>
+  </div>
+  
+  <div class="ui basic segment stackable grid">
+    
+    <div class="eight column wide">
+      <div class="ui list">
+        <div class="item">
+            <h5 class="header">Dates</h5>
+            <span class="content">
+              Du <span class="ui label"><%= begin_date.format('D MMMM YYYY') %></span>
+              au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
+            </span>
+        </div>
+        <div class="item">
+            <h5 class="header">Lieu</h5>
+            <span class="content"><%= location %> <a href="#">Voir carte</a></span>
+        </div>
+      </div>
+      <div class="ui list">
+        <div class="item">
+            <h5 class="header">Durée</h5>
+            <span class="content">?</span>
+        </div>
+        <div class="item">
+            <h5 class="header">Fréquentation</h5>
+            <span class="content"><%= infos.attendance %></span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="eight column wide">
+      <h5>Fonctionnement et description</h5>
+      <p><%= description %></p>
+    </div>
+    
+    <div class="eight column wide">
+      <h5>Contacts</h5>
+      <p><%= infos.contact %></p>
+    </div>
+    
+    <div class="eight column wide">
+      <h5>Voir le site</h5>
+      <p>?</p>
+    </div>
+    
+    <div class="eight column wide">
+      <h5>Modalités de participation</h5>
+      <ul class="ui list">
+        <li class="item">
+          <h6 class="title">Tarif</h6>
+          <p class="description"><%= infos.registration_fees %></p>
+        </li>
+        <li class="item">
+          <h6 class="title">Types de participants</h6>
+          <p class="description"><%= infos.participants %></p>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="eight column wide">
+      <h5>Evenements rattachés</h5>
+      <p><%= infos.related_events %></p>
+    </div>
+    
+    <div class="eight column wide">
+      <h5>Infoprmations supplémentaires</h5>
+      <p><%= infos.infos_extra %></p>
+    </div>
+    
+  </div>
+
+</article>
