@@ -33,18 +33,22 @@
               au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
             </span>
         </div>
-        <div class="item">
-            <h6 class="header">Lieu</h6>
-            <span class="content"><%= location %>
-        </div>
+        <% if(location) { %>
+          <div class="item">
+              <h6 class="header">Lieu</h6>
+              <span class="content"><%= location %>
+          </div>
+        <% } %>
         <div class="item">
             <h6 class="header">Durée</h6>
             <span class="content">?</span>
         </div>
-        <div class="item">
-            <h6 class="header">Fréquentation</h6>
-            <span class="content"><%= infos.attendance %></span>
-        </div>
+        <% if(infos.attendance) { %>
+          <div class="item">
+              <h6 class="header">Fréquentation</h6>
+              <span class="content"><%= infos.attendance %></span>
+          </div>
+        <% } %>
       </aside>
     </div>
     
@@ -60,44 +64,54 @@
       
     </div>
     
-    <div class="eight column wide">
-      <h5>Fonctionnement et description</h5>
-      <p><%= description %></p>
-    </div>
+    <% if(description) { %>
+      <div class="eight column wide">
+        <h5>Fonctionnement et description</h5>
+        <p><%= description %></p>
+      </div>
+    <% } %>
     
-    <div class="eight column wide">
-      <h5>Contacts</h5>
-      <p><%= infos.contact %></p>
-    </div>
+    <% if(infos.contact) { %>
+      <div class="eight column wide">
+        <h5>Contacts</h5>
+        <p><%= infos.contact %></p>
+      </div>
+    <% } %>
     
     <div class="eight column wide">
       <h5>Voir le site</h5>
       <p>?</p>
     </div>
     
-    <div class="eight column wide">
-      <h5>Modalités de participation</h5>
-      <ul class="ui list">
-        <li class="item">
-          <h6 class="title">Tarif</h6>
-          <p class="description"><%= infos.registration_fees %></p>
-        </li>
-        <li class="item">
-          <h6 class="title">Types de participants</h6>
-          <p class="description"><%= infos.participants %></p>
-        </li>
-      </ul>
-    </div>
+    <% if(infos.registration_fees || infos.participants) { %>
+      <div class="eight column wide">
+        <h5>Modalités de participation</h5>
+        <ul class="ui list">
+          <li class="item">
+            <h6 class="title">Tarif</h6>
+            <p class="description"><%= infos.registration_fees %></p>
+          </li>
+          <li class="item">
+            <h6 class="title">Types de participants</h6>
+            <p class="description"><%= infos.participants %></p>
+          </li>
+        </ul>
+      </div>
+    <% } %>
     
-    <div class="eight column wide">
-      <h5>Evenements rattachés</h5>
-      <p><%= infos.related_events %></p>
-    </div>
+    <% if(infos.related_events) { %>
+      <div class="eight column wide">
+        <h5>Evenements rattachés</h5>
+        <p><%= infos.related_events %></p>
+      </div>
+    <% } %>
     
-    <div class="eight column wide">
-      <h5>Informations supplémentaires</h5>
-      <p><%= infos.infos_extra %></p>
-    </div>
+    <% if(infos.infos_extra) { %>
+      <div class="eight column wide">
+        <h5>Informations supplémentaires</h5>
+        <p><%= infos.infos_extra %></p>
+      </div>
+    <% } %>
     
   </div>
 
