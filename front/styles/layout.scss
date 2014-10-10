@@ -172,9 +172,6 @@
     li {
       margin: 0 0 4rem 0;
       padding: 1rem 0 0 0;
-      .ribbon.label {
-        left: calc(-1% - 2rem);
-      }
       article {
         .basic.segment {
           max-width: 46em;
@@ -197,7 +194,7 @@
 /* all articles, full page and in carousel */
 article.piled.segment {
   margin: 0;
-  padding: 2%;
+  padding: 1rem 2rem;
   text-align: justify;
   position: relative;
   background-color: #f3f2f0;
@@ -205,6 +202,9 @@ article.piled.segment {
   white-space: nowrap;
   > * {
     white-space: normal;
+  }
+  .ui.ribbon.label {
+    left: -3.2rem;
   }
   h3 {
     text-transform: uppercase;
