@@ -25,4 +25,18 @@ define [
             2 # in the future
         else 
          -1 # in the past
-      super (time_advert_level: time_advert_level)
+      ret = super (time_advert_level: time_advert_level)
+      @initMap()
+      ret
+      
+      
+    initMap: =>
+      @map = new L.Map(@$('.map').get(0), zoomControl: false)
+      @map.addLayer new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        minZoom: 2, maxZoom: 18,
+        attribution: "Map data © <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors"
+      )
+      $('#map').zoomorscroll(reset: {no_scroll_timer: 400, click: true})
+      if @model.get('position')
+        L.marker(@model.get('position')).addTo(@map)
+        @map.setView(@model.get('position'), 12, animate: false)

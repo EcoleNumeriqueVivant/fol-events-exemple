@@ -35,7 +35,7 @@
         </div>
         <div class="item">
             <h6 class="header">Lieu</h6>
-            <span class="content"><%= location %> <a href="#">Voir carte</a></span>
+            <span class="content"><%= location %>
         </div>
         <div class="item">
             <h6 class="header">Durée</h6>
@@ -46,6 +46,18 @@
             <span class="content"><%= infos.attendance %></span>
         </div>
       </aside>
+    </div>
+    
+    <div class="eight column wide floated right">
+      <div class="map"></div>
+      <% if(typeof image !== 'undefined') { %>
+          <img class="ui rounded image" src="<%= image %>" />
+      <% } else { %>
+          <div class="ui rounded image fakeimg">
+              <p><%= name %></p>
+          </div>
+      <% } %>
+      
     </div>
     
     <div class="eight column wide">

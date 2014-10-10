@@ -283,7 +283,7 @@ article.piled.segment {
     > p {
       margin-top: 0.5em;
     }
-    > .image {
+    .image {
       display: block;
       float: right;
       vertical-align: top;
@@ -307,6 +307,15 @@ article.piled.segment {
       padding-right: 9rem;
     }
   }
+  .action {
+    width: 100%;
+    margin-top: 1.5em;
+    white-space: nowrap;
+    text-align: left;
+    a {
+      margin: 0 0.5em;
+    }
+  }
   
   /* full article page variations */ 
   &.full.ui.piled.segment {
@@ -317,6 +326,25 @@ article.piled.segment {
         width: calc(50% - 4em) !important;
         border-top: 1px dashed;
         padding: 0;
+        &.floated.right {
+          border: none;
+          height: 19.5rem;
+          .image {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            &.fakeimg {
+              width: 12.12rem;
+            }
+          }
+          .map {
+            float: left;
+            width: calc(100% - 12.12rem);
+            height: 100%;
+            padding: 0;
+            margin: 0;
+          }
+        }
         aside {
           padding-top: 1em;
         }
@@ -331,16 +359,11 @@ article.piled.segment {
             }
           }
         }
+        
       }
     }
     .action {
-      width: 100%;
-      margin-top: 1em;
-      white-space: nowrap;
       text-align: center;
-      a {
-        margin: 0 0.5em;
-      }
     }
   }
   
