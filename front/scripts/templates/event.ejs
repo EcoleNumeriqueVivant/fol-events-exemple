@@ -25,29 +25,27 @@
   <div class="ui basic segment stackable grid">
     
     <div class="eight column wide">
-      <div class="ui list">
+      <aside class="ui list">
         <div class="item">
-            <h5 class="header">Dates</h5>
+            <h6 class="header">Dates</h6>
             <span class="content">
               Du <span class="ui label"><%= begin_date.format('D MMMM YYYY') %></span>
               au <span class="ui label"><%= end_date.format('D MMMM YYYY') %></span>
             </span>
         </div>
         <div class="item">
-            <h5 class="header">Lieu</h5>
+            <h6 class="header">Lieu</h6>
             <span class="content"><%= location %> <a href="#">Voir carte</a></span>
         </div>
-      </div>
-      <div class="ui list">
         <div class="item">
-            <h5 class="header">Durée</h5>
+            <h6 class="header">Durée</h6>
             <span class="content">?</span>
         </div>
         <div class="item">
-            <h5 class="header">Fréquentation</h5>
+            <h6 class="header">Fréquentation</h6>
             <span class="content"><%= infos.attendance %></span>
         </div>
-      </div>
+      </aside>
     </div>
     
     <div class="eight column wide">
@@ -85,10 +83,16 @@
     </div>
     
     <div class="eight column wide">
-      <h5>Infoprmations supplémentaires</h5>
+      <h5>Informations supplémentaires</h5>
       <p><%= infos.infos_extra %></p>
     </div>
     
+  </div>
+
+  <div class="action">
+    <a class="item" href=""><i class="edit icon"></i>sauver dans mon agenda</a>
+    <a class="item" href=""><i class="marker icon"></i>repérer sur google maps</a>
+    <a class="item" href=""><i class="print icon"></i>version imprimable</a>
   </div>
 
 </article>
