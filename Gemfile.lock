@@ -337,6 +337,9 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    seed_dump (3.2.0)
+      activerecord (~> 4)
+      activesupport (~> 4)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -387,20 +390,20 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   acts_as_commentable_with_threading
-  acts_as_list
+  acts_as_list (~> 0.4.0)
   annotate!
   by_star!
   cancan
   carrierwave
   coffee-rails (~> 4.0.0)
-  compass
+  compass (~> 0.12.7)
   compass-rails (~> 1.1.7)
   country-select (~> 1.0.5)
   devise (~> 3.2.0)
   fabrication
   faker
   foreman
-  gaston
+  gaston (~> 0.6.0)
   geocoder
   gibbon (= 0.3.5)
   grape (~> 0.9.0)
@@ -414,7 +417,7 @@ DEPENDENCIES
   nokogiri
   omniauth (~> 1.2.1)
   omniauth-facebook!
-  omniauth-linkedin-oauth2
+  omniauth-linkedin-oauth2 (~> 0.1.5)
   omniauth-twitter!
   pdf-renderer!
   pg (~> 0.17.1)
@@ -432,6 +435,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0.0)
   sanitize
   sass-rails (~> 4.0.3)
+  seed_dump
   simple_form
   spring-commands-rspec
   terminal-notifier-guard (~> 1.5.3)

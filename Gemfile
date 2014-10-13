@@ -15,17 +15,17 @@ gem 'sass-rails',                 '~> 4.0.3'
 gem 'haml-rails'
 gem 'coffee-rails',               '~> 4.0.0'
 gem 'compass-rails',              '~> 1.1.7'
-gem 'compass'
+gem 'compass',                    '~> 0.12.7'
 
-gem 'gaston'
+gem 'gaston',                     '~> 0.6.0'
 
 gem 'devise',                     '~> 3.2.0'
 gem 'omniauth',                   '~> 1.2.1'
 gem 'omniauth-twitter',           github: 'arunagw/omniauth-twitter'
 gem 'omniauth-facebook',          github: 'mkdynamic/omniauth-facebook'
-gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-linkedin-oauth2',   '~> 0.1.5'
 
-gem 'acts_as_list'
+gem 'acts_as_list',               '~> 0.4.0'
 gem 'acts-as-taggable-on'
 # geolocation
 gem 'geocoder'
@@ -62,6 +62,7 @@ gem 'sanitize'
 gem 'cancan'
 gem 'rolify'
 gem 'carrierwave'
+gem 'seed_dump'
 
 group :test do
   # Pretty printed test output
