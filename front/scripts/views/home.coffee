@@ -4,13 +4,11 @@ define [
   'underscore'
   'backbone'
   'templates',
-  'leaflet',
   'views/mail_alert',
   'views/event_on_home_proxy',
-  'collections/region'
   'scrollTo'
   'zoomorscroll'
-], (App, $, _, Backbone, JST, L, MailAlertView, EventOnHomeProxyView, RegionCollection) ->
+], (App, $, _, Backbone, JST, MailAlertView, EventOnHomeProxyView, RegionCollection) ->
   class HomeView extends Backbone.View
     template: JST['front/scripts/templates/home.ejs']
     displayedEvents: []
@@ -34,7 +32,6 @@ define [
       )
       @.on( 'render', -> 
         @adaptResponsive()
-        @initMap()
         if @collection.length is 0
           @collection.fetch()
         else
@@ -113,19 +110,7 @@ define [
       magic_shift = (ratio - 0.5) * @$items_list_container.height() # makes it more natural on both start and end sides
       items_scroll = (@$items_list_container.prop('scrollHeight') - @$items_list_container.prop('clientHeight')) * ratio + magic_shift 
       @$items_list_container.prop('scrollTop', items_scroll)
-
-    initMap: =>
-      @map = new L.Map(@$('#tiles').get(0), zoomControl: false)
-      @map.addLayer new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        minZoom: 2, maxZoom: 18,
-        attribution: "Map data © <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors"
-      )
-      region_layer = L.geoJson().addTo(@map)
-      @regions = new RegionCollection().on('add', (region) => region_layer.addData(region.attributes) ).fetch()
-      $('#map').zoomorscroll(reset: {no_scroll_timer: 400, click: true})
-               .on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', )
-      @map.setView(L.latLng(48.853537, 2.348305), 4, animate: true)
-
+      
     askLocation: (event) ->
       event.preventDefault()
       @$('#map_container').addClass('loading')

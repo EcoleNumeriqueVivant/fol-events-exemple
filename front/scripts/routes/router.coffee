@@ -2,13 +2,15 @@ define [
   'backbone'
   'views/home'
   'views/event'
+  'views/map'
   'collections/event'
-], (Backbone, HomeView, EventView, EventCollection) ->
+], (Backbone, HomeView, EventView, MapView, EventCollection) ->
   class Router extends Backbone.Router
     routes:
       "evenements":                   "events"
       "evenements/:focus":            "events"
       "evenements/:focus/details":    "eventfull"
+      "carte":                        "map"
     
     data: {}
     
@@ -29,3 +31,6 @@ define [
     eventfull: (focus_as_name) ->
       focus_as_name = if focus_as_name is null then null else decodeURIComponent(focus_as_name)
       @eventsfetched.done => @main_view.injectPageView(EventView, model: @data.events.findWhere( 'name': focus_as_name ) )
+      
+    map: ->
+      @main_view.injectPageView(MapView, collection: @data.events.clone())

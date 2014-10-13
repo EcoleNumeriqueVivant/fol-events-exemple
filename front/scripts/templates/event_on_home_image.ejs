@@ -57,7 +57,9 @@
   
   <div class="action">
     <a class="item" href=""><i class="edit icon"></i>sauver dans mon agenda</a>
-    <a class="item" href="https://www.google.com/maps/@<%= position.lat %>,<%= position.lng %>,12z" target="_blank"><i class="marker icon"></i>repérer sur google maps</a>
+    <% if(position) { %>
+      <a class="item" href="https://www.google.com/maps/@<%= position.lat %>,<%= position.lng %>,12z" target="_blank"><i class="marker icon"></i>repérer sur google maps</a>
+    <% } %>
     <a class="item" href=""><i class="print icon"></i>version imprimable</a>
   </div>
     

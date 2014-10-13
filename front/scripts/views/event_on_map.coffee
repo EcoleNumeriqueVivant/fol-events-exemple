@@ -5,7 +5,7 @@ define [
   'templates',
   'leaflet',
 ], ($, _, Backbone, JST, L) ->
-  class EventOnHomeMapView extends Backbone.View
+  class EventOnMapView extends Backbone.View
 
     initialize: (options) ->
       @map = options.map
@@ -15,7 +15,7 @@ define [
     render: ->
       if @model.get('position')
         L.marker(@model.get('position')).addTo(@map)
-      
+    
     activate: ->
       @map.setView(@model.get('position'), 12, animate: true)
       @

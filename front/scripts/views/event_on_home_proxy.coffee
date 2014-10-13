@@ -3,10 +3,9 @@ define [
   'underscore'
   'backbone'
   'templates'
-  'views/event_on_home_map',
   'views/event_on_home_step',
   'views/event_on_home_image',
-], ($, _, Backbone, JST, EventOnHomeMapView, EventOnHomeStepView, EventOnHomeImageView) ->
+], ($, _, Backbone, JST, EventOnHomeStepView, EventOnHomeImageView) ->
   class EventOnHomeProxyView extends Backbone.View
     # not bound to the DOM, used as proxy for several views
 
@@ -27,7 +26,7 @@ define [
       @as_step = new EventOnHomeStepView(model: @model, events: 
         'click':            _(@trigger).bind(@, 'navigate:self', @)
       )
-      @as_map = new EventOnHomeMapView(model: @model, map: @map)
+      #@as_map = new EventOnHomeMapView(model: @model, map: @map)
       @as_image = new EventOnHomeImageView(model: @model, events: 
         'click .down.link': _(@trigger).bind(@, 'navigate:next', @), 
         'click .up.link':   _(@trigger).bind(@, 'navigate:first', @),
@@ -40,7 +39,7 @@ define [
 
     remove: ->
       @as_step.remove()
-      @as_map.remove()
+      #@as_map.remove()
       @as_image.remove()
       @
 
@@ -49,7 +48,7 @@ define [
       @trigger('activate', @, options)
       @active = true
       @as_step.activate(options)
-      @as_map.activate(options) if options.map
+      #@as_map.activate(options) if options.map
       @as_image.activate(options)
       @
       
@@ -57,6 +56,6 @@ define [
       @trigger('deactivate')
       @active = false
       @as_step.deactivate()
-      @as_map.deactivate()
+      #@as_map.deactivate()
       @as_image.deactivate()
       @
