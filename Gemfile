@@ -61,8 +61,7 @@ gem 'sanitize'
 
 gem 'cancan'
 gem 'rolify'
-
-gem 'pry'
+gem 'carrierwave'
 
 group :test do
   # Pretty printed test output
@@ -72,6 +71,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-expectations'
   gem 'jasmine-rails'
