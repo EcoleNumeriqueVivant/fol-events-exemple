@@ -53,7 +53,7 @@ gem "hpricot",                    "~> 0.8.6"
 gem 'foreman'
 
 gem 'grape',                      '~> 0.9.0'
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors',                  :require => 'rack/cors'
 gem 'grape-devise',               :git => 'git://github.com/Chussenot/grape-devise.git'
 gem 'roar'
 gem 'representable'
@@ -61,8 +61,10 @@ gem 'sanitize'
 
 gem 'cancan'
 gem 'rolify'
+
 gem 'carrierwave'
-gem 'seed_dump'
+gem 'fog',                      '~> 1.22.0'
+gem 'rmagick',                  '~> 2.13.2', require: false
 
 group :test do
   # Pretty printed test output

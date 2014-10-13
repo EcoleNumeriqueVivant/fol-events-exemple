@@ -1,0 +1,8 @@
+:gaston:
+  :carrierwave:
+    fog_credential:
+      provider: AWS
+      aws_access_key_id: AKIAJJL3T7KVX4HAO3GA
+      aws_secret_access_key: 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
+      region: eu-west-1
+    fog_directory: agendalit

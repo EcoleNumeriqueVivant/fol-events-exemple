@@ -43,6 +43,8 @@ class Event < ActiveRecord::Base
   scope :future, lambda { where('events.begin_date >= ?', Time.zone.now) }
   scope :past, lambda { where('events.begin_date <= ?', Time.zone.now) }
 
+  mount_uploader :picture, PictureUploader
+
   def to_ics
     event = Icalendar::Event.new
     event.start = self.begin_date.strftime("%Y%m%dT%H%M%S")
