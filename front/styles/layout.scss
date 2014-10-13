@@ -162,7 +162,6 @@
 
 #carousel_container { 
   padding-left: 0;
-  padding-right: 0;
   position: relative;
   ol {
     height: auto;
@@ -362,6 +361,9 @@ article.piled.segment {
         
       }
     }
+    .ui.icon.button {
+      float: right;
+    }
     .action {
       text-align: center;
     }
@@ -464,4 +466,13 @@ article.piled.segment {
     
   }
   
+}
+
+
+footer {
+  text-align: center;
+  margin: 2em 0 0 0;
+  p {
+    margin-bottom: 0.5em;
+  }
 }
